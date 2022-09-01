@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.author.label }}{{ form.author }} <br>
+    {{ form.book.label }}{{ form.book }} <br>
+    {{ form.submit }} <br>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+
+</form>
+
+<br>
+
+<ul>
+    {% for author in authors %}
+        <li>{{ author.name }}</li>
+        <ul>
+            {% for book in author.books %}
+                <li>{{ book.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="chenfang@101.6.69.28:2336">
+    <serverData>
+      <paths name="chenfang@101.6.69.28:2336">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data1/chenfang/Project/JDComment" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

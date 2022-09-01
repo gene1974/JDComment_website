@@ -1,0 +1,4362 @@
+{
+     "comment_result": [
+          {
+               "comment_id": 325,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "这次买的没有之前买的品质好，以前每一个颗粒饱满，这次的质量参差不齐。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "饱满",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 371,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "颗粒均匀，颜色一致，只是每次都能吃到几颗发霉的，谁能告诉我，如何区别？",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "均匀",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "颜色",
+                         "evaluation": "一致",
+                         "attribute": "色泽",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 456,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "本身的红颜色是染的，泡水后竟然会掉色！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 686,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "有两种颜色，一种新鲜，一种陈花生，並有发芽现象，吃口也不好。",
+               "comment_units": [
+                    {
+                         "entity": "颜色",
+                         "evaluation": "新鲜",
+                         "attribute": "色泽",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 708,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "品控不行，颗粒大小混搭不同品相花生！",
+               "comment_units": [
+                    {
+                         "entity": "品控",
+                         "evaluation": "不行",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "不行",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 716,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "花生颜色和大小不均，赶脚质量不稳定，取消关注",
+               "comment_units": [
+                    {
+                         "entity": "质量",
+                         "evaluation": "不稳定",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 729,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "颗粒太小，不饱满！！",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "小",
+                         "attribute": "分量",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "太小",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 1196,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "不新鲜，花生大部分是发黑的。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 1277,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "一般，很普通的那种，以后不会买，价格相对也比较贵。",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "比较贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 1284,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "味道还好，送货速度快，服务态度好。",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "还好",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "速度快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 1336,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "巨坑，3.5元就这么大一袋，感觉也就值5毛吧",
+               "comment_units": []
+          },
+          {
+               "comment_id": 1521,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "超划算，物流快，生产日期六七月份的！没有卡的！",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 1607,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "最爱吃的话梅味花生，只是质量不太稳定，有时好吃，有时一般，话梅味不重。",
+               "comment_units": [
+                    {
+                         "entity": "质量",
+                         "evaluation": "不太稳定",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 1691,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "口感：难吃",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "难吃",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 2154,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "己收，鱼皮豆打开发现很多豆上有黑点？是不是坏了商家请回复？",
+               "comment_units": []
+          },
+          {
+               "comment_id": 2155,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "不好吃，皮是脆的，但是里面的花生米不香，物流很快！",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "很快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 2163,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "价格有点贵，口味一般般",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "有点贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "口味",
+                         "evaluation": "一般般",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    }
+               ]
+          },
+          {
+               "comment_id": 3034,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "已经开了4袋，普遍出现米沾在包装上了，看起来放了很久的样子",
+               "comment_units": []
+          },
+          {
+               "comment_id": 3574,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "今年，不新鲜，口感不好",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "不好",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 3819,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "每一种都抬高了价格，而且都是碎的",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "抬高",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 3865,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "价格比超市贵3元",
+               "comment_units": []
+          },
+          {
+               "comment_id": 3975,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "垃圾物流！垃圾售后！拒收的货钱还不退！",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "垃圾",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 4229,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "味道还不错，价格没什么优惠",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "味道",
+                         "evaluation": "还不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 4346,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "包装不好，寄过来都是烂的,味道的话太甜了，然后兰花豆的皮还是不酥",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "不好",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 4364,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "有点太甜了，现在都希望糖少一些",
+               "comment_units": []
+          },
+          {
+               "comment_id": 4497,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "货物已收到，产品的质量不错，满意的一次购物体验",
+               "comment_units": [
+                    {
+                         "entity": "产品",
+                         "evaluation": "不错",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "不错",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 4756,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "*****服务一流",
+               "comment_units": []
+          },
+          {
+               "comment_id": 4938,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "无论品质还是口感，并没有匹配价格，就是普通黄豆",
+               "comment_units": []
+          },
+          {
+               "comment_id": 4980,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "还不错，送货快，吃了一些了",
+               "comment_units": [
+                    {
+                         "entity": "送货",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 4982,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "颗粒饱满没什么特别之处。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5050,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "什么鬼，这个包装",
+               "comment_units": []
+          },
+          {
+               "comment_id": 5114,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "这黄豆怀疑是不是转基因大豆！商家需要给予答复！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 5119,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "一般，颗粒不完整.........",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "不完整",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5163,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "最近快递小哥换了，送货时间不集中。",
+               "comment_units": [
+                    {
+                         "entity": "送货",
+                         "evaluation": "集中",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "不集中",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5255,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "之前的购物感受感觉很好，第一次需要了真的垃圾的配送人员，态度极差！配送员季秋军",
+               "comment_units": [
+                    {
+                         "entity": "配送",
+                         "evaluation": "极差",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5324,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "五谷杂粮在京东买方便得很，呵呵，送货上门，就是价格可能会有点小贵",
+               "comment_units": []
+          },
+          {
+               "comment_id": 5355,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "这包装也烂了！无语！",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "烂了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5411,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "宝贝已收到，物流速度很快，卖家服务态度很好，质量不错。",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "很快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "不错",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流速度",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流速度",
+                         "evaluation": "很快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 5771,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "不新鲜，建议百世兴在别找人代工了，简直是砸自己牌子。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 5862,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "一般般，不是很好吃，不够香，颗粒也不饱满。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 6347,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "第一次买花生米，很不错！。风味口感：真空包装很不错，",
+               "comment_units": []
+          },
+          {
+               "comment_id": 6917,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "包装压的破了，不太好吃。",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "破了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "压的破了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 6927,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "很划算，有点潮，可能是葡萄干蔓越莓多了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 7050,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "差评，花生一点都不脆，而且一股很怪的味道",
+               "comment_units": []
+          },
+          {
+               "comment_id": 7058,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "不好，不建议买，虽然便宜！不新鲜！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 7370,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "果大，偏干，果实不均匀，饱满度不一",
+               "comment_units": []
+          },
+          {
+               "comment_id": 7817,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "开箱一看，包装开裂，联系客服，一直不在，想吃不敢，丢了不舍，浪费我钱。",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "开裂",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "客服",
+                         "evaluation": "开裂",
+                         "attribute": "售后",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 7818,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "这次的购物真糟心。可乐爆罐了，这花生的包装也坏了。包装差评",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "坏了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "差评",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 8013,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "感觉被坑了，总重量一算一点都不划算。有几袋不好，比较棉不脆了！！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 8275,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "特价的时候买的性价比比较可以，速度比较快。",
+               "comment_units": [
+                    {
+                         "entity": "速度",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "速度",
+                         "evaluation": "比较快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 8368,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "花生受潮了，里面居然有好多糖，还有味精",
+               "comment_units": []
+          },
+          {
+               "comment_id": 8639,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "就这样的包装他说是正常的一个真空包装一个不是无语了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 8675,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "收到货品是用快递袋装好的，拆开快递袋里面都撒出来的",
+               "comment_units": []
+          },
+          {
+               "comment_id": 9508,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "红皮花生可以补血，这款花生质地圆润，大小差不多，特别好！",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "圆润",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质地",
+                         "evaluation": "圆润",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 9574,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "一包漏气了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 9753,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "物流快速，包装精美，油炸花生米口感酥脆，香味浓郁而自然。",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快速",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "精美",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "香味",
+                         "evaluation": "浓郁",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 9985,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "油耗味太重！不推",
+               "comment_units": []
+          },
+          {
+               "comment_id": 12214,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "吃的洒出来了，包装袋坏了，找客服客服不理我，只能差评",
+               "comment_units": [
+                    {
+                         "entity": "客服",
+                         "evaluation": "坏了",
+                         "attribute": "售后",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装袋",
+                         "evaluation": "坏了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "客服客服",
+                         "evaluation": "坏了",
+                         "attribute": "售后",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 12366,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "口感不错，小包装的很好，日期新鲜",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "很好",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "日期",
+                         "evaluation": "新鲜",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 12703,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "好多有异味的",
+               "comment_units": []
+          },
+          {
+               "comment_id": 12968,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "物流速度非常快，产品质量非常好，非常满意！",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "非常快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "产品",
+                         "evaluation": "非常好",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "非常好",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "产品质量",
+                         "evaluation": "非常好",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 13354,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "有折扣比外面便宜許多。生産日期送來不要太久",
+               "comment_units": []
+          },
+          {
+               "comment_id": 13976,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "口感：很清香的花12L。产品包装：方便。分量：很足",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "清香",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "口感",
+                         "evaluation": "很清香",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 14094,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "包装太差",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "差",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "太差",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 14373,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "收到货物，发现少了4件，后申请售后，卖家联系我确认后补发了，态度不错",
+               "comment_units": []
+          },
+          {
+               "comment_id": 15391,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "太糟糕了！等了一周多了，哪怕是改派地址也不至于那么久。和商家说态度拽不啦叽",
+               "comment_units": []
+          },
+          {
+               "comment_id": 16578,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "颗粒饱满，味道不错，大宝爱吃好评",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "味道",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 16633,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "数量不够，五市斤只收到四市斤",
+               "comment_units": [
+                    {
+                         "entity": "数量",
+                         "evaluation": "不够",
+                         "attribute": "分量",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17208,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "种类很多，但是有些小吃的真的没必要加在里边",
+               "comment_units": []
+          },
+          {
+               "comment_id": 17360,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "除了袋子大之外，里面没有什么坚果等高价值的，而且味道奇怪。辣条是甜的，欧",
+               "comment_units": [
+                    {
+                         "entity": "袋子",
+                         "evaluation": "大",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "味道",
+                         "evaluation": "奇怪",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17409,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "包装都损坏了不咋样",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "损坏",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "损坏了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17462,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "京东物流真的很糟心，出奇的慢，垃圾",
+               "comment_units": [
+                    {
+                         "entity": "京东",
+                         "evaluation": "糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "京东",
+                         "evaluation": "很糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "很糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "京东物流",
+                         "evaluation": "糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "京东物流",
+                         "evaluation": "很糟心",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17611,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "还可以，就是颗粒不均匀。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "不均匀",
+                         "attribute": "其他",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17892,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "口味不好，又味道重，但仍掩盖不了有不新鲜的颗粒掺了进去",
+               "comment_units": [
+                    {
+                         "entity": "口味",
+                         "evaluation": "不好",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 17910,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "一般般吧……",
+               "comment_units": []
+          },
+          {
+               "comment_id": 17948,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "搞活动时买的，很实惠，味道纯正",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "纯正",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 18155,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "外包装做的不错但是里面装的花生口感极差，根本就不是现炒的，最失望的一次网购。",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "极差",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "口感",
+                         "evaluation": "极差",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "外包装",
+                         "evaluation": "不错",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "外包装",
+                         "evaluation": "的不错",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 18496,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "烘焙过头，颜色发焦，尝着太苦，一包扔了三分之一。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 18591,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "货已收到，是真的黑皮，份量也足，快递速度不错",
+               "comment_units": [
+                    {
+                         "entity": "份量",
+                         "evaluation": "足",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "份量",
+                         "evaluation": "也足",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "快递",
+                         "evaluation": "不错",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "快递",
+                         "evaluation": "速度不错",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 18611,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "收到，黑花生颗粒饱满，当零食和熟食都可以。实用，可口。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 18688,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "口感：个别发芽的，掺着部分其他颜色的花生，质量很差",
+               "comment_units": [
+                    {
+                         "entity": "质量",
+                         "evaluation": "很差",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 19987,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "这款椒盐花生米非常好吃，份量足，味道好。很喜欢吃。每天早晚配上粥吃几粒特别好。",
+               "comment_units": [
+                    {
+                         "entity": "份量",
+                         "evaluation": "足",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "味道",
+                         "evaluation": "好",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 20068,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "口感：第二次买了，这次花生好多都不同程度的糊了扔了好多",
+               "comment_units": []
+          },
+          {
+               "comment_id": 20834,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "老顾客了，味道没得说。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 21240,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "好吃！价格也好！？非常满意的一次购物体验！！！",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "也好",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 21694,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "这次是又小粒又潮！水份没晒干！???",
+               "comment_units": []
+          },
+          {
+               "comment_id": 21895,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "花生颗粒比较均匀，只是感觉不是太新鲜，花生皮都滲油了",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "比较均匀",
+                         "attribute": "分量",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "比较均匀",
+                         "attribute": "分量",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "花生颗粒",
+                         "evaluation": "比较均匀",
+                         "attribute": "分量",
+                         "polarity": "NEU"
+                    }
+               ]
+          },
+          {
+               "comment_id": 22753,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "多次购买支持京东自营正品。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 22801,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "花生品质及物流，都不错，如果邮寄前把个别憋的检出来，就完美了。",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "不错",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "不错",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 22894,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "还可以相当饱满很好吃，就是有长牙的不知道是不是新鲜的",
+               "comment_units": []
+          },
+          {
+               "comment_id": 23463,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "味道可以，价格稍贵",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "可以",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "稍贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 23743,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "快递烂到爆！！！",
+               "comment_units": [
+                    {
+                         "entity": "快递",
+                         "evaluation": "烂到爆",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 24686,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "拍了2袋，到货只收到1袋，联系客服都没有人回复，购物体验极差",
+               "comment_units": []
+          },
+          {
+               "comment_id": 25040,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "7号买的，一直不发货。16号才收到。花生火大，原味没什么味道。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 25760,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "不合口味，有苦味，价格又太贵。",
+               "comment_units": [
+                    {
+                         "entity": "口味",
+                         "evaluation": "不合",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "太贵",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 26342,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "东西不错，快递快",
+               "comment_units": [
+                    {
+                         "entity": "东西",
+                         "evaluation": "不错",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "快递",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 26932,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "物流超慢，七天才到。而且还有一袋不是真空包装的，不知道坏没坏。",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "超慢",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 27093,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "香脆好吃吃完再买真的好吃哦",
+               "comment_units": []
+          },
+          {
+               "comment_id": 27147,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "还好。。。。。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 27330,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "看起来还可以快递给力挺快",
+               "comment_units": []
+          },
+          {
+               "comment_id": 27538,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "口感：好。产品包装：抽真空包装。分量：足",
+               "comment_units": [
+                    {
+                         "entity": "分量",
+                         "evaluation": "足",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 27617,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "买了十包，有优惠。买过多次，挺好吃的。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 27786,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "花生感觉一般，而且有坏的，口感不是特别好，颜色也深浅不一",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "一般",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 27794,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "果实不饱满，有的还发芽了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 28024,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "这次的太差了，太难吃了。。。。。。。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 28037,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "分量：有个别盒，少一个。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 28575,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "花生挺好的的，买了很多袋优惠，快递发生了点小插曲，最后解决了！",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "挺好的的",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 29117,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "皮，不脆，失望！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 29595,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "花生份量真不少，挺划算的。还送了密封棒，卖家人不错。",
+               "comment_units": [
+                    {
+                         "entity": "花生",
+                         "evaluation": "不少",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "份量",
+                         "evaluation": "不少",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "花生份量",
+                         "evaluation": "不少",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 29792,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "第三次购买了，好吃",
+               "comment_units": []
+          },
+          {
+               "comment_id": 29861,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "经常吃了，临沂的名牌，个头大，去了皮，味道不错！",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 30429,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "有点失望，不是很喜欢搭配的零食",
+               "comment_units": []
+          },
+          {
+               "comment_id": 30451,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "这次挺失望的，选择京东就是物流快结果这次等了六七天才到。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 30487,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "不怎么好吃，不符合我口味",
+               "comment_units": []
+          },
+          {
+               "comment_id": 30594,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "不好吃，青豆是蒜味儿的吃完还要刷牙，泰国米难吃，给了好多瓜子仁，不划算",
+               "comment_units": [
+                    {
+                         "entity": "青豆",
+                         "evaluation": "不好吃",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 30703,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "很香，很脆，有嚼劲，满意。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 30776,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "味道不错，快递得有几天。",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 31182,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "数量没有错，东西和以前一样",
+               "comment_units": []
+          },
+          {
+               "comment_id": 31312,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "小的时候就非常喜欢，吃这种豆豆，还是依然那么好吃",
+               "comment_units": []
+          },
+          {
+               "comment_id": 31573,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "口感：嘎嘣脆。产品包装：古朴耐看。分量：足够大",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "古朴耐看",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "分量",
+                         "evaluation": "足够",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "分量",
+                         "evaluation": "足够大",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 31702,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "口感：尚可，但感觉不够新鲜",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "尚可",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 31939,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "偏小，味道正常。价格还是比较实惠",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "正常",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "实惠",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "比较实惠",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 31964,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "发货快，花生很香，粒饱满，就是有多大的粉未。",
+               "comment_units": [
+                    {
+                         "entity": "发货",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "花生",
+                         "evaluation": "很香",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 32136,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "买的奶油发蒜香，退货还要我给钱",
+               "comment_units": []
+          },
+          {
+               "comment_id": 32294,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "看评论区说好吃，果然味道不错",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 32310,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "吃了，味道不正，花生也好多烂的。全扔了。",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不正",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 32323,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "东西不错，口感好，物流给力。",
+               "comment_units": [
+                    {
+                         "entity": "东西",
+                         "evaluation": "不错",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "口感",
+                         "evaluation": "好",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 32434,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "客服是外包的吗？一点也不专业，还不如让我来当",
+               "comment_units": []
+          },
+          {
+               "comment_id": 32488,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "不好吃味道不好失望",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "不好",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "味道",
+                         "evaluation": "不好吃",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 32531,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "8袋的钱只给发4袋，优惠得比原价贵，真有你们的，差评",
+               "comment_units": []
+          },
+          {
+               "comment_id": 32999,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "产品包装：一般",
+               "comment_units": [
+                    {
+                         "entity": "产品",
+                         "evaluation": "一般",
+                         "attribute": "包装",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "一般",
+                         "attribute": "包装",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "产品包装",
+                         "evaluation": "一般",
+                         "attribute": "包装",
+                         "polarity": "NEU"
+                    }
+               ]
+          },
+          {
+               "comment_id": 33034,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "全家老小都爱吃的零食，吃完不上火。颗粒饱满，个头还挺大。",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "个头",
+                         "evaluation": "大",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "个头",
+                         "evaluation": "挺大",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "个头",
+                         "evaluation": "还挺大",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 33130,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "味道还好，就是没看清，选错味道了，另外物流慢，店家选京东物流发货好了。",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "慢",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 33720,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "物流太慢！买错了，应该在京东超市买的",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "太慢",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 33773,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "花生还行，但没小时候吃的鱼皮花生苏脆",
+               "comment_units": []
+          },
+          {
+               "comment_id": 33924,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "还比较脆，香味儿还差一点，不如以前买的竹炭花生好吃！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 34087,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "口感：挺好。分量：试吃的量。产品包装：原始印象中的包装。不给五颗星是不让你骄傲",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "挺好",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 34268,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "价格还算是实惠，味道也可以，就是京东送货越来越晚了。",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "实惠",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "晚了",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "越来越晚",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "送货",
+                         "evaluation": "越来越晚了",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 34288,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "物流还不准时！！！也没个说法",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "准时",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "不准时",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "还不准时",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 34320,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "坏的花生好多，几个里面就有一个变味的，上次买不是这个质量！差评！！！",
+               "comment_units": [
+                    {
+                         "entity": "质量",
+                         "evaluation": "差评",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 34350,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "商品不评价，配送去了其他站点，导致直接晚到一天，差评！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 34851,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "有包包装开了少了两小包",
+               "comment_units": []
+          },
+          {
+               "comment_id": 34853,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "小气京东，*的订单，回复也没积分，没动力回复了。。味道还行，京东小气。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 35075,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "这个花生米一般般，大小不一颜色也不好看，还有碎米子，隔着袋子看好像还有起霉了的。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 35151,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "这个花生是假的，红颜色是后来加上去的，用水一泡颜色都掉了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 35348,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "蒜香味太淡几乎是原味坏豆也多豆也小量大便宜",
+               "comment_units": []
+          },
+          {
+               "comment_id": 35468,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "颜色比较暗，像陈年花生，味道也偏重！有股糊了的味道！比较难吃",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "偏重",
+                         "attribute": "口感",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 36284,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "这个花生米口感不错，很入味。很脆，就是真空包装，不是很真空，还有一点点气。",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 36291,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "还是不错的，有一点点过火了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 36301,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "非常好吃，但是这次快递不好，东西少了，客服给补差价了。",
+               "comment_units": [
+                    {
+                         "entity": "快递",
+                         "evaluation": "不好",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "东西",
+                         "evaluation": "少了",
+                         "attribute": "分量",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 37744,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "生花生还没吃，熟花生吃了，口感不错，就是里面有差不多一半是不新鲜的。",
+               "comment_units": [
+                    {
+                         "entity": "口感",
+                         "evaluation": "不错",
+                         "attribute": "口感",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 37907,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "外包装全坏了，快递6天才送到，快递员东西往门口一放发个短信，就这样了？",
+               "comment_units": [
+                    {
+                         "entity": "外包装",
+                         "evaluation": "坏了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "外包装",
+                         "evaluation": "全坏了",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 37917,
+               "comment_variety": "花生",
+               "user_star": "1",
+               "comment_text": "#卖家，大家看图就完了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 38112,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "送货快，真空包装很严实，价格也亲民",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "很严实",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "亲民",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 38173,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "不饱满、多数张有一点点小芽。洗一回就掉颜色！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 38430,
+               "comment_variety": "花生",
+               "user_star": "5",
+               "comment_text": "京东商城物流快质量好好评",
+               "comment_units": [
+                    {
+                         "entity": "物流",
+                         "evaluation": "快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "快",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "好",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "好好评",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 38529,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "好多包装都露气的",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "露气",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 38530,
+               "comment_variety": "花生",
+               "user_star": "2",
+               "comment_text": "这个是便宜性价比高单个人吃不了那么多下次来点小份量的就好了",
+               "comment_units": []
+          },
+          {
+               "comment_id": 38634,
+               "comment_variety": "花生",
+               "user_star": "4",
+               "comment_text": "这次买的没有上一次的好，不新鲜，皮了。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 38672,
+               "comment_variety": "花生",
+               "user_star": "3",
+               "comment_text": "一般，味道一般，质量一般。",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "一般",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "质量",
+                         "evaluation": "一般",
+                         "attribute": "品质",
+                         "polarity": "NEU"
+                    }
+               ]
+          },
+          {
+               "comment_id": 155140,
+               "comment_variety": "玉米",
+               "user_star": "5",
+               "comment_text": "玉米也收到很新鲜，颗粒饱满，软糯香甜，非常好吃，满意",
+               "comment_units": [
+                    {
+                         "entity": "颗粒",
+                         "evaluation": "饱满",
+                         "attribute": "分量",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 156458,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "差评不是给商品，给的是快递",
+               "comment_units": []
+          },
+          {
+               "comment_id": 156688,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "难吃，劣质白糖味，这个牌子其他种类也不好吃。还有买了四盒分开装了俩快递箱。?",
+               "comment_units": []
+          },
+          {
+               "comment_id": 156689,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "违背配送承诺，未经同意，直接放快递柜，必须差评。",
+               "comment_units": []
+          },
+          {
+               "comment_id": 156713,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "包装完好，价钱实惠，物流超快，京东快递大哥的服务很好～。日期不算新鲜～",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "完好",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "价钱",
+                         "evaluation": "实惠",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "超快",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "快递",
+                         "evaluation": "很好",
+                         "attribute": "物流",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "日期",
+                         "evaluation": "很好",
+                         "attribute": "品质",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "日期",
+                         "evaluation": "不算新鲜",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 156726,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "包装破损，但是外面的快递箱是好的，就是明知道破了还发货，客服处理还不错",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "破损",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 156758,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "多次购买了，早餐必备的。这次里面的包装弄的不好，商品盒子都被挤扁了。",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "不好",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 156810,
+               "comment_variety": "玉米",
+               "user_star": "1",
+               "comment_text": "收到的时候已经是这样了，商品包装太差，物流太差",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "差",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "太差",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "差",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "物流",
+                         "evaluation": "太差",
+                         "attribute": "物流",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 157278,
+               "comment_variety": "玉米",
+               "user_star": "4",
+               "comment_text": "包装挺好，日期还好较新，服务也还好。品质也还好。",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "好",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "挺好",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "服务",
+                         "evaluation": "还好",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "品质",
+                         "evaluation": "还好",
+                         "attribute": "品质",
+                         "polarity": "NEU"
+                    }
+               ]
+          },
+          {
+               "comment_id": 157310,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "物流赞，包装完整，油固住了，看包装说明低温反应，但愿是正品",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "完整",
+                         "attribute": "包装",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 157326,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "日期新鲜，价格感觉也还不错，还没吃，吃过再来追评！",
+               "comment_units": [
+                    {
+                         "entity": "日期",
+                         "evaluation": "新鲜",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "不错",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "还不错",
+                         "attribute": "价格",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 157341,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "配送的与图片不相符，没有赠送的小瓶油",
+               "comment_units": []
+          },
+          {
+               "comment_id": 157360,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "包装很简陋！油质很差劲！口感很一般！日期不新鲜！价格偏高！京东快递服务有待提高！",
+               "comment_units": [
+                    {
+                         "entity": "包装",
+                         "evaluation": "简陋",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "包装",
+                         "evaluation": "很简陋",
+                         "attribute": "包装",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "油质",
+                         "evaluation": "差劲",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "油质",
+                         "evaluation": "很差劲",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "油质",
+                         "evaluation": "油质很差劲",
+                         "attribute": "品质",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "口感",
+                         "evaluation": "一般",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "口感",
+                         "evaluation": "很一般",
+                         "attribute": "口感",
+                         "polarity": "NEU"
+                    },
+                    {
+                         "entity": "日期",
+                         "evaluation": "不新鲜",
+                         "attribute": "其他",
+                         "polarity": "NEG"
+                    },
+                    {
+                         "entity": "价格",
+                         "evaluation": "偏高",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          },
+          {
+               "comment_id": 157368,
+               "comment_variety": "玉米",
+               "user_star": "3",
+               "comment_text": "应该有600ML赠品，可是没有随着一起到，客服联系不到，这是什么店铺？",
+               "comment_units": []
+          },
+          {
+               "comment_id": 157647,
+               "comment_variety": "玉米",
+               "user_star": "1",
+               "comment_text": "手柄没有，瓶盖这样，就这包装，要不是丢快递柜我都不要",
+               "comment_units": []
+          },
+          {
+               "comment_id": 157794,
+               "comment_variety": "玉米",
+               "user_star": "2",
+               "comment_text": "网上买玉米性价比最低的一次，一种上当的感觉算了，还有蜗牛物流！",
+               "comment_units": []
+          },
+          {
+               "comment_id": 158015,
+               "comment_variety": "玉米",
+               "user_star": "5",
+               "comment_text": "买了很多次了，玉米如描述，营养味道好，方便食用，方便保存，想吃就吃。哈哈。",
+               "comment_units": [
+                    {
+                         "entity": "味道",
+                         "evaluation": "好",
+                         "attribute": "其他",
+                         "polarity": "POS"
+                    }
+               ]
+          },
+          {
+               "comment_id": 158112,
+               "comment_variety": "玉米",
+               "user_star": "1",
+               "comment_text": "苞谷还没吃，就是太小，价格高，",
+               "comment_units": [
+                    {
+                         "entity": "价格",
+                         "evaluation": "高",
+                         "attribute": "价格",
+                         "polarity": "NEG"
+                    }
+               ]
+          }
+     ],
+     "statistics_result": {
+          "polarity": {
+               "POS": 103,
+               "NEG": 89,
+               "NEU": 14
+          },
+          "variety": {
+               "花生": {
+                    "count": 160,
+                    "polarity": {
+                         "POS": 89,
+                         "NEG": 74,
+                         "NEU": 11
+                    },
+                    "aspect": {
+                         "品质": {
+                              "count": 28,
+                              "polarity": {
+                                   "POS": 18,
+                                   "NEG": 9,
+                                   "NEU": 1
+                              },
+                              "target": {
+                                   "颗粒": {
+                                        "count": 6,
+                                        "polarity": {
+                                             "POS": 2,
+                                             "NEG": 4
+                                        },
+                                        "opinion": {
+                                             "饱满": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 1,
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "均匀": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不行": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太小": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不完整": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "质量": {
+                                        "count": 12,
+                                        "polarity": {
+                                             "POS": 7,
+                                             "NEG": 4,
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "饱满": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不稳定": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不太稳定": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不错": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 2
+                                                  }
+                                             },
+                                             "非常好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "很差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "差评": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "好好评": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "品控": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "不行": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "产品": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 2
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "非常好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "花生": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "POS": 3
+                                        },
+                                        "opinion": {
+                                             "圆润": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "挺好的的": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "质地": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "圆润": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "日期": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "新鲜": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "产品质量": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "非常好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "东西": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "色泽": {
+                              "count": 2,
+                              "polarity": {
+                                   "POS": 2
+                              },
+                              "target": {
+                                   "颜色": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 2
+                                        },
+                                        "opinion": {
+                                             "一致": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "新鲜": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "分量": {
+                              "count": 22,
+                              "polarity": {
+                                   "NEG": 3,
+                                   "POS": 16,
+                                   "NEU": 3
+                              },
+                              "target": {
+                                   "颗粒": {
+                                        "count": 6,
+                                        "polarity": {
+                                             "NEG": 1,
+                                             "POS": 4,
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "小": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "饱满": {
+                                                  "count": 4,
+                                                  "polarity": {
+                                                       "POS": 4
+                                                  }
+                                             },
+                                             "比较均匀": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "数量": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "不够": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "份量": {
+                                        "count": 4,
+                                        "polarity": {
+                                             "POS": 4
+                                        },
+                                        "opinion": {
+                                             "足": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 2
+                                                  }
+                                             },
+                                             "也足": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不少": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "花生": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "NEU": 1,
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "比较均匀": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "不少": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "花生颗粒": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "比较均匀": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "分量": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "POS": 3
+                                        },
+                                        "opinion": {
+                                             "足": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "足够": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "足够大": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "花生份量": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "不少": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "个头": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "POS": 3
+                                        },
+                                        "opinion": {
+                                             "大": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "挺大": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "还挺大": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "东西": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "少了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "价格": {
+                              "count": 14,
+                              "polarity": {
+                                   "NEG": 9,
+                                   "POS": 5
+                              },
+                              "target": {
+                                   "价格": {
+                                        "count": 14,
+                                        "polarity": {
+                                             "NEG": 9,
+                                             "POS": 5
+                                        },
+                                        "opinion": {
+                                             "贵": {
+                                                  "count": 4,
+                                                  "polarity": {
+                                                       "NEG": 4
+                                                  }
+                                             },
+                                             "比较贵": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "有点贵": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "抬高": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "也好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "稍贵": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太贵": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "实惠": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 2
+                                                  }
+                                             },
+                                             "比较实惠": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "亲民": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "口感": {
+                              "count": 34,
+                              "polarity": {
+                                   "POS": 17,
+                                   "NEG": 13,
+                                   "NEU": 4
+                              },
+                              "target": {
+                                   "味道": {
+                                        "count": 16,
+                                        "polarity": {
+                                             "POS": 8,
+                                             "NEG": 5,
+                                             "NEU": 3
+                                        },
+                                        "opinion": {
+                                             "还好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不错": {
+                                                  "count": 5,
+                                                  "polarity": {
+                                                       "POS": 5
+                                                  }
+                                             },
+                                             "还不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "奇怪": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "可以": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "正常": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "不正": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不好吃": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "偏重": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "口感": {
+                                        "count": 11,
+                                        "polarity": {
+                                             "NEG": 3,
+                                             "POS": 8
+                                        },
+                                        "opinion": {
+                                             "难吃": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不错": {
+                                                  "count": 3,
+                                                  "polarity": {
+                                                       "POS": 3
+                                                  }
+                                             },
+                                             "清香": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "很清香": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "极差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "尚可": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "挺好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "口味": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "NEU": 1,
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "一般般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不合": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "花生": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "NEG": 2,
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "极差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很香": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "青豆": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "不好吃": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "物流": {
+                              "count": 42,
+                              "polarity": {
+                                   "POS": 21,
+                                   "NEG": 21
+                              },
+                              "target": {
+                                   "送货": {
+                                        "count": 8,
+                                        "polarity": {
+                                             "POS": 3,
+                                             "NEG": 5
+                                        },
+                                        "opinion": {
+                                             "快": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 2
+                                                  }
+                                             },
+                                             "速度快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "集中": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不集中": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "晚了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "越来越晚": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "越来越晚了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "物流": {
+                                        "count": 19,
+                                        "polarity": {
+                                             "POS": 10,
+                                             "NEG": 9
+                                        },
+                                        "opinion": {
+                                             "快": {
+                                                  "count": 5,
+                                                  "polarity": {
+                                                       "POS": 5
+                                                  }
+                                             },
+                                             "很快": {
+                                                  "count": 2,
+                                                  "polarity": {
+                                                       "POS": 2
+                                                  }
+                                             },
+                                             "垃圾": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "快速": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "非常快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "超慢": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "慢": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太慢": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "准时": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不准时": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "还不准时": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "配送": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "极差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "物流速度": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 2
+                                        },
+                                        "opinion": {
+                                             "快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "很快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "速度": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 2
+                                        },
+                                        "opinion": {
+                                             "快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "比较快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "京东": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "京东物流": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很糟心": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "快递": {
+                                        "count": 5,
+                                        "polarity": {
+                                             "POS": 3,
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "速度不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "烂到爆": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "发货": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "包装": {
+                              "count": 25,
+                              "polarity": {
+                                   "NEG": 15,
+                                   "POS": 7,
+                                   "NEU": 3
+                              },
+                              "target": {
+                                   "包装": {
+                                        "count": 17,
+                                        "polarity": {
+                                             "NEG": 12,
+                                             "POS": 4,
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "烂了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "破了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "压的破了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "开裂": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "差评": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "精美": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "很好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "损坏": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "损坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "古朴耐看": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "很严实": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "露气": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "包装袋": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "袋子": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "大": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "外包装": {
+                                        "count": 4,
+                                        "polarity": {
+                                             "POS": 2,
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "的不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "全坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "产品": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "产品包装": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "售后": {
+                              "count": 3,
+                              "polarity": {
+                                   "NEG": 3
+                              },
+                              "target": {
+                                   "客服": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "开裂": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "客服客服": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "坏了": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "其他": {
+                              "count": 4,
+                              "polarity": {
+                                   "POS": 3,
+                                   "NEG": 1
+                              },
+                              "target": {
+                                   "香味": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "浓郁": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "颗粒": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "不均匀": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "味道": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "纯正": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "东西": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               },
+               "玉米": {
+                    "count": 18,
+                    "polarity": {
+                         "POS": 14,
+                         "NEG": 15,
+                         "NEU": 3
+                    },
+                    "aspect": {
+                         "分量": {
+                              "count": 1,
+                              "polarity": {
+                                   "POS": 1
+                              },
+                              "target": {
+                                   "颗粒": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "饱满": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "包装": {
+                              "count": 10,
+                              "polarity": {
+                                   "POS": 4,
+                                   "NEG": 6
+                              },
+                              "target": {
+                                   "包装": {
+                                        "count": 10,
+                                        "polarity": {
+                                             "POS": 4,
+                                             "NEG": 6
+                                        },
+                                        "opinion": {
+                                             "完好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "破损": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "不好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "挺好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "完整": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "简陋": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很简陋": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "价格": {
+                              "count": 5,
+                              "polarity": {
+                                   "POS": 3,
+                                   "NEG": 2
+                              },
+                              "target": {
+                                   "价钱": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "实惠": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "价格": {
+                                        "count": 4,
+                                        "polarity": {
+                                             "POS": 2,
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "还不错": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "偏高": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "高": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "物流": {
+                              "count": 4,
+                              "polarity": {
+                                   "POS": 2,
+                                   "NEG": 2
+                              },
+                              "target": {
+                                   "物流": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "POS": 1,
+                                             "NEG": 2
+                                        },
+                                        "opinion": {
+                                             "超快": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "太差": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "快递": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "很好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "品质": {
+                              "count": 6,
+                              "polarity": {
+                                   "POS": 1,
+                                   "NEG": 4,
+                                   "NEU": 1
+                              },
+                              "target": {
+                                   "日期": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 1,
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "很好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不算新鲜": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "品质": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "NEU": 1
+                                        },
+                                        "opinion": {
+                                             "还好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "油质": {
+                                        "count": 3,
+                                        "polarity": {
+                                             "NEG": 3
+                                        },
+                                        "opinion": {
+                                             "差劲": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "很差劲": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             },
+                                             "油质很差劲": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "其他": {
+                              "count": 4,
+                              "polarity": {
+                                   "POS": 3,
+                                   "NEG": 1
+                              },
+                              "target": {
+                                   "服务": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "还好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "日期": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "POS": 1,
+                                             "NEG": 1
+                                        },
+                                        "opinion": {
+                                             "新鲜": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             },
+                                             "不新鲜": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEG": 1
+                                                  }
+                                             }
+                                        }
+                                   },
+                                   "味道": {
+                                        "count": 1,
+                                        "polarity": {
+                                             "POS": 1
+                                        },
+                                        "opinion": {
+                                             "好": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "POS": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         },
+                         "口感": {
+                              "count": 2,
+                              "polarity": {
+                                   "NEU": 2
+                              },
+                              "target": {
+                                   "口感": {
+                                        "count": 2,
+                                        "polarity": {
+                                             "NEU": 2
+                                        },
+                                        "opinion": {
+                                             "一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             },
+                                             "很一般": {
+                                                  "count": 1,
+                                                  "polarity": {
+                                                       "NEU": 1
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+}
