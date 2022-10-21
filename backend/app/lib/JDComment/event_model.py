@@ -56,6 +56,7 @@ class EventModel(object):
         return resize_results
 
     def txt_analysis(self, txt_list):
+        # {'commentSenti': '好评', 'comment_id': 2641251, 'comment_variety': '大米', 'user_star': '5', 'comment_text': '大米非常好吃，快递也给力', 'date': '2022-03-02 18:43:17'}
         # data_list = [{'comment_text':item['comment_text']} for item in txt_list]
         # if len(txt_list) < 1:
         #     return []

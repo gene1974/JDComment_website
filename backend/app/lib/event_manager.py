@@ -29,47 +29,47 @@ class EventManager(object):
         ids_labeled = set(map(lambda x: x['comment_id'], self.event_labeled))
         self.event = {
             '0':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[:1000])),               #未被取走的数据
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[:2000])),               #未被取走的数据
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[:1000])), self.event_labeled)),                    #标注完成的数据
                 'event_buffer': []                  #被取走但尚未标注的数据
             },
             '1':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[1000:2000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[2000:4000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[1000:2000])), self.event_labeled)),
                 'event_buffer': []
             },
             '2':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[2000:3000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[4000:6000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[2000:3000])), self.event_labeled)),
                 'event_buffer': []
             },
             '3':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[3000:4000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[6000:8000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[3000:4000])), self.event_labeled)),
                 'event_buffer': []
             },
             '4':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[4000:5000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[8000:10000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[4000:5000])), self.event_labeled)),
                 'event_buffer': []
             },
             '5':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[5000:6000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[10000:12000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[5000:6000])), self.event_labeled)),
                 'event_buffer': []
             },
             '6':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[6000:7000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[12000:14000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[6000:7000])), self.event_labeled)),
                 'event_buffer': []
             },
             '7':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[7000:8000])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[14000:16000])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[7000:8000])), self.event_labeled)),
                 'event_buffer': []
             },
             '8':{
-                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[8000:])),
+                'event_unlabeled': list(filter(lambda x: x['comment_id'] not in ids_labeled, self.event_all[16000:])),
                 'event_labeled': list(filter(lambda x: x['comment_id'] in  set(map(lambda x: x['comment_id'], self.event_all[8000:])), self.event_labeled)),
                 'event_buffer': []
             }
@@ -89,11 +89,8 @@ class EventManager(object):
         self.event[taskNum]['event_buffer'].append(target_event)
         return target_event
 
-
     def remove_from_buffer(self, news_id, taskNum):
         self.event[taskNum]['event_buffer'] = list(filter(lambda x: x['comment_id'] != news_id, self.event[taskNum]['event_buffer']))
-
-
 
     # 如果已经标注过又重新提交 修改标注数据 如果没有标注过 直接保存
     def post_event(self, news_id, events, taskNum):
@@ -108,11 +105,9 @@ class EventManager(object):
         self.save_change()
         self.remove_from_buffer(news_id, taskNum)
 
-
     def count(self, taskNum):
         return len(self.event[taskNum]['event_labeled']), len(self.event[taskNum]['event_unlabeled']) + len(self.event[taskNum]['event_buffer'])
         # return 1, 2
-
 
     def update_event_file(self, file):
         data = load_json(os.path.join(CONFIG.upload_folder, file))
