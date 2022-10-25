@@ -1,48 +1,55 @@
 <template>
-    <div style="background: rgb(240, 242, 245);min-width:fit-content;">
-        <div class="home-container"><el-header>产品数据分析</el-header></div>
+    <div style="background:#F7F8FA ;min-width:fit-content;">
+        <!-- <div class="home-container"><el-header>产品数据分析</el-header></div> -->
+        <!-- <div class="home-container"><h1>数据分析</h1></div> -->
 
-        <!-- 选取产地时间 -->
+       
+        <!-- <div style="margin: 30px"> -->
         <el-row :gutter="30"  class="dataAnalysisBacground">
-            <!-- <el-row class="fenquxuanzekuangRow" :gutter="30" type="flex" justify="space-around"> -->
-            <el-row class="fenquxuanzekuangRow" :gutter="30" style="margin:20px">
-                <el-col :span="6">
-                    <!-- <el-row type="flex" justify="space-around"> -->
+            <h1 style="margin-left:40px">数据分析</h1>
+            <!-- 选取产地时间 -->
+            <el-row class="fenquxuanzekuangRow" :gutter="30" style="margin-left:20px">
+                <!-- 产地 -->
+                <el-col :span="5">
                     <el-row>
                         <el-col :span="6"><div class="xuanzekuangshuoming">产地</div></el-col>
                         <el-col :span="18">
                             <el-select v-model="chandiValue" placeholder="请选择" @change="chandiValueChange">
                                 <el-option
-                                v-for="item in chandiList"
-                                :key="item"
-                                :label="item"
-                                :value="item">
+                                v-for="item in chandiList" :key="item" :label="item" :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                    <el-row style="margin-top: 20px">
+                        <el-col :span="6"><div class="xuanzekuangshuoming">筛选</div></el-col>
+                        <el-col :span="18">
+                            <el-select v-model="analysisChoice" placeholder="请选择" @change="analysisChoiceChange">
+                                <el-option
+                                v-for="item in analysisList" :key="item"  :label="item" :value="item">
                                 </el-option>
                             </el-select>
                         </el-col>
                     </el-row>
                 </el-col>
-                <el-col :span="6">
-                    <!-- <el-row type="flex" justify="space-around"> -->
+                <!-- 产品 -->
+                <el-col :span="5">
                     <el-row>
                         <el-col :span="6"><div class="xuanzekuangshuoming">产品</div></el-col>
                         <el-col :span="18">
                             <el-select v-model="chanpinValue" placeholder="请选择">
                                 <el-option
-                                v-for="item in chanpinList"
-                                :key="item"
-                                :label="item"
-                                :value="item">
+                                v-for="item in chanpinList" :key="item" :label="item" :value="item">
                                 </el-option>
                             </el-select>
                         </el-col>
                     </el-row>
                 </el-col>
-                <el-col :span="6">
-                    <!-- <el-row type="flex" justify="space-around"> -->
+                <!-- 起始时间 -->
+                <el-col :span="10">
                     <el-row>
-                        <el-col :span="8"><div class="xuanzekuangshuoming">起始时间</div></el-col>
-                        <el-col :span="16">
+                        <el-col :span="6"><div class="xuanzekuangshuoming">起始时间</div></el-col>
+                        <el-col :span="8">
                             <el-date-picker
                                 style="width:100%"
                                 v-model="startDate"
@@ -51,13 +58,8 @@
                                 placeholder="选择日期">
                             </el-date-picker>
                         </el-col>
-                    </el-row>
-                </el-col>
-                <el-col :span="6">
-                    <!-- <el-row type="flex" justify="space-around"> -->
-                    <el-row>
-                        <el-col :span="8"><div class="xuanzekuangshuoming">截止时间</div></el-col>
-                        <el-col :span="16">
+                        <el-col :span="2"><div class="xuanzekuangshuoming"> - </div></el-col>
+                        <el-col :span="8">
                             <el-date-picker
                                 style="width:100%"
                                 v-model="endDate"
@@ -68,11 +70,19 @@
                         </el-col>
                     </el-row>
                 </el-col>
-            </el-row>    
+                <el-col :span="2">
+                    <el-row>
+                        <el-button :loading="getDailyInfoLoading" type="primary" @click="clickQuery" class="InfoButton">查询</el-button>
+                    </el-row>
+                    <el-row style="margin-top: 20px">
+                        <el-button :loading="getDailyInfoLoading" type="primary" @click="clickAll" class="ResetButton">重置</el-button>
+                    </el-row>
+                </el-col>
+            </el-row>
         </el-row>
 
         <!-- 获取图表按钮 -->
-        <el-row :gutter="30"  class="dataAnalysisBacground" type="flex" justify="center">
+        <!-- <el-row :gutter="30"  class="dataAnalysisBacground" type="flex" justify="center">
             <el-col class="fenquCol" style="margin-left: 30px">
                 <el-row style="margin:20px 10px;">
                     <el-col :span="4">
@@ -89,7 +99,7 @@
                     </el-col>
                 </el-row>
             </el-col>    
-        </el-row>
+        </el-row> -->
 
         <!-- <div style="background: rgb(232, 221, 203)"> -->
         <!-- 产地信息，总体评价 -->
@@ -156,7 +166,6 @@
             </div>
         </el-col> -->
         
-
         <!-- 基本走势 -->
         <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
             <el-col :span="11" v-show="DailyInfoStatus" class="fenquCol">
@@ -223,8 +232,6 @@
             </el-col>
         </el-row>
 
-        
-        
         <!-- 分析详情 -->
         <div v-show="AnalysisDetailStatus" style="background: rgb(240, 242, 245);">
             <el-row class="fenqubiaotiRow" style="margin:20px"><el-col :span="24"><div class="fenqubiaoti">分析详情</div></el-col></el-row>
@@ -328,8 +335,6 @@
             </el-row>
         </div>
         
-        <!-- </div> -->
-        
         <!-- 产品展示 -->
         <div style="margin: 30px; margin-top: 100px">
             <div style="margin: 10px; margin-left:20px; color:slategrey; text-align: center;">部分产品展示：（点击图片跳转京东链接）</div>
@@ -359,6 +364,8 @@
             <br/>
             <br/>
         </div>
+
+        <!-- </div> -->
     </div>
 </template>
 
@@ -388,6 +395,8 @@
         },
         data() {
         return {
+            analysisChoice:'基本走势',
+            analysisList:['全部信息', '基本走势', '分析概览', '分析详情'],
             chandiValue:'安徽省巢湖市',
             chandiList:['安徽省巢湖市','江西省丰城市','江西省奉新县','江西省井冈山市','江西上饶市万年县','四川省宜宾市屏山县','江西省宜春市上高县','湖北省仙桃市','江西省永新县',],
             chandichanpinDict:{
@@ -440,6 +449,20 @@
         // this.$refs.chart1.initChart('123')
         },
         methods: {
+            clickQuery(){
+                if(this.analysisChoice == '全部信息'){
+                    this.clickAll()
+                }
+                else if(this.analysisChoice == '基本走势'){
+                    this.clickDailyInfo()
+                }
+                else if(this.analysisChoice == '分析概览'){
+                    this.clickAnalysisInfo()
+                }
+                else if(this.analysisChoice == '分析详情'){
+                    this.clickAnalysisDetail()
+                }
+            },
             chandiValueChange(chandiValue){
                 this.chanpinList = this.chandichanpinDict[chandiValue]
             },
@@ -739,7 +762,8 @@ table {
 }
     .home-container {
         padding: 32px;
-        background-color: rgb(240, 242, 245);
+        background-color: #F7F8FA;
+        // background-color: #F2F3F5;
         position: relative;
 
         .chart-wrapper {
@@ -749,20 +773,20 @@ table {
         }
     }
     .el-header, .el-footer {
-        background-color: #B3C0D1;
-        color: #333;
+        background-color: #FFFFFF;
         text-align: center;
         // font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
         font-size:30px;
         // font-wight:700;
         line-height: 60px;
     }
+    // 情感分析内容
     .dataAnalysisBacground{
-        /* margin-top: 20px; */
-        /* margin-bottom: 20px; */
-        margin: 0px 50px;
-        /* background: white; */
-        /* background: rgb(240, 242, 245); */
+        padding: 20px;
+        // margin: 0px 50px;
+        // margin: 50px;
+        background: white;
+        // background: rgb(240, 242, 245);
     }
     .fenquCol{
         border-radius: 4px;
@@ -785,7 +809,7 @@ table {
         margin-bottom: 20px;
     }
     .fenquxuanzekuangRow{
-        margin-top: 30px;
+        margin-top: 20px;
         margin-bottom: 20px;
     }
     .xuanzekuangshuoming{
@@ -798,9 +822,17 @@ table {
         justify-content: center;
         padding-top: 8px;
     }
-    .DailyInfoButton{
-        display: flex;
-        justify-content: center;
+    .InfoButton{
+        // display: flex;
+        // justify-content: center;
+        background-color: #165DFF;
+    }
+    .ResetButton{
+        // display: flex;
+        // justify-content: center;
+        color: #000000;
+        background-color: #F2F3F5;
+        border-color: #F2F3F5;
     }
     .cardStyle{
         width: 80%;

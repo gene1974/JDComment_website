@@ -4,7 +4,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = '农产品情感分析系统'
+const name = '农产品评论观点分析'
 
 module.exports = {
   devServer: {
