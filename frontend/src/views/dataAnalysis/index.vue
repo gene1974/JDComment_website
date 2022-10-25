@@ -1,14 +1,12 @@
 <template>
-    <div style="background:#F7F8FA ;min-width:fit-content;">
-        <!-- <div class="home-container"><el-header>产品数据分析</el-header></div> -->
-        <!-- <div class="home-container"><h1>数据分析</h1></div> -->
+    <!-- <div style="background:#F7F8FA ;min-width:fit-content;"> -->
+    <div style="background:#F2F3F5 ;min-width:fit-content;">
 
-       
-        <!-- <div style="margin: 30px"> -->
-        <el-row :gutter="30"  class="dataAnalysisBacground">
-            <h1 style="margin-left:40px">数据分析</h1>
+        <div class="dataAnalysisBacground">
+        <el-row :gutter="20" class="dataAnalysisBacground">
+            <h2 style="margin-left:40px">数据分析</h2>
             <!-- 选取产地时间 -->
-            <el-row class="fenquxuanzekuangRow" :gutter="30" style="margin-left:20px">
+            <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:20px">
                 <!-- 产地 -->
                 <el-col :span="5">
                     <el-row>
@@ -24,7 +22,7 @@
                     <el-row style="margin-top: 20px">
                         <el-col :span="6"><div class="xuanzekuangshuoming">筛选</div></el-col>
                         <el-col :span="18">
-                            <el-select v-model="analysisChoice" placeholder="请选择" @change="analysisChoiceChange">
+                            <el-select v-model="analysisChoice" placeholder="请选择">
                                 <el-option
                                 v-for="item in analysisList" :key="item"  :label="item" :value="item">
                                 </el-option>
@@ -80,54 +78,75 @@
                 </el-col>
             </el-row>
         </el-row>
+        </div>
+        
+        <!-- 基本走势 -->
+        <div  class="dataAnalysisBacground" v-show="DailyInfoStatus">
+            <el-row v-show="DailyInfoStatus">
+                <h3 style="margin-left:40px">基本走势</h3>
+                <el-col :span="11" style="margin-left:10px; text-align:center; padding: 10px">
+                    <data-statistics-bar0 ref="bar0"/>
+                </el-col>
+                <el-col :span="11" style="margin-left:10px; text-align:center; padding: 10px">
+                    <data-statistics-line0 ref="line0"/>
+                </el-col>
+            </el-row>
+        </div>
 
-        <!-- 获取图表按钮 -->
-        <!-- <el-row :gutter="30"  class="dataAnalysisBacground" type="flex" justify="center">
-            <el-col class="fenquCol" style="margin-left: 30px">
-                <el-row style="margin:20px 10px;">
-                    <el-col :span="4">
-                        <el-button style="color:powderblue" :loading="getDailyInfoLoading" type="primary" @click="clickAll" class="DailyInfoButton">获取全部</el-button>
-                    </el-col>
-                    <el-col :span="4">
-                        <el-button :loading="getDailyInfoLoading" type="primary" @click="clickDailyInfo" class="DailyInfoButton">获取基本走势</el-button>
-                    </el-col>
-                    <el-col :span="4">
-                        <el-button :loading="getAnalysisInfoLoading" type="primary" @click="clickAnalysisInfo" class="DailyInfoButton">获取分析概览</el-button>
-                    </el-col>
-                    <el-col :span="4">
-                        <el-button :loading="getAnalysisDetailLoading" type="primary" @click="clickAnalysisDetail" class="DailyInfoButton">获取分析详情</el-button>
-                    </el-col>
-                </el-row>
-            </el-col>    
-        </el-row> -->
+            <!-- <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
+                <el-col :span="11" v-show="DailyInfoStatus" class="fenquCol">
+                    <el-row class="fenqubiaotiRow" style="margin:20px; margin-bottom:0px;"><el-col :span="24"><div class="fenqubiaoti">基本走势</div></el-col></el-row>
+                    <el-row v-show="DailyInfoStatus" style="margin-top:20px">
+                        <el-col :span="11" style='margin:10px'>
+                            <data-statistics-bar0 ref="bar0"/>
+                        </el-col>
+                        <el-col :span="11" style='margin:10px'>
+                            <data-statistics-line0 ref="line0"/>
+                        </el-col>
+                    </el-row>
+                    <br/>
+                    <el-row :gutter="30" v-show="DailyInfoStatus" class="dataAnalysisBacground" >
+                        <el-col :span="18" style="background: rgb(255, 255, 255); margin-left:40px" class="fenquCol">
+                            <h3 style="margin:20px">每日评分信息</h3>
+                            <el-card><el-table
+                                :data="comment_daily"
+                                :key="component_key"
+                                height="250"
+                                width="450"
+                                stripe
+                                style="width:100%">
+                                <el-table-column prop="time" label="日期" width="150"></el-table-column>
+                                <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
+                                <el-table-column prop="score" label="评分"> </el-table-column>
+                            </el-table></el-card>
+                        </el-col>
+                    </el-row>
+                </el-col>
+            </el-row>  -->
 
-        <!-- <div style="background: rgb(232, 221, 203)"> -->
-        <!-- 产地信息，总体评价 -->
-        <el-row>
-            <el-col :span="8" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px;margin-left:40px;" class="fenquCol">
-                <el-card>
-                    <h3 style="margin-left:20px;">产品产地信息</h3>
-                    <el-table
-                        :data="product_table"
-                        height="200"
-                        width="330"
-                        stripe
-                        style="width: 100%">
-                        <el-table-column prop="location" label="产地" width="150"></el-table-column>
-                        <el-table-column prop="product" label="产品"> </el-table-column>
-                    </el-table>
-                </el-card>
-            </el-col>
-            <el-col :span="8" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px" class="fenquCol">
-                <el-card>
-                    <h3 style="margin-left:30px;">消费评价概览</h3>
-                    <div id="ScoreText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取评价概览</div>
-                    <div id="HeatText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取热度信息</div>
-                    <div id="AspectText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取具体评价</div>
-                </el-card>
-            </el-col>
-        </el-row>
+            <!-- 每日评分信息 -->
+            <el-row>
+                <el-col :span="7" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px;margin-left:40px;" class="fenquCol">
+                    <el-card>
+                        <h3 style="margin-left:20px;">产品产地信息</h3>
+                        <el-table
+                            :data="product_table" height="200" width="330" stripe style="width: 100%">
+                            <el-table-column prop="location" label="产地" width="150"></el-table-column>
+                            <el-table-column prop="product" label="产品"> </el-table-column>
+                        </el-table>
+                    </el-card>
+                </el-col>
+                <el-col :span="7" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px" class="fenquCol">
+                    <el-card>
+                        <h3 style="margin-left:30px;">消费评价概览</h3>
+                        <div id="ScoreText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取评价概览</div>
+                        <div id="HeatText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取热度信息</div>
+                        <div id="AspectText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取具体评价</div>
+                    </el-card>
+                </el-col>
+            </el-row>
 
+        <!-- </el-row> -->
         <!-- 购买建议 -->
         <!-- <el-col :span="11" v-show="AnalysisInfoStatus" class="fenquCol">
             <div>
@@ -167,7 +186,7 @@
         </el-col> -->
         
         <!-- 基本走势 -->
-        <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
+        <!-- <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
             <el-col :span="11" v-show="DailyInfoStatus" class="fenquCol">
                 <el-row class="fenqubiaotiRow" style="margin:20px; margin-bottom:0px;"><el-col :span="24"><div class="fenqubiaoti">基本走势</div></el-col></el-row>
                 <el-row v-show="DailyInfoStatus" style="margin-top:20px">
@@ -195,7 +214,7 @@
                         </el-table></el-card>
                     </el-col>
                 </el-row>
-            </el-col>
+            </el-col> -->
         <!-- </el-row>  -->
 
         
@@ -230,7 +249,7 @@
                     </el-col>
                 </el-row>
             </el-col>
-        </el-row>
+        <!-- </el-row> -->
 
         <!-- 分析详情 -->
         <div v-show="AnalysisDetailStatus" style="background: rgb(240, 242, 245);">
@@ -762,8 +781,8 @@ table {
 }
     .home-container {
         padding: 32px;
-        background-color: #F7F8FA;
-        // background-color: #F2F3F5;
+        // background-color: #F7F8FA;
+        background-color: #F2F3F5;
         position: relative;
 
         .chart-wrapper {
@@ -782,11 +801,8 @@ table {
     }
     // 情感分析内容
     .dataAnalysisBacground{
-        padding: 20px;
-        // margin: 0px 50px;
-        // margin: 50px;
+        margin: 20px;
         background: white;
-        // background: rgb(240, 242, 245);
     }
     .fenquCol{
         border-radius: 4px;
