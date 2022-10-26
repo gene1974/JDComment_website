@@ -93,298 +93,147 @@
             </el-row>
         </div>
 
-            <!-- <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
-                <el-col :span="11" v-show="DailyInfoStatus" class="fenquCol">
-                    <el-row class="fenqubiaotiRow" style="margin:20px; margin-bottom:0px;"><el-col :span="24"><div class="fenqubiaoti">基本走势</div></el-col></el-row>
-                    <el-row v-show="DailyInfoStatus" style="margin-top:20px">
-                        <el-col :span="11" style='margin:10px'>
-                            <data-statistics-bar0 ref="bar0"/>
-                        </el-col>
-                        <el-col :span="11" style='margin:10px'>
-                            <data-statistics-line0 ref="line0"/>
-                        </el-col>
+        <!-- 分析概览 -->
+        <div class="dataAnalysisBacground" v-show="AnalysisInfoStatus">
+            <el-row :gutter="20">
+                <el-col :span="8">
+                    <h3 style="margin-left:40px">分析概览</h3>
+                    <el-row style="margin:20px">
+                        <data-statistics-pie0 ref="pie0"/>
                     </el-row>
-                    <br/>
-                    <el-row :gutter="30" v-show="DailyInfoStatus" class="dataAnalysisBacground" >
-                        <el-col :span="18" style="background: rgb(255, 255, 255); margin-left:40px" class="fenquCol">
-                            <h3 style="margin:20px">每日评分信息</h3>
-                            <el-card><el-table
-                                :data="comment_daily"
-                                :key="component_key"
-                                height="250"
-                                width="450"
-                                stripe
-                                style="width:100%">
-                                <el-table-column prop="time" label="日期" width="150"></el-table-column>
-                                <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
-                                <el-table-column prop="score" label="评分"> </el-table-column>
-                            </el-table></el-card>
+                    <el-row style="margin:20px">
+                        <data-statistics-pie1 ref="pie1"/>
+                    </el-row>
+                </el-col>
+                <el-col :span="13" v-show="AnalysisInfoStatus">
+                    <h3 style="margin:20px">分类评价信息</h3>
+                    <el-table :data="comment_aspect" :key="component_key" height="250" width="450" stripe style="width: 100%">
+                        <el-table-column prop="aspect" label="评价类别" width="150"></el-table-column>
+                        <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
+                        <el-table-column prop="score" label="整体评价"> </el-table-column>
+                    </el-table>
+                </el-col>
+            </el-row>
+        </div>
+
+        <!-- 分析详情 -->
+        <div v-show="AnalysisDetailStatus" class="dataAnalysisBacground">
+            <!-- 属性选择 -->
+            <el-row style="margin:40px; margin-bottom: 0px;">
+                <h3>分析详情</h3>
+            </el-row>
+            <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:15px; margin-bottom: 20px;">
+                <el-col :span="8">
+                    <el-row>
+                        <el-col :span="8"><div class="xuanzekuangshuoming">评价类别</div></el-col>
+                        <el-col :span="12">
+                            <el-select v-model="varietyValue" placeholder="请选择">
+                                <el-option v-for="item in varietyList" :key="item" :label="item" :value="item"></el-option>
+                            </el-select>
                         </el-col>
                     </el-row>
                 </el-col>
-            </el-row>  -->
+                <el-col :span="3">
+                    <el-button type="primary" @click="varietyChange" class="InfoButton">查询</el-button>
+                </el-col>
+            </el-row>
 
-            <!-- 每日评分信息 -->
-            <el-row>
-                <el-col :span="7" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px;margin-left:40px;" class="fenquCol">
-                    <el-card>
+
+            <!-- 评价统计表格 -->
+            <h3 style="margin-left:40px; margin-top: 20px;">评价信息统计</h3>
+            <el-row :gutter="20" id="DetailComment">
+                <el-col :span="7" class="dataAnalysisBacground">
+                    <div class="xuanzekuangshuoming" style="font-weight:bold">正面评价</div>
+                    <el-table :data="POSUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                        <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
+                        <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
+                        <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
+                    </el-table>
+                </el-col>
+                <el-col :span="7" class="dataAnalysisBacground">
+                    <div class="xuanzekuangshuoming" style="font-weight:bold">中性评价</div>
+                    <el-table :data="NEUUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                        <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
+                        <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
+                        <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
+                    </el-table>
+                </el-col>
+                <el-col :span="7" class="dataAnalysisBacground">
+                    <div class="xuanzekuangshuoming" style="font-weight:bold">负面评价</div>
+                    <el-table :data="NEGUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                        <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
+                        <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
+                        <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
+                    </el-table>
+                </el-col>
+            </el-row>
+            <!-- 统计图表 -->
+            <h3 style="margin-left:40px; margin-top: 20px;">评价统计图表</h3>
+            <el-row class="dataAnalysisBacground" id="DetailPie" style="margin:20px; margin-top:0px">
+                <el-col :span="7" style="margin:10px;">
+                    <data-statistics-pie2 ref="pie2"/>
+                </el-col>
+                <el-col :span="7" style="margin:10px;">
+                    <data-statistics-pie3 ref="pie3"/>
+                </el-col>
+                <el-col :span="7" style="margin:10px;">
+                    <data-statistics-pie4 ref="pie4"/>
+                </el-col>
+            </el-row>
+        </div>
+
+        <!-- 起始页面（产品，概览） -->
+        <div  class="dataAnalysisBacground">
+            <el-row :gutter="20">
+                <!-- 产品展示 -->
+                <el-col :span="10">
+                    <h3 style="margin-left:40px">部分产品展示</h3>
+                    <el-row style="margin:10px; margin-top:0px" type="flex" justify="space-around">
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=大米&enc=utf-8" target="_blank">
+                            <img src="./images/大米.jpeg" width="160" height="100">
+                        </a></el-col>
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=茶叶&enc=utf-8" target="_blank">
+                            <img src="./images/茶叶.jpeg" width="160" height="100">
+                        </a></el-col>
+                    </el-row>
+                    <el-row style="margin:10px; margin-top:0px" type="flex" justify="space-around">
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=番茄&enc=utf-8" target="_blank">
+                            <img src="./images/番茄.jpeg" width="160" height="100">
+                        </a></el-col>
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=荸荠&enc=utf-8" target="_blank">
+                            <img src="./images/荸荠.jpeg" width="160" height="100">
+                        </a></el-col>
+                    </el-row>
+                    <el-row style="margin:10px; margin-top:0px" type="flex" justify="space-around">
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=油茶&enc=utf-8" target="_blank">
+                            <img src="./images/油茶.jpeg" width="160" height="100">
+                        </a></el-col>
+                        <el-col :span="8"><a href="https://search.jd.com/Search?keyword=猕猴桃&enc=utf-8" target="_blank">
+                            <img src="./images/猕猴桃.jpeg" width="160" height="100">
+                        </a></el-col>
+                    </el-row>
+                </el-col>
+                <!-- 产品产地信息 -->
+                <el-col :span="12" style="background: rgb(255, 255, 255);margin:20px;margin-left:40px;" class="fenquCol">
+                    <el-row >
                         <h3 style="margin-left:20px;">产品产地信息</h3>
                         <el-table
                             :data="product_table" height="200" width="330" stripe style="width: 100%">
                             <el-table-column prop="location" label="产地" width="150"></el-table-column>
                             <el-table-column prop="product" label="产品"> </el-table-column>
                         </el-table>
-                    </el-card>
-                </el-col>
-                <el-col :span="7" v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px" class="fenquCol">
-                    <el-card>
+                    </el-row>
+                    <el-row v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px" class="fenquCol">
                         <h3 style="margin-left:30px;">消费评价概览</h3>
                         <div id="ScoreText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取评价概览</div>
                         <div id="HeatText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取热度信息</div>
                         <div id="AspectText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取具体评价</div>
-                    </el-card>
-                </el-col>
-            </el-row>
-
-        <!-- </el-row> -->
-        <!-- 购买建议 -->
-        <!-- <el-col :span="11" v-show="AnalysisInfoStatus" class="fenquCol">
-            <div>
-                <el-row v-show="AnalysisInfoStatus">
-                    <el-col :span="12">
-                        <div class="xuanzekuangshuoming" style="font-weight:bold">购买建议</div>
-                        <el-card  shadow="hover" class="cardStyle">
-                            <el-table
-                                :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-                                :data="purchaseAdvicesList"
-                                style="width: 100%">
-                                <el-table-column
-                                    prop="advice"
-                                    label="购买建议"
-                                    width="300">
-                                </el-table-column>
-                            </el-table>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="12">
-                        <div class="xuanzekuangshuoming" style="font-weight:bold">种植建议</div>
-                        <el-card  shadow="hover" class="cardStyle">
-                            <el-table
-                                :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-                                :data="plantAdvicesList"
-                                style="width: 100%">
-                                <el-table-column
-                                    prop="advice"
-                                    label="种植建议"
-                                    width="300">
-                                </el-table-column>
-                            </el-table>
-                        </el-card>
-                    </el-col>
-                </el-row>
-            </div>
-        </el-col> -->
-        
-        <!-- 基本走势 -->
-        <!-- <el-row :gutter="30" style="margin:20px" class="dataAnalysisBacground" >
-            <el-col :span="11" v-show="DailyInfoStatus" class="fenquCol">
-                <el-row class="fenqubiaotiRow" style="margin:20px; margin-bottom:0px;"><el-col :span="24"><div class="fenqubiaoti">基本走势</div></el-col></el-row>
-                <el-row v-show="DailyInfoStatus" style="margin-top:20px">
-                    <el-col :span="11" style='margin:10px'>
-                        <data-statistics-bar0 ref="bar0"/>
-                    </el-col>
-                    <el-col :span="11" style='margin:10px'>
-                        <data-statistics-line0 ref="line0"/>
-                    </el-col>
-                </el-row>
-                <br/>
-                <el-row :gutter="30" v-show="DailyInfoStatus" class="dataAnalysisBacground" >
-                    <el-col :span="18" style="background: rgb(255, 255, 255); margin-left:40px" class="fenquCol">
-                        <h3 style="margin:20px">每日评分信息</h3>
-                        <el-card><el-table
-                            :data="comment_daily"
-                            :key="component_key"
-                            height="250"
-                            width="450"
-                            stripe
-                            style="width:100%">
-                            <el-table-column prop="time" label="日期" width="150"></el-table-column>
-                            <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
-                            <el-table-column prop="score" label="评分"> </el-table-column>
-                        </el-table></el-card>
-                    </el-col>
-                </el-row>
-            </el-col> -->
-        <!-- </el-row>  -->
-
-        
-        
-        <!-- 分析概览 -->
-        <!-- <el-row :gutter="30"  class="dataAnalysisBacground"> -->
-            <el-col :span="11" v-show="AnalysisInfoStatus" class="fenquCol">
-                <el-row class="fenqubiaotiRow" style="margin:20px; margin-bottom:0px;"><el-col :span="24"><div class="fenqubiaoti">分析概览</div></el-col></el-row>
-                <el-row v-show="AnalysisInfoStatus" style="margin:20px">
-                    <el-col :span="12">
-                        <data-statistics-pie0 ref="pie0"/>
-                    </el-col>
-                    <el-col :span="12">
-                        <data-statistics-pie1 ref="pie1"/>
-                    </el-col>
-                </el-row>
-                <br/>
-                <el-row :gutter="30" class="dataAnalysisBacground" >
-                    <el-col :span="18" style="background: rgb(255, 255, 255); margin-left:80px" class="fenquCol">
-                        <h3 style="margin:20px">分类评价信息</h3>
-                        <el-card><el-table
-                            :data="comment_aspect"
-                            :key="component_key"
-                            height="250"
-                            width="450"
-                            stripe
-                            style="width: 100%">
-                            <el-table-column prop="aspect" label="评价类别" width="150"></el-table-column>
-                            <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
-                            <el-table-column prop="score" label="整体评价结果"> </el-table-column>
-                        </el-table></el-card>
-                    </el-col>
-                </el-row>
-            </el-col>
-        <!-- </el-row> -->
-
-        <!-- 分析详情 -->
-        <div v-show="AnalysisDetailStatus" style="background: rgb(240, 242, 245);">
-            <el-row class="fenqubiaotiRow" style="margin:20px"><el-col :span="24"><div class="fenqubiaoti">分析详情</div></el-col></el-row>
-            <el-row class="fenqubiaotiRow" type="flex" justify="center">
-                <el-col :span="3"><div class="xuanzekuangshuoming">产品属性</div></el-col>
-                <el-col :span="14" type="flex" justify="center">
-                    <el-checkbox-group v-model="varietyValue"  :max="1" @change="varietyChange">
-                        <el-checkbox-button v-for="variety in varietyList" :label="variety" :key="variety">{{variety}}</el-checkbox-button>
-                    </el-checkbox-group>
-                    <div style="margin-top:20px; color:slategrey">（取消选择一个属性，再点击另一个属性）</div>
-                </el-col>
-            </el-row>
-            <el-row id="DetailPie" v-show="AnalysisDetailStatus" style="margin:20px; margin-top:0px" type="flex" justify="space-around">
-                <el-col :span="8" style="margin:10px;">
-                    <el-card><data-statistics-pie2 ref="pie2"/></el-card>
-                </el-col>
-                <el-col :span="8" style="margin:10px;">
-                    <el-card><data-statistics-pie3 ref="pie3"/></el-card>
-                </el-col>
-                <el-col :span="8" style="margin:10px;">
-                    <el-card><data-statistics-pie4 ref="pie4"/></el-card>
-                </el-col>
-            </el-row>
-            <!-- 正面负面评价 -->
-            <el-row id="DetailComment" v-show="AnalysisDetailStatus" style="margin:20px;" type="flex" justify="space-around" >
-                <el-col :span="8">
-                    <div class="xuanzekuangshuoming" style="font-weight:bold">正面评价</div>
-                    <el-card  shadow="hover" class="cardStyle"  style="width:50">
-                        <el-table
-                            :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-                            :data="POSUnitList"
-                            style="width: 100%">
-                            <el-table-column
-                                prop="target"
-                                label="评价对象"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="opinion"
-                                label="评价观点"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="times"
-                                label="评价次数"
-                                width="100%">
-                            </el-table-column>
-                        </el-table>
-                    </el-card>
-                </el-col>
-                <el-col :span="8">
-                    <div class="xuanzekuangshuoming" style="font-weight:bold">中性评价</div>
-                    <el-card  shadow="hover" class="cardStyle"  style="width:50">
-                        <el-table
-                            :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-                            :data="NEUUnitList"
-                            style="width: 100%">
-                            <el-table-column
-                                prop="target"
-                                label="评价对象"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="opinion"
-                                label="评价观点"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="times"
-                                label="评价次数"
-                                width="100%">
-                            </el-table-column>
-                        </el-table>
-                    </el-card>
-                </el-col>
-                <el-col :span="8">
-                    <div class="xuanzekuangshuoming" style="font-weight:bold">负面评价</div>
-                    <el-card  shadow="hover" class="cardStyle" style="width:50">
-                        <el-table
-                            :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-                            :data="NEGUnitList"
-                            style="width: 100%">
-                            <el-table-column
-                                prop="target"
-                                label="评价对象"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="opinion"
-                                label="评价观点"
-                                width="100%">
-                            </el-table-column>
-                            <el-table-column
-                                prop="times"
-                                label="评价次数"
-                                width="100%">
-                            </el-table-column>
-                        </el-table>
-                    </el-card>
+                    </el-row>
                 </el-col>
             </el-row>
         </div>
-        
-        <!-- 产品展示 -->
-        <div style="margin: 30px; margin-top: 100px">
-            <div style="margin: 10px; margin-left:20px; color:slategrey; text-align: center;">部分产品展示：（点击图片跳转京东链接）</div>
-            <br/>
-            <el-row style="margin:20px; margin-top:0px" type="flex" justify="space-around">
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=大米&enc=utf-8" target="_blank">
-                    <img src="./images/大米.jpeg" width="300" height="200">
-                </a></el-col>
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=茶叶&enc=utf-8" target="_blank">
-                    <img src="./images/茶叶.jpeg" width="300" height="200">
-                </a></el-col>
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=番茄&enc=utf-8" target="_blank">
-                    <img src="./images/番茄.jpeg" width="300" height="200">
-                </a></el-col>
-            </el-row>
-            <el-row style="margin:20px; margin-top:0px" type="flex" justify="space-around">
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=荸荠&enc=utf-8" target="_blank">
-                    <img src="./images/荸荠.jpeg" width="300" height="200">
-                </a></el-col>
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=油茶&enc=utf-8" target="_blank">
-                    <img src="./images/油茶.jpeg" width="300" height="200">
-                </a></el-col>
-                <el-col :span="8"><a href="https://search.jd.com/Search?keyword=猕猴桃&enc=utf-8" target="_blank">
-                    <img src="./images/猕猴桃.jpeg" width="300" height="200">
-                </a></el-col>
-            </el-row>
-            <br/>
-            <br/>
-        </div>
 
-        <!-- </div> -->
+
     </div>
 </template>
 
@@ -442,7 +291,7 @@
             AnalysisInfoStatus: false,
             purchaseAdvicesList:[{'advice': '暂无'}],
             plantAdvicesList:[{'advice': '暂无'}],
-            varietyValue:['价格'],
+            varietyValue:'价格',
             varietyList:['价格','品质','色泽','口感','包装','分量','物流','售后'],
             getAnalysisDetailLoading:false,
             AnalysisDetailRes: null,
@@ -485,35 +334,21 @@
             chandiValueChange(chandiValue){
                 this.chanpinList = this.chandichanpinDict[chandiValue]
             },
-            varietyChange(varietyValue){
-                console.log(varietyValue)
-                // 选中一个类别
-                if (varietyValue.length > 0){
-                    for(var index in this.AnalysisDetailRes['data']['aspect_details']){
-                        if (this.AnalysisDetailRes['data']['aspect_details'][index]['aspect'] == this.varietyValue[0]){
-                            console.log(this.AnalysisDetailRes['data']['aspect_details'][index]['aspect'])
-                            console.log(this.AnalysisDetailRes['data']['aspect_details'].length)
-                            document.getElementById("DetailComment").style.visibility = 'visible'
-                            document.getElementById("DetailPie").style.visibility = 'visible'
-                            this.$refs.pie2.initChart('情感分布','', this.AnalysisDetailRes['data']['aspect_details'][index]['sentiment_distribution'])
-                            this.$refs.pie3.initChart('评价对象','', this.AnalysisDetailRes['data']['aspect_details'][index]['target_distribution'])
-                            this.$refs.pie4.initChart('评价观点','', this.AnalysisDetailRes['data']['aspect_details'][index]['opinion_distribution'])
-                            this.POSUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['positive_units']
-                            this.NEUUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['neutral_units']
-                            this.NEGUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['negative_units']
-                            return
-                        }
+            varietyChange(){
+                console.log(this.varietyValue)
+                for(var index in this.AnalysisDetailRes['data']['aspect_details']){
+                    if (this.AnalysisDetailRes['data']['aspect_details'][index]['aspect'] == this.varietyValue){
+                        console.log(this.AnalysisDetailRes['data']['aspect_details'][index]['aspect'])
+                        document.getElementById("DetailComment").style.visibility = 'visible'
+                        document.getElementById("DetailPie").style.visibility = 'visible'
+                        this.$refs.pie2.initChart('情感分布','', this.AnalysisDetailRes['data']['aspect_details'][index]['sentiment_distribution'])
+                        this.$refs.pie3.initChart('评价对象','', this.AnalysisDetailRes['data']['aspect_details'][index]['target_distribution'])
+                        this.$refs.pie4.initChart('评价观点','', this.AnalysisDetailRes['data']['aspect_details'][index]['opinion_distribution'])
+                        this.POSUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['positive_units']
+                        this.NEUUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['neutral_units']
+                        this.NEGUnitList = this.AnalysisDetailRes['data']['aspect_details'][index]['negative_units']
+                        return
                     }
-                    document.getElementById("DetailComment").style.visibility = 'hidden'
-                    document.getElementById("DetailPie").style.visibility = 'hidden'
-                    this.SentimentText = false
-                    this.DailyInfoStatus = false
-                    this.AnalysisInfotatus = false
-                    this.AnalysisDetailStatus = false
-                }
-                else{
-                    document.getElementById("DetailComment").style.visibility = 'hidden'
-                    document.getElementById("DetailPie").style.visibility = 'hidden'
                 }
             },
             clickAll(){
