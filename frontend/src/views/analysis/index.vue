@@ -1,6 +1,71 @@
 <template>
-  <div class="sentiment-analysis">
-    <div class="home-container"><el-header style="margin">文本情感分析</el-header></div>
+    <div style="background:#F2F3F5 ;min-width:fit-content;">
+        <div class="dataAnalysisBacground">
+            <el-row :gutter="20" class="dataAnalysisBacground">
+                <h2 style="margin-left:40px">文本分析</h2>
+            </el-row>
+        </div>
+        <div class="dataAnalysisBacground">
+            <el-row :gutter="20">
+                <el-col :span="10">
+                    <h3 style="margin-left:40px">输入文本</h3>
+                    <el-row style="margin:20px">
+                        <el-input class="shuruwenbenkuang"
+                        type="textarea"
+                        :autosize="{ minRows: 10, maxRows: 30}"
+                        placeholder="请输入内容"
+                        style="font-size: 16px;"
+                        v-model="inputText">
+                        </el-input>
+                        <el-button :loading="submitLoading" type="primary" @click="submitText" class="InfoButton">文本分析</el-button>
+                    </el-row>
+                </el-col>
+                <el-col :span="10">
+                    <h3 style="margin-left:40px">上传文件</h3>
+                    <el-row style="margin:20px">
+                        <el-upload
+                        class="shangchuanwenjiankuang"
+                        accept=".txt"
+                        ref="upload"
+                        :limit="1"
+                        :on-exceed="handleFileExceed"
+                        drag
+                        :auto-upload="false"
+                        action="http://47.100.99.53:9050/api/v1/postDataFile"
+                        :on-success="uploadSuccess"
+                        :on-error="uploadError"
+                        :file-list="fileList"
+                        >
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+                        <div class="el-upload__tip" slot="tip">只能上传txt文件</div>
+                        </el-upload>
+                    </el-row>
+                </el-col>
+            </el-row>
+        </div>
+        <div class="dataAnalysisBacground" v-show="resultStatus">
+            <el-row :gutter="20" style="margin:20px">
+                <h3 style="margin:30px">结果展示</h3>
+                <el-col :span="22" style="text-align: center;">
+                    <div  max-height="450px;">
+                        <el-table :header-cell-style="{textAlign: 'center', 'background-color': '#F2F3F5', color: '#000000'}" :cell-style="{textAlign: 'center', color: '#000000'}"
+                            v-for="item in textRes" :data="item['comment_units']"
+                            style="width: 100%" max-height="420px;">
+                            <el-table-column label="编号" width="150"></el-table-column>
+                            <el-table-column label="评价对象" prop="entity.text" width="150"></el-table-column>
+                            <el-table-column label="观点表达" prop="evaluation.text" width="150"></el-table-column>
+                            <el-table-column label="评价类别" prop="attribute" width="150"></el-table-column>
+                            <el-table-column label="情感极性" prop="polarity" width="150"></el-table-column>
+                        </el-table>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>  
+    
+    <!-- 原始数据 -->
+    <div class="sentiment-analysis">
+    <!-- <div class="home-container"><el-header style="margin">文本分析</el-header></div>
     <div class="shuruwenben">
       输入文本
     </div>
@@ -14,10 +79,10 @@
       style="font-size: 16px;"
       v-model="inputText">
     </el-input>
-    <el-button :loading="submitLoading" type="primary" @click="submitText" class="dantiaofenxibutton">文本分析</el-button>
+    <el-button :loading="submitLoading" type="primary" @click="submitText" class="dantiaofenxibutton">文本分析</el-button> -->
     
 
-    <div class="shangchuanwenjian">
+    <!-- <div class="shangchuanwenjian">
       上传文件
     </div>
     <div class="shangchuanwenjianshuoming">
@@ -40,9 +105,9 @@
       <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
       <div class="el-upload__tip" slot="tip">只能上传txt文件</div>
     </el-upload>
-    <el-button :loading="uploadLoading" type="primary" @click="submitUpload" class="piliangfenxibutton">文件分析</el-button>
+    <el-button :loading="uploadLoading" type="primary" @click="submitUpload" class="piliangfenxibutton">文件分析</el-button> -->
 
-    <div class="jieguozhanshi">
+    <!-- <div class="jieguozhanshi">
       结果展示
     </div>
     <div class="jieguozhanshikuang"></div>
@@ -92,7 +157,7 @@
               </template>
             </el-table-column>
         </el-table>
-      </el-card>
+      </el-card> -->
       <div class="keshihuajieguoline"></div>
       <div class="keshihuajieguo">
         可视化结果
@@ -604,6 +669,15 @@
     // font-wight:700;
     line-height: 60px;
   }
+    .dataAnalysisBacground{
+        margin: 20px;
+        background: white;
+    }
+    .InfoButton{
+        // display: flex;
+        // justify-content: center;
+        background-color: #165DFF;
+    }
 .sentiment-analysis {
   background: rgb(240, 242, 245);
   // padding: 32px;
