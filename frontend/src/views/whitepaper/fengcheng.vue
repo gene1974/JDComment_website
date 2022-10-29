@@ -1,12 +1,10 @@
 <template>
     <div class="home-container">
-    <!-- <div class="home-container" style="min-width:fit-content;"> -->
-        <el-header>江西丰城大米</el-header>
         <div>
             <el-row style="margin:20px;">
                 <el-col :span="20" style="margin-left: 40px;">
-                    <h2 style="margin-left:50px">2022年第一季度江西丰城大米电商销售白皮书</h2>
                     <el-card>
+                        <h2 style="text-align: center;">2022年第一季度江西丰城大米电商销售白皮书</h2>
                         <p> 2022年第一季度，国内稻米市场整体偏弱。春节前国内大米集中备货，价格与销量普遍上涨，2月开始逐渐回落至平稳。</p>
                         <h3>一、江西丰城大米2022第一季度日消费热度和消费评价概况度 </h3>
                         <h4>1.消费热度</h4>

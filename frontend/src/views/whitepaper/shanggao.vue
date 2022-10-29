@@ -1,12 +1,9 @@
 <template>
-    <div class="home-container">
-        <el-header>江西上高大蒜</el-header>
-        <el-row style="margin:20px;">
-            <el-col :span="20" style="margin-left: 40px;">
-                <iframe :src="reportUrl" frameborder="0" style="width:600px;height:600px;"></iframe>
-            </el-col>
-        </el-row>
-    </div>
+  <el-row :gutter="20" id="background" style="background:#F2F3F5 ;min-width:fit-content; height: 720px;">
+      <el-col :span="20" class="Background" style="margin-left: 40px;">
+          <iframe :src="reportUrl" frameborder="0" style="width:600px;height:700px;"></iframe>
+      </el-col>
+  </el-row>
 </template>
 
 <script>
@@ -29,6 +26,10 @@
     left:0;
     right:0;
   }
+  .Background{
+        margin: 20px;
+        background: white;
+    }
   .home-container {
     min-height:800px;
     padding: 32px;

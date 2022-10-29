@@ -1,6 +1,6 @@
 <template>
     <div style="background:#F2F3F5 ;min-width:fit-content;">
-        <div class="Background">
+        <!-- <div class="Background">
             <el-row :gutter="20">
                 <h2 style="margin-left:40px">白皮书</h2>
             </el-row>
@@ -56,7 +56,7 @@
                     <el-button type="primary" @click="preview('yibin')" class="SearchButton">点击查看</el-button>
                 </el-col>
             </el-row>
-        </div>
+        </div> -->
     
     
         <el-header>白皮书</el-header>
@@ -232,32 +232,5 @@
     text-align: center;
     line-height: 160px;
   }
-  .gongnengmingcheng{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    justify-content: center;
-  }
-  .gongnengshuoming{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    display: flex;
-    justify-content: center;
 
-    color: #ABABAB;
-  }
-
-//   @media screen and (max-width: 992px) {
-//     .home-container {
-//       .chart-wrapper {
-//         padding: 8px;
-//       }
-//     }
-//   }
 </style>
