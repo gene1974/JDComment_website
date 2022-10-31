@@ -178,6 +178,23 @@ export const routes = [
     }]
   },
   {
+    path: '/knowledgegraph',
+    component: Layout,
+    meta: {title: '可视化', icon: 'el-icon-download'},
+    children: [{
+      path: 'index',
+      component: () => import('@/views/kg/index.vue'),
+      name: 'knowledgegraph',
+      meta: {title: '图谱查询', icon: 'el-icon-document-copy'}
+    },{
+      path: 'neovisgraph',
+      component: () => import('@/views/kg/neovisgraph.vue'),
+      name: 'neovisgraph',
+      meta: {title: '图谱前端', icon: 'el-icon-document-copy'}
+    },
+  ]
+  },
+  {
     path: '/whitepaper',
     component: Layout,
     meta: {title: '白皮书', icon: 'el-icon-download'},
