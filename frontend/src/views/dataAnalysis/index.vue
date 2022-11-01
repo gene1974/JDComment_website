@@ -2,8 +2,8 @@
     <!-- <div style="background:#F7F8FA ;min-width:fit-content;"> -->
     <div style="background:#F2F3F5 ;min-width:fit-content;">
 
-        <div class="dataAnalysisBacground">
-        <el-row :gutter="20" class="dataAnalysisBacground">
+        <div class="Background">
+        <el-row :gutter="20" class="Background">
             <h2 style="margin-left:40px">数据分析</h2>
             <!-- 选取产地时间 -->
             <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:20px">
@@ -68,6 +68,7 @@
                         </el-col>
                     </el-row>
                 </el-col>
+                <!-- 按钮 -->
                 <el-col :span="2">
                     <el-row>
                         <el-button :loading="getDailyInfoLoading" type="primary" @click="clickQuery" class="InfoButton">查询</el-button>
@@ -81,7 +82,7 @@
         </div>
         
         <!-- 基本走势 -->
-        <div  class="dataAnalysisBacground" v-show="DailyInfoStatus">
+        <div  class="Background" v-show="DailyInfoStatus">
             <el-row v-show="DailyInfoStatus">
                 <h3 style="margin-left:40px">基本走势</h3>
                 <el-col :span="11" style="margin-left:10px; text-align:center; padding: 10px">
@@ -94,7 +95,7 @@
         </div>
 
         <!-- 分析概览 -->
-        <div class="dataAnalysisBacground" v-show="AnalysisInfoStatus">
+        <div class="Background" v-show="AnalysisInfoStatus">
             <el-row :gutter="20">
                 <el-col :span="8">
                     <h3 style="margin-left:40px">分析概览</h3>
@@ -117,7 +118,7 @@
         </div>
 
         <!-- 分析详情 -->
-        <div v-show="AnalysisDetailStatus" class="dataAnalysisBacground">
+        <div v-show="AnalysisDetailStatus" class="Background">
             <!-- 属性选择 -->
             <el-row style="margin:40px; margin-bottom: 0px;">
                 <h3>分析详情</h3>
@@ -142,25 +143,25 @@
             <!-- 评价统计表格 -->
             <h3 style="margin-left:40px; margin-top: 20px;">评价信息统计</h3>
             <el-row :gutter="20" id="DetailComment">
-                <el-col :span="7" class="dataAnalysisBacground">
+                <el-col :span="7" class="Background">
                     <div class="xuanzekuangshuoming" style="font-weight:bold">正面评价</div>
-                    <el-table :data="POSUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                    <el-table :data="POSUnitList" :header-cell-style="{textAlign: 'center', color: 'black'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
                         <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
                         <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
                         <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
                     </el-table>
                 </el-col>
-                <el-col :span="7" class="dataAnalysisBacground">
+                <el-col :span="7" class="Background">
                     <div class="xuanzekuangshuoming" style="font-weight:bold">中性评价</div>
-                    <el-table :data="NEUUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                    <el-table :data="NEUUnitList" :header-cell-style="{textAlign: 'center', color: 'black'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
                         <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
                         <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
                         <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
                     </el-table>
                 </el-col>
-                <el-col :span="7" class="dataAnalysisBacground">
+                <el-col :span="7" class="Background">
                     <div class="xuanzekuangshuoming" style="font-weight:bold">负面评价</div>
-                    <el-table :data="NEGUnitList" :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                    <el-table :data="NEGUnitList" :header-cell-style="{textAlign: 'center', color: 'black'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
                         <el-table-column prop="target" label="评价对象" width="100%"></el-table-column>
                         <el-table-column prop="opinion" label="评价观点" width="100%"></el-table-column>
                         <el-table-column prop="times" label="评价次数" width="100%"></el-table-column>
@@ -635,7 +636,7 @@ table {
         line-height: 60px;
     }
     // 情感分析内容
-    .dataAnalysisBacground{
+    .Background{
         margin: 20px;
         background: white;
     }
