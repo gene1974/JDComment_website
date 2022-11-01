@@ -1,5 +1,95 @@
 <template>
-    <div>
+    <div style="background:#F2F3F5 ;min-width:fit-content;">
+
+        <div class="Backcground">
+        <el-row :gutter="20" class="Backcground">
+            <h2 style="margin-left:40px">数据展示</h2>
+            <!-- 选取产地时间 -->
+            <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:20px">
+                <!-- 产地 -->
+                <el-col :span="5">
+                    <el-row>
+                        <el-col :span="6"><div class="xuanzekuangshuoming">产品</div></el-col>
+                        <el-col :span="18">
+                            <el-select v-model="product" placeholder="请选择">
+                                <el-option
+                                v-for="item in productList" :key="item" :label="item" :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                    <el-row style="margin-top: 20px">
+                        <el-col :span="6"><div class="xuanzekuangshuoming">任务</div></el-col>
+                        <el-col :span="18">
+                            <el-select v-model="taskNum" placeholder="请选择">
+                                <el-option
+                                v-for="item in taskList" :key="item"  :label="item" :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                </el-col>
+                <!-- 产品 -->
+                <el-col :span="5">
+                    <el-row>
+                        <el-col :span="6"><div class="xuanzekuangshuoming">评价类别</div></el-col>
+                        <el-col :span="18">
+                            <el-select v-model="attribute" placeholder="请选择">
+                                <el-option
+                                v-for="item in attributeList" :key="item" :label="item" :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                </el-col>
+                <!-- 情感极性 -->
+                <el-col :span="10">
+                    <el-row>
+                        <el-col :span="6"><div class="xuanzekuangshuoming">情感极性</div></el-col>
+                        <el-col :span="18">
+                            <el-select v-model="polarity" placeholder="请选择">
+                                <el-option
+                                v-for="item in polarityList" :key="item" :label="item" :value="item">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                    </el-row>
+                </el-col>
+                <!-- 按钮 -->
+                <el-col :span="2">
+                    <el-row>
+                        <el-button type="primary" @click="clickQuery" class="InfoButton">查询</el-button>
+                    </el-row>
+                    <el-row style="margin-top: 20px">
+                        <el-button type="primary" @click="clickReset" class="ResetButton">重置</el-button>
+                    </el-row>
+                </el-col>
+            </el-row>
+            <el-row :gutter="20" id="DetailComment">
+                <el-col :span="22" class="Background">
+                    <div class="xuanzekuangshuoming" style="font-weight:bold">数据展示</div>
+                    <el-table :data="database" :header-cell-style="{textAlign: 'center', textColor: 'black'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
+                        <el-table-column prop="index" label="评论序号" width="50"></el-table-column>
+                        <el-table-column prop="product" label="产品" width="100"></el-table-column>
+                        <el-table-column prop="category" label="评价类别" width="100"></el-table-column>
+                        <el-table-column prop="target" label="评价对象" width="150"></el-table-column>
+                        <el-table-column prop="opinion" label="评价观点" width="200"></el-table-column>
+                        <el-table-column prop="polarity" label="情感极性" width="100"></el-table-column>
+                    </el-table>
+                </el-col>
+            </el-row>
+        <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="pageData.currentPage+1"
+            :page-sizes="[10, 20, 30, 40]"
+            :page-size="pageData.pageSize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="pageData.pageSum">
+        </el-pagination>
+        </el-row>
+        </div>
+        
         <el-menu
         :default-active="'0'"
         class="el-menu-demo"
@@ -48,31 +138,76 @@
     </div>
 </template>
 
-<style>
-  .demo-table-expand {
-    font-size: 0;
-  }
-  .demo-table-expand label {
-    width: 90px;
-    color: #99a9bf;
-  }
-  .demo-table-expand .el-form-item {
-    margin-left: 5%;
-    margin-right: 0;
-    margin-bottom: 0;
-    width: 50%;
-  }
-</style>
-
 <script>
 import {fetchPageHistory, fetchHistoryInfo} from '@/api/dataAnnotation.js'
 
   export default {
+    data(){
+        return{
+            product: '大米',
+            productList:['大米', '番茄', '茶叶', '荸荠', '猕猴桃', '竹笋', '蜜柚', '茶油', '椪柑', '大蒜', '藕', '豆皮', '蜜茄'],
+            attribute: '品质',
+            attributeList:['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其他'],
+            taskNum:'0',
+            taskList: ['0'],
+            polarity: '全部',
+            polarityList:['负向', '正向', '中立'],
+            database: [],
+            isValueList:['有效数据','无效数据'],
+            rawData:null,
+            tableData:[],
+            pageData:{
+                pageSize:10,
+                pageSum:0,
+                currentPage:0,
+            },
+
+        }
+    },
     mounted() {
         this.getDataSum()
         this.getFirstPage()
     },
     methods: {
+        clickQuery(){
+            let data = {"page": this.pageData.currentPage, "pageSize": this.pageData.pageSize, "taskNum":this.taskNum}
+            fetchPageHistory(data).then( res => {
+                console.log(res)
+                this.database = []
+                var index = 1
+                for(var i = 0; i < res.length; i++){
+                    for (var j = 0; j < res[i]['tag']['valueList'].length; j++){
+                        if(res[i]['tag']['valueList'][j]['entity'].length == 0 || res[i]['tag']['valueList'][j]['evaluation'].length == 0){
+                            continue;
+                        }
+                        let target = []
+                        let opinion = []
+                        for (var k = 0; k < res[i]['tag']['valueList'][j]['entity'].length; k++){
+                            target.push(res[i]['tag']['valueList'][j]['entity'][k]['str'])
+                        }
+                        for (var k = 0; k < res[i]['tag']['valueList'][j]['evaluation'].length; k++){
+                            opinion.push(res[i]['tag']['valueList'][j]['evaluation'][k]['str'])
+                        }
+                        this.database.push({
+                            'index': index,
+                            'text': res[i]['comment_text'],
+                            'product': res[i]['comment_variety'],
+                            'category': this.attributeList[res[i]['tag']['valueList'][j]['attribute']],
+                            'target': target.join(),
+                            'opinion': opinion.join(),
+                            'polarity': this.polarityList[res[i]['tag']['valueList'][j]['polarity']],
+                        })
+                        index += 1
+                    }
+                }
+            }).catch(err => {
+                console.log(err);
+                this.$message({message:"获取当前页标注数据失败", type:'error'})
+            })
+        },
+        clickReset(){
+            this.database = []
+        },
         getDataSum(){
             let data = {"taskNum":this.taskNum}
             fetchHistoryInfo(data).then( res => {
@@ -92,6 +227,7 @@ import {fetchPageHistory, fetchHistoryInfo} from '@/api/dataAnnotation.js'
         },
         getFirstPage(){
             let data = {"page": 0, "pageSize": 10, "taskNum":this.taskNum}
+            // this.clickQuery()
             fetchPageHistory(data).then( res => {
                 this.rawData = res
                 // console.log(this.rawData)
@@ -192,28 +328,64 @@ import {fetchPageHistory, fetchHistoryInfo} from '@/api/dataAnnotation.js'
             console.log(`每页 ${val} 条`);
             this.pageData.pageSize = val
             this.getNewPage()
+            this.clickQuery()
         },
         handleCurrentChange(val) {
             console.log(`当前页: ${val}`);
             this.pageData.currentPage = val-1
             this.getNewPage()
+            this.clickQuery()
         }
         },
-        //   default-expand-all
-        data() {
-            return {
-                taskNum:'0',
-                isValueList:['有效数据','无效数据'],
-                attributeList:['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其他'],
-                polarityList:['负向', '正向', '中立'],
-                rawData:null,
-                tableData:[],
-                pageData:{
-                    pageSize:10,
-                    pageSum:0,
-                    currentPage:0,
-                }
-            }
-        }
     }
 </script>
+
+
+<style lang="scss">
+    .Background{
+        margin: 20px;
+        background: white;
+    }
+    .fenquxuanzekuangRow{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .xuanzekuangshuoming{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+    }
+    .InfoButton{
+        // display: flex;
+        // justify-content: center;
+        background-color: #165DFF;
+    }
+    .ResetButton{
+        // display: flex;
+        // justify-content: center;
+        color: #000000;
+        background-color: #F2F3F5;
+        border-color: #F2F3F5;
+    }
+    .el-table-column{
+        color:#000000;
+    }
+    .demo-table-expand {
+        font-size: 0;
+    }
+    .demo-table-expand label {
+        width: 90px;
+        color: #99a9bf;
+    }
+    .demo-table-expand .el-form-item {
+        margin-left: 5%;
+        margin-right: 0;
+        margin-bottom: 0;
+        width: 50%;
+    }
+</style>
