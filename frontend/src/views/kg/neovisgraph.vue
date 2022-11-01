@@ -1,4 +1,7 @@
 
+<!-- <script src="../../../public/js/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../public/static/neovis.js"></script> -->
+<script type="text/javascript" src="/static/neovis.js"></script>
 <template>
     <div>
         <el-row>
@@ -19,6 +22,7 @@
     </div>
 </template>
  
+
 <script>
 export default {
     name: '',
@@ -33,8 +37,8 @@ export default {
     mounted() { this.draw() }, //渲染
     methods: {
         submit() { 
-            // var cypher = $("#cypher").val();
-            var cypher = document.getElementById("cypher").value
+            var cypher = $("#cypher").val();
+            // var cypher = document.getElementById("cypher").value
             console.log(cypher)
             if (cypher.length > 3) {
                 this.viz.renderWithCypher(cypher);
