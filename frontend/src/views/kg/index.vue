@@ -1,35 +1,71 @@
 <template>
     <div style="background:#F2F3F5 ;min-width:fit-content;">
-        <div class="Background">
-            <el-row :gutter="20">
+        <div>
+            <el-row :gutter="20" class="Background">
                 <h2 style="margin-left:40px">图谱查询</h2>
+                <el-row :gutter="20" style="margin:10px">
+                    <el-col :span="4"><div class="xuanzekuangshuoming">查询类型</div></el-col>
+                    <el-col :span="8">
+                        <el-select v-model="searchValue" placeholder="请选择" @change="searchValueChange">
+                            <el-option v-for="item in searchList" :key="item" :label="item" :value="item"></el-option>
+                        </el-select>
+                    </el-col>
+                </el-row>
             </el-row>
-            <el-row :gutter="20" style="margin-left: 20px">
-                <h4 style="margin-left:40px">实体查询</h4>
-                <el-col :span="8">
-                    <el-input type="text" v-model="entity" placeholder="实体" @input="input_text"></el-input>
+            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
+                <h4 style="margin-left:20px">实体查询</h4>
+                <el-col :span="18">
+                    <el-row :gutter="20">
+                        <el-col :span="3"><div class="xuanzekuangshuoming">类型</div></el-col>
+                        <el-col :span="5">
+                            <el-select v-model="nodeValue" placeholder="请选择">
+                                <el-option v-for="item in nodeList" :key="item" :label="item" :value="item"></el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="3"><div class="xuanzekuangshuoming">文本</div></el-col>
+                        <el-col :span="6">
+                            <el-input type="text" v-model="entity" placeholder="花生" @input="input_text"></el-input>
+                        </el-col>
+                    </el-row>
+                </el-col>
+                <el-col :span="4">
+                    <el-button type="primary" value="Submit" @click="search_node" class="InfoButton">查询</el-button>
+                </el-col>
+            </el-row>
+            <el-row id="SearchTriplet" class="Background" :gutter="20" style="margin-left: 10px" hidden>
+                <h4 style="margin-left:40px">三元组查询</h4>
+                <!-- <el-col :span="18">
+                    <el-row :gutter="20">
+                        <el-col :span="4"><div class="xuanzekuangshuoming">三元组</div></el-col>
+                        <el-col :span="10">
+                            <el-select v-model="nodeValue" placeholder="请选择">
+                                <el-option v-for="item in nodeList" :key="item" :label="item" :value="item"></el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="10">
+                            <el-input type="text" v-model="entity" placeholder="实体" @input="input_text"></el-input>
+                        </el-col>
+                    </el-row>
                     <div style="margin-top:20px"><b>查询实体：{{entity}}</b></div>
+                </el-col> -->
+                <el-col :span="4">
+                    <el-button type="primary" value="Submit" @click="search_triplet" class="InfoButton">查询</el-button>
+                </el-col>
+            </el-row>
+            <el-row :gutter="22" style="min-height:fit-content">
+                <el-col :span="20" class="Background" style="margin-left: 20px">
+                    <h4 style="margin:20px">查询结果</h4>
+                    <div style="margin:20px">查询实体：{{entity}}</div>
                     <el-row>
                         <div id="result"></div>
                     </el-row>
                 </el-col>
-                <el-col :span="4">
-                    <el-button type="primary" value="Submit" @click="submit_entity" class="InfoButton">查询</el-button>
-                </el-col>
             </el-row>
             <el-row :gutter="20">
-                <el-col :span="20" style="margin-left: 20px">
-                <h4 style="margin-left:40px">查询结果</h4>
-                </el-col>
-            </el-row>
-            <el-row :gutter="20">
-                <h4 style="margin-left:40px">三元组查询</h4>
-            </el-row>
-            <!-- <el-row :gutter="20">
                 <div>
                     <iframe :src="reportUrl" frameborder="0" style="width:600px;height:700px;"></iframe>
                 </div>
-            </el-row> -->
+            </el-row>
         </div> 
     </div>
 </template>
@@ -38,24 +74,49 @@
   export default {
     data() {
         return {
+            entity: '',
+            searchValue: '节点查询',
+            searchList: ['节点查询', '三元组查询'],
+            nodeValue: '评价对象',
+            nodeList: ['产品', '评价对象', '评价词', '评价类别', '情感极性', '全部'],
             // reportUrl: 'http://47.100.99.53:7474/browser/',
-            // reportUrl: '/simple-example.html',
+            reportUrl: '/simple-example.html',
             // reportUrl: '/hello.html',
         }
     },
     methods:{
-      preview(filename){
-        // console.log(filename)
-        // let a = document.createElement('a')
-        // a.href = './' + filename + '.vue'
-        // a.target = '_blank'
-        // a.click()
-        // this.$router.push({name: filename})
-        // this.$router.push({name: 'fengcheng'})
-      },
-      input_text(){
-        this.$forceUpdate();
-      }
+        preview(filename){
+            // console.log(filename)
+            // let a = document.createElement('a')
+            // a.href = './' + filename + '.vue'
+            // a.target = '_blank'
+            // a.click()
+            // this.$router.push({name: filename})
+            // this.$router.push({name: 'fengcheng'})
+        },
+        input_text(){
+            this.$forceUpdate();
+        },
+        searchValueChange(){
+            if(this.searchValue == '节点查询'){
+                document.getElementById('SearchNode').hidden = false
+                document.getElementById('SearchTriplet').hidden = true
+            }
+            else{
+                document.getElementById('SearchNode').hidden = true
+                document.getElementById('SearchTriplet').hidden = false
+            }
+        },
+        click_search(){
+            if(this.searchValue == '节点查询') this.search_node()
+            else this.search_triplet()
+        },
+        search_node(){
+
+        },
+        search_triplet(){
+
+        },
     }
   }
 </script>
@@ -74,6 +135,16 @@
         color: #000000;
         background-color: #F2F3F5;
         border-color: #F2F3F5;
+    }
+    .xuanzekuangshuoming{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
     }
     .card{
         margin: 10px;

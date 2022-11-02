@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+    <title>Neovis.js Simple Example</title>
+    <style type="text/css">
+        html, body {
+            font: 16pt arial;
+        }
+
+        #viz {
+            width: 600px;
+            height: 500px;
+            border: 1px solid lightgray;
+            font: 22pt arial;
+        }
+
+    </style>
+
+    <!-- FIXME: load from dist -->
+    <script type="text/javascript" src="./static/neovis.js"></script>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+
+    <script type="text/javascript">
+		// define config car
+		// instantiate nodevis object
+		// draw
+
+		var viz;
+
+		function draw() {
+			var config = {
+				containerId: "viz",
+				neo4j: {
+					// serverUrl: "bolt://localhost:7687",
+					serverUrl: "bolt://47.100.99.53:7687",
+					serverUser: "neo4j",
+					serverPassword: "neo4j"
+				},
+				visConfig: {
+					nodes: {
+						// shape: 'square',
+						// color: 'yellow',
+						font: {
+                            "size":16,
+							// 'color':'yellow',
+                            'color': 'black',
+							// 'size': "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c",
+                        },
+					},
+					edges: {
+						// color: 'yellow',
+						arrows: {
+							to: {enabled: true}
+						}
+					},
+				},
+				labels: {
+					Entity: {
+						label: "name",
+						color: 'blue',
+						title_properties: ['name'],
+						// "caption": "显示的节点属性",
+						"size": "points",
+						font: {
+                            "size":16,
+							'color':'yellow',
+                            // "color":"#000000"
+                        },
+						// [NeoVis.NEOVIS_ADVANCED_CONFIG]: {
+						// 	cypher: {
+						// 		value: "MATCH (n) WHERE id(n) = $id RETURN n.size"
+						// 	},
+						// 	function: {
+						// 		title: NeoVis.objectToTitleHtml
+						// 	},
+						// }
+					},
+					Product: {
+						label: "name",
+						color: 'green',
+					},
+					Opinion: {
+						label: "name",
+						color: 'yellow',
+						group: 'polarity', // 根据polarity分组
+					},
+					Character: {
+						label: "name",
+						value: "pagerank",
+						group: "community"
+					}
+				},
+				relationships: {
+					Target:{
+						label: 'name',
+						value: 'name',
+						'thickness': '3',
+						"caption": false,
+					},
+					INTERACTS: {
+						value: "Target",
+						// value: "weight"
+					}
+				},
+				initialCypher: "MATCH (n:Entity)-[r]->(m:Product) RETURN n,r,m limit 10",
+				// initialCypher: "MATCH (n)-[r:INTERACTS]->(m) RETURN n,r,m"
+			};
+
+			viz = new NeoVis.default(config);
+			viz.render();
+			console.log(viz);
+
+		}
+    </script>
+</head>
+
+<body onload="draw()">
+
+
+	Cypher query: <textarea rows="4" cols=50 id="cypher"></textarea><br>
+	<input type="submit" value="Submit" id="reload">
+	<input type="submit" value="Stabilize" id="stabilize">
+	<div id="viz"></div>
+
+
+</body>
+
+<script>
+	$("#reload").click(function () {
+
+		var cypher = $("#cypher").val();
+
+		if (cypher.length > 3) {
+			viz.renderWithCypher(cypher);
+		} else {
+			console.log("reload");
+			viz.reload();
+
+		}
+
+	});
+
+	$("#stabilize").click(function () {
+		viz.stabilize();
+	})
+
+</script>
+</html>
