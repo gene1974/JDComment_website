@@ -54,15 +54,14 @@
                     <el-row>
                         <el-button type="primary" @click="clickQuery" class="InfoButton">查询</el-button>
                     </el-row>
-                    <el-row style="margin-top: 20px">
+                    <el-row style="margin-top: 10px">
                         <el-button type="primary" @click="clickReset" class="ResetButton">重置</el-button>
                     </el-row>
                 </el-col>
             </el-row>
-            <el-row :gutter="20" id="DetailComment" style="margin: 30px">
+            <el-row :gutter="20" id="DetailComment" style="margin: 30px;margin-top: 10px;">
                 <el-col :span="22" class="Background" style="text-align: center;">
                     <div class="xuanzekuangshuoming" style="font-weight:bold; margin: 20px">数据展示</div>
-                    <p id="dataNum" style="text-align: center;margin: 10px"></p>
                     <el-table :data="database" :header-cell-style="{textAlign: 'center', color: 'black'}" :cell-style="{ textAlign: 'center', color: 'black'}" style="width: 100%; justify-content: center;">
                         <el-table-column prop="index" label="评论序号" width="100"></el-table-column>
                         <el-table-column prop="product" label="产品" width="150"></el-table-column>
@@ -115,11 +114,9 @@ import {fetchPageHistory, fetchHistoryInfo, fetchPageHistoryFiltered} from '@/ap
             this.product = '大米'
             this.taskNum = '0'
             this.polarity = '全部'
-            // document.getElementById('dataNum').innerText = ''
         },
         clickQuery(){
             let data = {
-                "pageSize": this.pageData.pageSize,
                 "product": this.product,
                 "category": this.attribute,
                 "polarity": this.polarity,
@@ -127,7 +124,6 @@ import {fetchPageHistory, fetchHistoryInfo, fetchPageHistoryFiltered} from '@/ap
             fetchPageHistoryFiltered(data).then(res => {
                 console.log(res)
                 this.database = res
-                // document.getElementById('dataNum').innerText = '当前筛选条件下共获取' + res.length + '条数据'
             }).catch(err => {
                 console.log(err);
                 this.$message({message:"获取当前页标注数据失败", type:'error'})

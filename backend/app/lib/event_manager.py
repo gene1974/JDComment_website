@@ -140,7 +140,7 @@ class EventManager(object):
             'polarity': '2'
             }, {'entity': [], 'evaluation': [], 'attribute': '8', 'polarity': '2'}]}, 'date': '2020-11-08 18:19:59'}
     '''
-    def fetch_page_history_filtered(self, pageSize, target_product, target_category, target_polarity):
+    def fetch_page_history_filtered(self, target_product, target_category, target_polarity):
         polarityList = ['负向', '正向', '中立']
         attributeList = ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其他']
         database = []
@@ -175,8 +175,6 @@ class EventManager(object):
                         'polarity': polarity,
                     })
                     index += 1
-                    if index > pageSize: 
-                        break
         return database
 
     def get_daily_info(self, location, variety, start_date, end_date):

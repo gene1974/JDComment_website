@@ -28,7 +28,7 @@ def get_history_info():
 @api.route('/getPageHistoryFiltered', methods=['POST'])
 def get_page_history_filtered():
     data = request.get_json()
-    return jsonify(EVENT.fetch_page_history_filtered(data['pageSize'], data['product'], data['category'], data['polarity']))
+    return jsonify(EVENT.fetch_page_history_filtered(data['product'], data['category'], data['polarity']))
 
 # 分页查看标注好的历史数据
 @api.route('/getPageHistory', methods=['POST'])
