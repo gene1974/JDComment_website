@@ -126,6 +126,59 @@ class EventManager(object):
         return self.event[taskNum]['event_labeled'][pageSize*page:pageSize*page+pageSize]
         # return jsonify('success')
 
+    '''
+    {'comment_id': 115773, 
+    'comment_text': '这个玉米真心一般，还是煮熟了真空包装的，不是带皮儿新鲜的，有点小失望?', 
+    'comment_variety': '玉米', 'user_star': '1', 
+    'taskNum': '0', 
+    'tag': {
+        'isValue': '0', 
+        'valueList': [{
+            'entity': [{'str': '玉米', 'start': 2, 'end': 4}], 
+            'evaluation': [{'str': '一般', 'start': 6, 'end': 8}, {'str': '不是带皮儿新鲜的', 'start': 20, 'end': 28}], 
+            'attribute': 1, 
+            'polarity': '2'
+            }, {'entity': [], 'evaluation': [], 'attribute': '8', 'polarity': '2'}]}, 'date': '2020-11-08 18:19:59'}
+    '''
+    def fetch_page_history_filtered(self, pageSize, target_product, target_category, target_polarity):
+        polarityList = ['负向', '正向', '中立']
+        attributeList = ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其他']
+        database = []
+        index = 0
+        print('Target: ', target_product, target_polarity, target_polarity)
+        for task in range(len(self.event)): # task, 9
+            for i in range(len(self.event[str(task)]['event_labeled'])): # data, 462
+                data = self.event[str(task)]['event_labeled'][i]
+                
+                if data['comment_variety'] != target_product:
+                    continue
+                for j in range(len(data['tag']['valueList'])):
+                    if len(data['tag']['valueList'][j]['entity']) == 0 or len(data['tag']['valueList'][j]['evaluation']) == 0:
+                        continue
+                    polarity = polarityList[int(data['tag']['valueList'][j]['polarity'])]
+                    category = attributeList[int(data['tag']['valueList'][j]['attribute'])]
+                    if category != target_category or (target_polarity != '全部' and polarity != target_polarity):
+                        continue
+                    target = []
+                    opinion = []
+                    for k in range(len(data['tag']['valueList'][j]['entity'])):
+                        target.append(data['tag']['valueList'][j]['entity'][k]['str'])
+                    for k in range(len(data['tag']['valueList'][j]['evaluation'])):
+                        opinion.append(data['tag']['valueList'][j]['evaluation'][k]['str'])
+                    database.append({
+                        'index': index,
+                        'text': data['comment_text'],
+                        'product': data['comment_variety'],
+                        'category': category,
+                        'target': ','.join(target),
+                        'opinion': ','.join(opinion),
+                        'polarity': polarity,
+                    })
+                    index += 1
+                    if index > pageSize: 
+                        break
+        return database
+
     def get_daily_info(self, location, variety, start_date, end_date):
         target_events = list(filter(lambda x: x['comment_variety'] in [variety], self.event_update))
         target_events = list(filter(lambda x: parse(start_date) < parse(x['date']) < parse(end_date), target_events))

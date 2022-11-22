@@ -23,6 +23,14 @@ export function fetchPageHistory(data) {
   })
 }
 
+export function fetchPageHistoryFiltered(data) {
+  return request({
+    url: '/api/v1/getPageHistoryFiltered',
+    method: 'post',
+    data
+  })
+}
+
 export function fetchHistoryInfo(data) {
   return request({
     url: '/api/v1/getHistoryInfo',

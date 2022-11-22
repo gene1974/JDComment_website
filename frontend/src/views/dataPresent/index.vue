@@ -1,16 +1,13 @@
 <template>
     <div style="background:#F2F3F5 ;min-width:fit-content;">
-
         <div class="Backcground">
         <el-row :gutter="20" class="Backcground">
-            <h2 style="margin-left:40px">数据展示</h2>
-            <!-- 选取产地时间 -->
+            <h2 style="margin:20px">数据展示</h2>
             <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:20px">
-                <!-- 产地 -->
                 <el-col :span="5">
                     <el-row>
-                        <el-col :span="6"><div class="xuanzekuangshuoming">产品</div></el-col>
-                        <el-col :span="18">
+                        <el-col :span="8"><div class="xuanzekuangshuoming">产品</div></el-col>
+                        <el-col :span="16">
                             <el-select v-model="product" placeholder="请选择">
                                 <el-option
                                 v-for="item in productList" :key="item" :label="item" :value="item">
@@ -18,22 +15,21 @@
                             </el-select>
                         </el-col>
                     </el-row>
-                    <el-row style="margin-top: 20px">
-                        <el-col :span="6"><div class="xuanzekuangshuoming">任务</div></el-col>
-                        <el-col :span="18">
-                            <el-select v-model="taskNum" placeholder="请选择">
+                    <!-- <el-row style="margin-top: 20px">
+                        <el-col :span="8"><div class="xuanzekuangshuoming">数据数量</div></el-col>
+                        <el-col :span="16">
+                            <el-select v-model="pageSize" placeholder="请选择">
                                 <el-option
-                                v-for="item in taskList" :key="item"  :label="item" :value="item">
+                                v-for="item in pageSizeList" :key="item"  :label="item" :value="item">
                                 </el-option>
                             </el-select>
                         </el-col>
-                    </el-row>
+                    </el-row> -->
                 </el-col>
-                <!-- 产品 -->
-                <el-col :span="5">
+                <el-col :span="6">
                     <el-row>
-                        <el-col :span="6"><div class="xuanzekuangshuoming">评价类别</div></el-col>
-                        <el-col :span="18">
+                        <el-col :span="8"><div class="xuanzekuangshuoming">评价类别</div></el-col>
+                        <el-col :span="16">
                             <el-select v-model="attribute" placeholder="请选择">
                                 <el-option
                                 v-for="item in attributeList" :key="item" :label="item" :value="item">
@@ -42,11 +38,10 @@
                         </el-col>
                     </el-row>
                 </el-col>
-                <!-- 情感极性 -->
-                <el-col :span="10">
+                <el-col :span="6">
                     <el-row>
-                        <el-col :span="6"><div class="xuanzekuangshuoming">情感极性</div></el-col>
-                        <el-col :span="18">
+                        <el-col :span="8"><div class="xuanzekuangshuoming">情感极性</div></el-col>
+                        <el-col :span="16">
                             <el-select v-model="polarity" placeholder="请选择">
                                 <el-option
                                 v-for="item in polarityList" :key="item" :label="item" :value="item">
@@ -55,8 +50,7 @@
                         </el-col>
                     </el-row>
                 </el-col>
-                <!-- 按钮 -->
-                <el-col :span="2">
+                <el-col :span="4">
                     <el-row>
                         <el-button type="primary" @click="clickQuery" class="InfoButton">查询</el-button>
                     </el-row>
@@ -65,91 +59,37 @@
                     </el-row>
                 </el-col>
             </el-row>
-            <el-row :gutter="20" id="DetailComment">
-                <el-col :span="22" class="Background">
-                    <div class="xuanzekuangshuoming" style="font-weight:bold">数据展示</div>
-                    <el-table :data="database" :header-cell-style="{textAlign: 'center', textColor: 'black'}" :cell-style="{ textAlign: 'center' }" style="width: 100%; justify-content: center;">
-                        <el-table-column prop="index" label="评论序号" width="50"></el-table-column>
-                        <el-table-column prop="product" label="产品" width="100"></el-table-column>
-                        <el-table-column prop="category" label="评价类别" width="100"></el-table-column>
-                        <el-table-column prop="target" label="评价对象" width="150"></el-table-column>
+            <el-row :gutter="20" id="DetailComment" style="margin: 30px">
+                <el-col :span="22" class="Background" style="text-align: center;">
+                    <div class="xuanzekuangshuoming" style="font-weight:bold; margin: 20px">数据展示</div>
+                    <p id="dataNum" style="text-align: center;margin: 10px"></p>
+                    <el-table :data="database" :header-cell-style="{textAlign: 'center', color: 'black'}" :cell-style="{ textAlign: 'center', color: 'black'}" style="width: 100%; justify-content: center;">
+                        <el-table-column prop="index" label="评论序号" width="100"></el-table-column>
+                        <el-table-column prop="product" label="产品" width="150"></el-table-column>
+                        <el-table-column prop="category" label="评价类别" width="150"></el-table-column>
+                        <el-table-column prop="target" label="评价对象" width="200"></el-table-column>
                         <el-table-column prop="opinion" label="评价观点" width="200"></el-table-column>
-                        <el-table-column prop="polarity" label="情感极性" width="100"></el-table-column>
+                        <el-table-column prop="polarity" label="情感极性" width="150"></el-table-column>
                     </el-table>
                 </el-col>
             </el-row>
-        <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="pageData.currentPage+1"
-            :page-sizes="[10, 20, 30, 40]"
-            :page-size="pageData.pageSize"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="pageData.pageSum">
-        </el-pagination>
         </el-row>
         </div>
-        
-        <el-menu
-        :default-active="'0'"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b">
-            <el-menu-item index="0">task0</el-menu-item>
-            <el-menu-item index="1">task1</el-menu-item>
-            <el-menu-item index="2">task2</el-menu-item>
-            <el-menu-item index="3">task3</el-menu-item>
-            <el-menu-item index="4">task4</el-menu-item>
-            <el-menu-item index="5">task5</el-menu-item>
-            <el-menu-item index="6">task6</el-menu-item>
-            <el-menu-item index="7">task7</el-menu-item>
-            <el-menu-item index="8">task8</el-menu-item>
-        </el-menu>
-        <el-table
-            :data="tableData"
-            style="width: 100%">
-            <el-table-column type="expand">
-            <template slot-scope="props">
-                <el-form label-position="left" inline class="demo-table-expand">
-                <el-form-item>
-                    <el-tree :data="props.row.children"  default-expand-all @node-click="handleNodeClick"></el-tree>
-                    <el-button @click="annotatorChange(props.$index)">修改标注</el-button>
-                </el-form-item>
-                </el-form>
-            </template>
-            </el-table-column>
-            <el-table-column
-            label="文本"
-            prop="label">
-            </el-table-column>
-        </el-table>
-        <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="pageData.currentPage+1"
-            :page-sizes="[10, 20, 30, 40]"
-            :page-size="pageData.pageSize"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="pageData.pageSum">
-        </el-pagination>
     </div>
 </template>
 
 <script>
-import {fetchPageHistory, fetchHistoryInfo} from '@/api/dataAnnotation.js'
+import {fetchPageHistory, fetchHistoryInfo, fetchPageHistoryFiltered} from '@/api/dataAnnotation.js'
 
   export default {
     data(){
         return{
             product: '大米',
-            productList:['大米', '番茄', '茶叶', '荸荠', '猕猴桃', '竹笋', '蜜柚', '茶油', '椪柑', '大蒜', '藕', '豆皮', '蜜茄'],
+            productList:['大米', '玉米', '花生', '番茄', '茶叶', '荸荠', '猕猴桃', '竹笋', '蜜柚', '茶油', '椪柑', '大蒜', '藕', '豆皮', '蜜茄'],
             attribute: '品质',
             attributeList:['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其他'],
             taskNum:'0',
-            taskList: ['0'],
+            taskList: ['0', '1', '2', '3'],
             polarity: '全部',
             polarityList:['负向', '正向', '中立'],
             database: [],
@@ -157,56 +97,41 @@ import {fetchPageHistory, fetchHistoryInfo} from '@/api/dataAnnotation.js'
             rawData:null,
             tableData:[],
             pageData:{
-                pageSize:10,
+                pageSize:20,
                 pageSum:0,
                 currentPage:0,
             },
-
+            pageSize: 20,
+            pageSizeList: [10, 20, 30, 40, 50]
         }
     },
     mounted() {
-        this.getDataSum()
-        this.getFirstPage()
+        // this.getDataSum()
+        // this.getFirstPage()
     },
     methods: {
+        clickReset(){
+            this.database = []
+            this.product = '大米'
+            this.taskNum = '0'
+            this.polarity = '全部'
+            // document.getElementById('dataNum').innerText = ''
+        },
         clickQuery(){
-            let data = {"page": this.pageData.currentPage, "pageSize": this.pageData.pageSize, "taskNum":this.taskNum}
-            fetchPageHistory(data).then( res => {
+            let data = {
+                "pageSize": this.pageData.pageSize,
+                "product": this.product,
+                "category": this.attribute,
+                "polarity": this.polarity,
+            }
+            fetchPageHistoryFiltered(data).then(res => {
                 console.log(res)
-                this.database = []
-                var index = 1
-                for(var i = 0; i < res.length; i++){
-                    for (var j = 0; j < res[i]['tag']['valueList'].length; j++){
-                        if(res[i]['tag']['valueList'][j]['entity'].length == 0 || res[i]['tag']['valueList'][j]['evaluation'].length == 0){
-                            continue;
-                        }
-                        let target = []
-                        let opinion = []
-                        for (var k = 0; k < res[i]['tag']['valueList'][j]['entity'].length; k++){
-                            target.push(res[i]['tag']['valueList'][j]['entity'][k]['str'])
-                        }
-                        for (var k = 0; k < res[i]['tag']['valueList'][j]['evaluation'].length; k++){
-                            opinion.push(res[i]['tag']['valueList'][j]['evaluation'][k]['str'])
-                        }
-                        this.database.push({
-                            'index': index,
-                            'text': res[i]['comment_text'],
-                            'product': res[i]['comment_variety'],
-                            'category': this.attributeList[res[i]['tag']['valueList'][j]['attribute']],
-                            'target': target.join(),
-                            'opinion': opinion.join(),
-                            'polarity': this.polarityList[res[i]['tag']['valueList'][j]['polarity']],
-                        })
-                        index += 1
-                    }
-                }
+                this.database = res
+                // document.getElementById('dataNum').innerText = '当前筛选条件下共获取' + res.length + '条数据'
             }).catch(err => {
                 console.log(err);
                 this.$message({message:"获取当前页标注数据失败", type:'error'})
             })
-        },
-        clickReset(){
-            this.database = []
         },
         getDataSum(){
             let data = {"taskNum":this.taskNum}
