@@ -73,11 +73,11 @@
             series: {
               data: yData,
               type: 'line',
-              showBackground: true,
+              showBackground: false,
               backgroundStyle: {
                 color: 'rgba(180, 180, 180, 0.2)'
               },
-              color: 'rgb(50, 150, 250)',
+              color: '#165DFF',
             },
             tooltip: {
               trigger: 'axis',

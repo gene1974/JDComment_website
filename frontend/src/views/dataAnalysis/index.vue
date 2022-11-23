@@ -85,11 +85,20 @@
         <div  class="Background" v-show="DailyInfoStatus">
             <el-row v-show="DailyInfoStatus">
                 <h3 style="margin-left:40px">基本走势</h3>
-                <el-col :span="11" style="margin-left:10px; text-align:center; padding: 10px">
+                <el-col :span="6" style="margin-left:10px; text-align:center; padding: 10px">
                     <data-statistics-bar0 ref="bar0"/>
                 </el-col>
-                <el-col :span="11" style="margin-left:10px; text-align:center; padding: 10px">
+                <el-col :span="6" style="margin-left:10px; text-align:center; padding: 10px">
                     <data-statistics-line0 ref="line0"/>
+                </el-col>
+                <el-col :span="9" v-show="SentimentText" style="margin-left:10px; padding: 10px">
+                    <!-- <el-row style="margin-top:20px" class="fenquCol"> -->
+                        <el-card>
+                        <h3 style="margin-left:30px;">消费评价概览</h3>
+                        <div id="ScoreText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取评价概览</div>
+                        <div id="HeatText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取热度信息</div>
+                        <div id="AspectText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取具体评价</div>
+                    <!-- </el-row> --></el-card>
                 </el-col>
             </el-row>
         </div>
@@ -97,17 +106,21 @@
         <!-- 分析概览 -->
         <div class="Background" v-show="AnalysisInfoStatus">
             <el-row :gutter="20">
-                <el-col :span="8">
-                    <h3 style="margin-left:40px">分析概览</h3>
+                <h3 style="margin-left:40px">分析概览</h3>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="7">
                     <el-row style="margin:20px">
                         <data-statistics-pie0 ref="pie0"/>
                     </el-row>
+                </el-col>
+                <el-col :span="7">
                     <el-row style="margin:20px">
                         <data-statistics-pie1 ref="pie1"/>
                     </el-row>
                 </el-col>
-                <el-col :span="13" v-show="AnalysisInfoStatus">
-                    <h3 style="margin:20px">分类评价信息</h3>
+                <el-col :span="8" v-show="AnalysisInfoStatus">
+                    <h3 style="margin:20px; margin-bottom: 0;">分类评价信息</h3>
                     <el-table :data="comment_aspect" :key="component_key" height="250" width="450" stripe style="width: 100%">
                         <el-table-column prop="aspect" label="评价类别" width="150"></el-table-column>
                         <el-table-column prop="number" label="评价数量" width="150"></el-table-column>
@@ -124,7 +137,7 @@
                 <h3>分析详情</h3>
             </el-row>
             <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:15px; margin-bottom: 20px;">
-                <el-col :span="8">
+                <el-col :span="6">
                     <el-row>
                         <el-col :span="8"><div class="xuanzekuangshuoming">评价类别</div></el-col>
                         <el-col :span="12">
@@ -135,13 +148,13 @@
                     </el-row>
                 </el-col>
                 <el-col :span="3">
-                    <el-button type="primary" @click="varietyChange" class="InfoButton">查询</el-button>
+                    <el-button type="primary" @click="varietyChange" class="InfoButton">更改</el-button>
                 </el-col>
             </el-row>
 
 
             <!-- 评价统计表格 -->
-            <h3 style="margin-left:40px; margin-top: 20px;">评价信息统计</h3>
+            <h3 style="margin-left:40px; margin-top: 50px;">评价细粒度情感分析</h3>
             <el-row :gutter="20" id="DetailComment">
                 <el-col :span="7" class="Background">
                     <div class="xuanzekuangshuoming" style="font-weight:bold">正面评价</div>
@@ -184,7 +197,7 @@
         </div>
 
         <!-- 起始页面（产品，概览） -->
-        <div  class="dataAnalysisBacground">
+        <div  class="Background">
             <el-row :gutter="20">
                 <!-- 产品展示 -->
                 <el-col :span="10">
@@ -224,12 +237,6 @@
                             <el-table-column prop="product" label="产品"> </el-table-column>
                         </el-table>
                     </el-row>
-                    <el-row v-show="SentimentText" style="background: rgb(255, 255, 255);margin:20px" class="fenquCol">
-                        <h3 style="margin-left:30px;">消费评价概览</h3>
-                        <div id="ScoreText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取评价概览</div>
-                        <div id="HeatText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取热度信息</div>
-                        <div id="AspectText" style="margin: 10px; margin-left:30px; color:slategrey">等待获取具体评价</div>
-                    </el-row>
                 </el-col>
             </el-row>
         </div>
@@ -264,7 +271,7 @@
         },
         data() {
         return {
-            analysisChoice:'基本走势',
+            analysisChoice:'全部信息',
             analysisList:['全部信息', '基本走势', '分析概览', '分析详情'],
             chandiValue:'安徽省巢湖市',
             chandiList:['安徽省巢湖市','江西省丰城市','江西省奉新县','江西省井冈山市','江西上饶市万年县','四川省宜宾市屏山县','江西省宜春市上高县','湖北省仙桃市','江西省永新县',],

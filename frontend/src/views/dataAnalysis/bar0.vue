@@ -54,6 +54,7 @@
                 subtext: '按日统计消费者的评价数量',
                 left: 'center'
             },
+            color: ['#249EFF', '#165DFF', '#61C4C7', '#21CCFF', '#199ED8'],
             xAxis: {
                 type: 'category',
                 data: xData,
@@ -73,11 +74,8 @@
             series: {
               data: yData,
               type: 'bar',
-              showBackground: true,
-              backgroundStyle: {
-                color: 'rgba(180, 180, 180, 0.2)'
-              },
-              color: 'rgb(50, 150, 250)',
+              showBackground: false,
+              color: '#165DFF',
             },
             tooltip: {
               trigger: 'axis',

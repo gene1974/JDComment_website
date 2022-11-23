@@ -46,7 +46,7 @@
             seriesData.push({value:Data[index]['number'],name:Data[index]['opinion']})
         }
         let option = {
-            color: ['#63b2ee', '#76da91', '#f8cb7f', '#f89588', '#7cd6cf'],
+            color: ['#165DFF', '#6AA1FF', '#86DF6C', '#249EFF', '#468DFF', '#199ED8', '#21CCFF', '#2CAB40', '#E8F3FF'],
             title: {
                 text: titleText,
                 subtext: subTittleText,
@@ -67,8 +67,8 @@
                 {
                 name: '评价观点',
                 type: 'pie',
-                radius: '50%',
-                center: ['50%', '60%'],
+                radius: ['25%', '50%'],
+                center: ['50%', '50%'],
                 data:seriesData,
                 emphasis: {
                     itemStyle: {
