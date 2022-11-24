@@ -1,7 +1,7 @@
 <template>
     <div style="background:#F2F3F5 ;min-width:fit-content;">
-        <div class="Backcground">
-        <el-row :gutter="20" class="Backcground">
+        <div class="Background">
+        <el-row :gutter="20" class="Background">
             <h2 style="margin:20px">数据展示</h2>
             <el-row class="fenquxuanzekuangRow" :gutter="20" style="margin-left:20px">
                 <el-col :span="5">

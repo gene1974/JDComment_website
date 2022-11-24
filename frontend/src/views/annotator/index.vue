@@ -18,7 +18,11 @@
       <el-menu-item index="7">task7</el-menu-item>
       <el-menu-item index="8">task8</el-menu-item>
     </el-menu>
-    <div style="padding: 50px 130px 30px 80px;">
+    <div class="Background">
+      <el-row>
+        <h2 style="margin-left:40px; margin-top:40px;">数据标注</h2>
+      </el-row>
+    <div style="padding: 10px 30px 30px 80px;">
       标注数据：{{labeled_cnt}} 未标注数据：{{unlabeled_cnt}}
       <el-progress :text-inside="true" :stroke-width="24" :percentage="labelPercentage" style="padding-top: 6px;"></el-progress>
     </div>
@@ -110,9 +114,25 @@
                 </td>
 
               </tr>
-
-
             </table>
+
+            <el-row :gutter="20">
+              <el-col :span="5">
+                <div class="annotatorBtn" style="padding-top: 20px;">
+                  <el-button :style="btnStyle" type="info" style="background-color: #165DFF;" @click="decreaseEventArgument">删除</el-button>
+                </div>
+              </el-col>
+              <el-col :span="5">
+                <div class="annotatorBtn" style="padding-top: 20px; padding-left: 20px;">
+                  <el-button :style="btnStyle" type="info" style="background-color: #165DFF;" @click="addvalue">增加</el-button>
+                </div>
+              </el-col>
+              <el-col :span="5">
+                <div class="annotatorBtn" style="padding-top: 20px; padding-left: 20px;">
+                  <el-button :style="btnStyle" type="info" style="background-color: #165DFF;" @click="clearEventAll">重置</el-button>
+                </div>
+              </el-col>
+            </el-row>
           </div>
         </div>
       </el-col>
@@ -120,19 +140,12 @@
 
       <el-col :span="2">
         <div class="annotatorBtn" style="padding-top: 120px;">
-          <el-button :style="btnStyle" type="info" @click="addvalue">添加</el-button>
+          <el-button :style="btnStyle" type="primary" style="background-color: #165DFF;"  @click="postEvent">提交</el-button>
         </div>
-        <div class="annotatorBtn" style="padding-top: 120px;">
-          <el-button :style="btnStyle" type="danger" @click="clearEventAll">清空</el-button>
-        </div>
-        <div class="annotatorBtn" style="padding-top: 120px;">
-          <el-button :style="btnStyle" type="warning" @click="decreaseEventArgument">删除</el-button>
-        </div>
-        <div class="annotatorBtn" style="padding-top: 180px;">
-          <el-button :style="btnStyle" type="primary" @click="postEvent">提交</el-button>
-        </div>
+        
       </el-col>
     </el-row>
+  </div>
   </div>
 </template>
 
@@ -166,7 +179,7 @@ export default {
       },
       varOrder:0,
       varFlag: '',
-      btnStyle: 'height:80px;margin-bottom:15px;font-size:18px',
+      btnStyle: 'height:50px;margin-bottom:15px;font-size:18px',
       elTagStyle: 'font-size: 16px;',
     }
   },
@@ -350,6 +363,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Background{
+    margin: 20px;
+    background: white;
+}
 .annotator-container {
   background: rgb(240, 242, 245);
   // background: #E3EDCD;
@@ -410,8 +427,8 @@ export default {
     text-align: center;
   }
   .annotatorBtn {
-    height: 50px;
-    width: 36px;
+    height: 30px;
+    width: 40px;
     padding-left: 20px;
   }
 }

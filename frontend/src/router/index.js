@@ -37,12 +37,12 @@ export const routes = [
       component: () => import('@/views/annotator/index.vue'),
       name: 'Annotator',
       meta: {title: '数据标注', noCache: true, icon: 'el-icon-edit-outline'}
-    },
-    {
-      path: 'annotatorChange',
-      component: () => import('@/views/annotatorChange/index.vue'),
-      name: 'annotatorChange',
-      meta: {title: '标注修改', noCache: true, icon: 'el-icon-edit-outline'}
+    // },
+    // {
+    //   path: 'annotatorChange',
+    //   component: () => import('@/views/annotatorChange/index.vue'),
+    //   name: 'annotatorChange',
+    //   meta: {title: '标注修改', noCache: true, icon: 'el-icon-edit-outline'}
     }]
   },
   // {
@@ -180,24 +180,24 @@ export const routes = [
   {
     path: '/knowledgegraph',
     component: Layout,
-    meta: {title: '可视化', icon: 'el-icon-download'},
+    // meta: {title: '可视化', icon: 'el-icon-s-help'},
     children: [{
       path: 'index',
       component: () => import('@/views/kg/index.vue'),
       name: 'knowledgegraph',
-      meta: {title: '图谱查询', icon: 'el-icon-document-copy'}
+      // meta: {title: '图谱查询', icon: 'el-icon-search'}
     },{
       path: 'neovisgraph',
       component: () => import('@/views/kg/neovisgraph.vue'),
       name: 'neovisgraph',
-      meta: {title: '图谱前端', icon: 'el-icon-document-copy'}
+      // meta: {title: '图谱前端', icon: 'el-icon-document-copy'}
     },
   ]
   },
   {
     path: '/whitepaper',
     component: Layout,
-    meta: {title: '白皮书', icon: 'el-icon-download'},
+    meta: {title: '白皮书', icon: 'el-icon-reading'},
     children: [{
       path: 'index',
       component: () => import('@/views/whitepaper/index.vue'),
