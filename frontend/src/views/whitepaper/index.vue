@@ -1,6 +1,6 @@
 <template>
     <div style="background:#F2F3F5 ;min-width:fit-content;">
-        <!-- <div class="Background">
+        <div class="Background">
             <el-row :gutter="20">
                 <h2 style="margin-left:40px">白皮书</h2>
             </el-row>
@@ -56,10 +56,10 @@
                     <el-button type="primary" @click="preview('yibin')" class="SearchButton">点击查看</el-button>
                 </el-col>
             </el-row>
-        </div> -->
+        </div>
     
     
-        <el-header>白皮书</el-header>
+        <!-- <el-header>白皮书</el-header>
         <div>
           <el-row>
             <el-col :span="7" style="margin:20px">
@@ -139,7 +139,7 @@
               </el-card>
             </el-col>
           </el-row>
-        </div>
+        </div> -->
     </div>
 </template>
 

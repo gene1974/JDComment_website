@@ -17,14 +17,15 @@
                 <el-col :span="18">
                     <el-row :gutter="20">
                         <el-col :span="3"><div class="xuanzekuangshuoming">类型</div></el-col>
-                        <el-col :span="5">
-                            <el-select v-model="nodeValue" placeholder="请选择">
-                                <el-option v-for="item in nodeList" :key="item" :label="item" :value="item"></el-option>
+                        <el-col :span="7">
+                            <el-select v-model="entityType" placeholder="请选择">
+                                <el-option v-for="item in typeList" :key="item" :label="item" :value="item"></el-option>
                             </el-select>
                         </el-col>
                         <el-col :span="3"><div class="xuanzekuangshuoming">文本</div></el-col>
-                        <el-col :span="6">
+                        <el-col :span="9">
                             <el-input type="text" v-model="entity" placeholder="花生" @input="input_text"></el-input>
+                            <p id="entity_alert" hidden style="color:red;margin-left: 5px;">请输入查询内容！</p>
                         </el-col>
                     </el-row>
                 </el-col>
@@ -44,6 +45,7 @@
                         </el-col>
                         <el-col :span="10">
                             <el-input type="text" v-model="entity" placeholder="实体" @input="input_text"></el-input>
+                            <p id="triplet_alert" hidden style="color:red;">请输入查询内容！</p>
                         </el-col>
                     </el-row>
                     <div style="margin-top:20px"><b>查询实体：{{entity}}</b></div>
@@ -52,19 +54,17 @@
                     <el-button type="primary" value="Submit" @click="search_triplet" class="InfoButton">查询</el-button>
                 </el-col>
             </el-row>
-            <el-row :gutter="22" style="min-height:fit-content">
+            <el-row :gutter="20">
                 <el-col :span="20" class="Background" style="margin-left: 20px">
                     <h4 style="margin:20px">查询结果</h4>
                     <div style="margin:20px">查询实体：{{entity}}</div>
                     <el-row>
                         <div id="result"></div>
+                        <div>
+                            <iframe id="visual" :src="visualUrl" frameborder="0" style="width:600px;height:700px;"></iframe>
+                        </div>
                     </el-row>
                 </el-col>
-            </el-row>
-            <el-row :gutter="20">
-                <div>
-                    <iframe :src="reportUrl" frameborder="0" style="width:600px;height:700px;"></iframe>
-                </div>
             </el-row>
         </div> 
     </div>
@@ -77,23 +77,21 @@
             entity: '',
             searchValue: '节点查询',
             searchList: ['节点查询', '三元组查询'],
-            nodeValue: '评价对象',
-            nodeList: ['产品', '评价对象', '评价词', '评价类别', '情感极性', '全部'],
-            // reportUrl: 'http://47.100.99.53:7474/browser/',
-            reportUrl: '/simple-example.html',
-            // reportUrl: '/hello.html',
+            entityType: '评价对象',
+            typeList: ['产品', '评价对象', '评价词', '评价类别', '情感极性', '全部'],
+            typeDict:{
+                '产品': 'Product',
+                '评价对象': 'Entity',
+                '评价词': 'Opinion',
+                '评价类别': 'Category',
+                '情感极性': 'Polarity',
+                '全部': 'All',
+            },
+            visualUrl: '/visual.html',
+            visualData: 'Hello world',
         }
     },
     methods:{
-        preview(filename){
-            // console.log(filename)
-            // let a = document.createElement('a')
-            // a.href = './' + filename + '.vue'
-            // a.target = '_blank'
-            // a.click()
-            // this.$router.push({name: filename})
-            // this.$router.push({name: 'fengcheng'})
-        },
         input_text(){
             this.$forceUpdate();
         },
@@ -112,7 +110,22 @@
             else this.search_triplet()
         },
         search_node(){
-
+            if(this.entity == ''){ // 没有输入信息
+                // document.getElementById('entity_alert').hidden = false
+                // return
+                this.entity = '花生'
+            }
+            var param = {
+                mod: 'entity',
+                type: this.typeDict[this.entityType],
+                name: this.entity,
+            }
+            var param_list = []
+            for (var key in param){
+                param_list.push(key + '=' + param[key])
+            }
+            var param_url = '?' + param_list.join('&')
+            document.getElementById('visual').src = this.visualUrl + param_url
         },
         search_triplet(){
 

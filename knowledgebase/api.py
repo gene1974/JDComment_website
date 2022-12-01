@@ -18,7 +18,7 @@ class Neo4jGraph(object):
     # self.add_node('Person', {'name': 'bob'})
     def add_node(self, label, properties = {}):
         if 'name' not in properties:
-            sys.stderr.write('Property `name` is required, get:', properties)
+            sys.stderr.write('Property `name` is required, get:', properties, '\n')
             return None
         node = self.find_one_node(label, {'name': properties['name']})
         if node is None:
@@ -145,9 +145,14 @@ class Neo4jGraph(object):
         relations = list(self.graph.match([node], r_type=None))
         return relations
 
+    # 查询一个节点的所有输入输出关系
+    def find_all_bidirectional_relation(self, label, properties):
+        relations = self.graph.run('MATCH ()-[r]-(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
+        return relations # Record
+
     # 查询一个节点的所有输入关系
     def find_all_input_relation(self, label, properties):
-        relations = self.graph.run('MATCH ()-[r]-(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
+        relations = self.graph.run('MATCH ()-[r]->(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
         return relations # Record
 
     # others
@@ -161,7 +166,7 @@ class Neo4jGraph(object):
 class KnowledgeGraph(Neo4jGraph):
     def __init__(self, host='http://localhost:7474', auth=('neo4j', 'neo4j')):
         super().__init__(host, auth)
-        self.label_list = ['产品分类', '判定标准', '检验依据', '检验标准', '检验项目', '食品安全本体']
+        self.label_list = ['产品分类', '判定标准', '检验依据', '检验标准', '检验项目', '食品安全本体', '新增节点']
         # self.label_list = ['化学污染物食品分类', '微生物食品分类', '暴发食品分类', '标准属性', '标准分类']
 
     # 没有指定实体类型
@@ -172,30 +177,77 @@ class KnowledgeGraph(Neo4jGraph):
             nodes += node
         return nodes
 
+    def find_entity(self, name, label):
+        nodes = self.find_node(label, {'name': name})
+        return nodes
+    
+
 
 # API
 KG = KnowledgeGraph('http://101.6.69.191:7474')
 
 def getTriples(head, tail, relation):
-    node1 = KG.find_all_entity(head)[0]
-    node2 = KG.find_all_entity(tail)[0]
-    nodes = [node1, node2]
+    nodes = []
+    if head is not None:
+        node1 = KG.find_all_entity(head)
+        if node1 == []:
+            return []
+        nodes.append(node1[0])
+    if tail is not None:
+        node2 = KG.find_all_entity(tail)
+        if node2 == []:
+            return []
+        nodes.append(node2[0])
     triples = KG.find_relation(nodes, relation)
     triples = list(map(KG.parse_relation, triples))
     return triples
 
+def getTriples2(node1_name, node1_label, node2_name, node2_label, relation):
+    nodes = []
+    if node1_name is not None:
+        if node1_label is None:
+            node1 = KG.find_all_entity(node1_name)
+        else:
+            node1 = KG.find_entity(node1_name, node1_label)
+        if node1 == []:
+            return []
+        nodes.append(node1[0])
+    if node2_name is not None:
+        if node2_label is None:
+            node2 = KG.find_all_entity(node2_name)
+        else:
+            node2 = KG.find_entity(node2_name, node2_label)
+        if node2 == []:
+            return []
+        nodes.append(node2[0])
+    
+    # 输入关系
+    if node1_name is None and node2_name is not None: 
+        triples = KG.find_all_input_relation(node2_label, {'name': node2_name})
+        triples = list(map(KG.parse_record, triples))
+        if relation is not None:
+            triples = [t for t in triples if t[2] == relation]
+    else:
+        triples = KG.find_relation(nodes, relation)
+        triples = list(map(KG.parse_relation, triples))
+    return triples
+
 def saveTriple(triple_id, head, tail, relation):
-    deleteTriple(triple_id)
+    res = deleteTriple(triple_id)
     res = addTriple(head, tail, relation)
     return res
 
+def saveTriple2(triple_id, node1_name, node1_label, node2_name, node2_label, relation):
+    deleteTriple(triple_id)
+    res = addTriple2(node1_name, node1_label, node2_name, node2_label, relation)
+    return res
 
 def deleteTriple(triple_id):
     try:
         triple = KG.rel_matcher[triple_id]
     except:
         return False
-    KG.graph.delete(triple)
+    KG.graph.separate(triple)
     return True
 
 def addTriple(head, tail, relation, need_exist = False):
@@ -205,16 +257,45 @@ def addTriple(head, tail, relation, need_exist = False):
     node2 = KG.find_all_entity(tail)
     if node1 == []:
         exist_h = False
-        node1 = KG.add_node('新增节点', {'name': head})
+        node1 = [KG.add_node('新增节点', {'name': head})]
         err_msg += '头节点不存在，新增头节点。'
     if node2 == []:
         exist_t = False
-        node2 = KG.add_node('新增节点', {'name': tail})
+        node2 = [KG.add_node('新增节点', {'name': tail})]
         err_msg += '尾节点不存在，新增尾节点。'
     
     nodes = [node1[0], node2[0]]
-    triples = KG.find_relation(nodes, relation)
-    if triples != []:
+    triple = KG.find_relation(nodes, relation)
+    if triple != []:
+        exist_h = True
+        err_msg = '三元组已经存在。'
+    else:
+        triple = KG.add_relation(node1[0], node2[0], relation)
+        triple = KG.parse_relation(triple)
+        err_msg = '新增成功。' + err_msg
+    
+    if need_exist:
+        return True, err_msg, triple, exist_h, exist_t, exist_r
+    else:
+        return True, err_msg, triple
+
+def addTriple2(node1_name, node1_label, node2_name, node2_label, relation, need_exist = False):
+    exist_h, exist_t, exist_r = True, True, False
+    err_msg = ''
+    node1 = KG.find_entity(node1_name, node1_label)
+    node2 = KG.find_entity(node2_name, node2_label)
+    if node1 == []:
+        exist_h = False
+        node1 = [KG.add_node(node1_label, {'name': node1_label})]
+        err_msg += '头节点不存在，新增头节点。'
+    if node2 == []:
+        exist_t = False
+        node2 = [KG.add_node(node2_label, {'name': node2_name})]
+        err_msg += '尾节点不存在，新增尾节点。'
+    
+    nodes = [node1[0], node2[0]]
+    triple = KG.find_relation(nodes, relation)
+    if triple != []:
         exist_h = True
         err_msg = '三元组已经存在。'
     else:
@@ -262,7 +343,7 @@ def uploadTriples(triple_filepath):
                     'error': err_msg,
                 })
     except Exception as e:
-        sys.stderr.write(e)
+        sys.stderr.write(str(e) + '\n')
     return succ_num, succ_triples
 
 
@@ -292,6 +373,33 @@ def graphAdvancedSearch(entity, depth = 1, maximum = 20):
     return list(result)
 
 if __name__ == '__main__':
+    # triples = getTriples('肉制品', '其他肉制品', '包括(分类)')
+    # print(triples)
+    # triples = getTriples(None, '其他肉制品', '包括(分类)')
+    # print(triples)
+    # triples = getTriples(None, None, '包括(分类)')
+    # print(triples)
+    # triples = getTriples(None, None, None)
+    # print(triples)
+
+    triples = getTriples2('肉制品', '产品分类', None, None, '包括(分类)')
+    print(triples)
+    triples = getTriples2(None, None, '其他肉制品', '产品分类', '包括(分类)')
+    print(triples)
+    triples = getTriples2(None, None, '其他肉制品', '产品分类', None)
+    print(triples)
+    triples = getTriples2(None, None, None, None, None)
+    print(triples)
+
+    # res = addTriple2('肉制品', '产品分类', '其他肉制品', '产品分类', '测试关系')
+    # print(res)
+    # triples = saveTriple2(3456, '肉制品', '产品分类', '其他肉制品', '产品分类', '测试关系')
+    # print(triples)
+    # res = deleteTriple(3457)
+    # print(res)
+
+    
+    # old apis
     # triples = saveTriple(32656, 'a', 'b', 'c')
     # print(triples)
 
@@ -304,9 +412,22 @@ if __name__ == '__main__':
 
     # triples = getTriples('产品分类', '肉制品', '包括(产品分类)')
     # print(triples)
+    # res = deleteTriple(3454)
+    # print(res)
 
-    relations = graphSearch('肉制品')
-    print(relations)
+    # res = addTriple('产品分类', '肉制品', '测试关系')
+    # print(res)
+    # res = addTriple('产品分类', '肉制品', '测试关系2')
+    # print(res)
+    # res = getTriples('产品分类', '肉制品', '测试关系')
+    # print(res)
+    # res = deleteTriple(3459)
+    # print(res)
+    # res = getTriples('产品分类', '肉制品', '测试关系')
+    # print(res)
+
+    # relations = graphSearch('肉制品')
+    # print(relations)
 
     # relations = graphAdvancedSearch('肉制品', 3)
     # print(relations)

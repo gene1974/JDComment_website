@@ -183,13 +183,13 @@ export const routes = [
     // meta: {title: '可视化', icon: 'el-icon-s-help'},
     children: [{
       path: 'index',
-      component: () => import('@/views/kg/index.vue'),
+      component: () => import('@/views/knowledgegraph/index.vue'),
       name: 'knowledgegraph',
-      // meta: {title: '图谱查询', icon: 'el-icon-search'}
-    },{
-      path: 'neovisgraph',
-      component: () => import('@/views/kg/neovisgraph.vue'),
-      name: 'neovisgraph',
+      meta: {title: '图谱查询', icon: 'el-icon-search'}
+    // },{
+    //   path: 'neovisgraph',
+    //   component: () => import('@/views/kg/neovisgraph.vue'),
+    //   name: 'neovisgraph',
       // meta: {title: '图谱前端', icon: 'el-icon-document-copy'}
     },
   ]

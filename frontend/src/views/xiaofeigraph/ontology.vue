@@ -58,6 +58,7 @@
               top: 'top',
               left: 'left'
             },
+            color: ['#249EFF', '#165DFF', '#61C4C7', '#21CCFF', '#199ED8'],
             tooltip: {
                 trigger: 'item',
                 triggerOn: 'mousemove'
@@ -66,6 +67,7 @@
                 {
                     type: 'tree',
                     data: [this.xiaofeidata],
+                    color: '#249EFF',
                     top: '18%',
                     bottom: '14%',
                     layout: 'radial',
