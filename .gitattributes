@@ -1,0 +1,2 @@
+backend/app/lib/JDComment/model/ filter=lfs diff=lfs merge=lfs -text
+comment_data/ filter=lfs diff=lfs merge=lfs -text
