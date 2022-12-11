@@ -1,5 +1,4 @@
 import sys
-from unicodedata import bidirectional
 from py2neo import Graph, Node, Relationship
 from py2neo import NodeMatcher,RelationshipMatcher
 
@@ -14,13 +13,10 @@ class Neo4jGraph(object):
         self.node_matcher = NodeMatcher(self.graph)
         self.rel_matcher = RelationshipMatcher(self.graph)
 
-
-    # Nodes
     # 添加一个节点，更新节点属性；不会重复添加；
-    # self.add_node('Person', {'name': 'bob'})
     def add_node(self, label, properties = {}):
         if 'name' not in properties:
-            sys.stderr.write('Property `name` is required, get:', properties)
+            sys.stderr.write('Property `name` is required, get:', properties, '\n')
             return None
         node = self.find_one_node(label, {'name': properties['name']})
         if node is None:
@@ -58,24 +54,11 @@ class Neo4jGraph(object):
             return None
         return nodes.first() # 第一个匹配节点，无匹配则为None
     
-    def change_node_label(self, label, new_label):
-        pass
-    
     def change_node_name(self, label, name, new_name):
         nodes = self.find_node(label, {'name': name})
         for node in nodes:
             node['name'] = new_name
             self.graph.push(node)
-
-    # 返回节点是否存在，存在则返回节点
-    # TODO: Archived：可以被get_data代替
-    def exist_node(self, label, properties = {}):
-        nodes = self.find_node(self, label, properties)
-        # return len(nodes) != 0
-        if len(nodes) != 0:
-            return nodes[0]
-        else:
-            return False
 
     # Property
     # 获取节点的所有属性
@@ -102,33 +85,19 @@ class Neo4jGraph(object):
         self.graph.push(node)
 
     # Relation
-    '''
-    @func:  向图谱中的两个节点添加关系
-    @usage: node1 = find_node(graph, 'Person', {'name': 'alice'})[0]
-            node2 = find_node(graph, 'Person', {'name': 'bob'})[0]
-            add_relation(graph, node1, 'KNOWS', node2)
-    @hint:  两个节点之间可以存在多个关系
-    '''
+    # 向图谱中的两个节点添加关系
     def add_relation(self, node1, node2, relation, properties = {}):
         edge = Relationship(node1, relation, node2, **properties)
         self.graph.create(edge)
+        return edge
 
-    '''
-    @func:  查询图谱中两个节点间的关系
-    @usage: node1 = find_node(graph, 'Person', {'name': 'alice'})[0]
-            node2 = find_node(graph, 'Person', {'name': 'bob'})[0]
-            relation = find_relation(graph, [node1]) # node1的所有关系
-            relation = find_relation(graph, [node1, node2]) # node1到node2的所有关系
-            relation = find_relation(graph, relation = 'KNOWS') # 关系为'KNOWS'的所有关系
-    '''
+    # 查询图谱中两个节点间的关系
     def find_relation(self, nodes = None, relation = None, properties = {}, limit = 10):
         relations = list(self.rel_matcher.match(nodes, r_type = relation).limit(limit))
         return relations
 
-    '''
-    @func: change relation name
-    @usage: self.change_relation_name('Instanceof', 'Category')
-    '''
+    # change relation name
+    # self.change_relation_name('Instanceof', 'Category')
     def change_relation_name(self, relation, new_relation):
         cypher = '''
             MATCH (n1)-[old:{}]->(n2)
@@ -137,37 +106,63 @@ class Neo4jGraph(object):
         '''.format(relation, new_relation)
         self.graph.run(cypher)
 
-    def update_relation(self, nodes = None, relation = None, properties = {}, limit = 10):
-        relations = list(self.rel_matcher.match(nodes, r_type = relation).limit(limit))
-        return relations
+    # n1->n2 to n2->n1
+    def change_relation_direction(self, relation):
+        cypher = '''
+            MATCH (n1)-[old:{}]->(n2)
+            CREATE (n2)-[new:{}]->(n1)
+            DELETE old
+        '''.format(relation, relation)
+        self.graph.run(cypher)
+    
+    def del_relation_by_name(self, relation):
+        cypher = '''
+            MATCH (n1)-[old:{}]->(n2)
+            DELETE old
+        '''.format(relation)
+        self.graph.run(cypher)
 
     # 解析关系对象Relationship
     def parse_relation(self, relation):
-        print(relation)
+        '''
+        {
+            '_Walkable__sequence': (Node('食品安全本体', name='产品分类', ontologyid=1), 包括(产品分类)(Node('食品安全本体', name='产品分类', ontologyid=1), Node('产品分类', name='肉制品', proclassid=19)), Node('产品分类', name='肉制品', proclassid=19)), 
+            '_Subgraph__nodes': frozenset({Node('产品分类', name='肉制品', proclassid=19), Node('食品安全本体', name='产品分类', ontologyid=1)}), 
+            '_Subgraph__relationships': frozenset({包括(产品分类)(Node('食品安全本体', name='产品分类', ontologyid=1), Node('产品分类', name='肉制品', proclassid=19))}), 
+            '__uuid__': '2ef66ba9-a55e-4fa9-9d51-d931baaeefbb', 
+            '_stale': set(), '_graph': Graph('http://101.6.69.148:7474'), 
+            'identity': 32658
+        }
+        '''
         head = relation.start_node
         tail = relation.end_node
         rel = type(relation).__name__
-        prop = relation.keys()
+        triple_id = relation.identity
+        # prop = relation.keys()
         # value = relation.get(key)
-        return head, tail, rel # (_5312:Entity {name: '\u989c\u8272'}) (_6:Product {name: '\u82b1\u751f'}) Target
+        return head, tail, rel, triple_id # (_5312:Entity {name: '\u989c\u8272'}) (_6:Product {name: '\u82b1\u751f'}) Target
 
     def parse_record(self, record):
         relation = record.get('r') # (颜色)-[:Target {}]->(花生)
+        if isinstance(relation, list):
+            return [self.parse_relation(r) for r in relation]
         return self.parse_relation(relation)
 
-    '''
-    @func:  查询一个节点的所有输出关系
-    @usage: node1 = find_node(graph, 'Person', {'name': 'alice'})[0]
-            find_all_relation(graph, node)
-    '''
+    # 查询一个节点的所有输出关系
+    # find_all_relation(graph, node)
     def find_all_relation(self, node):
         # relations = list(self.rel_matcher.match([node], r_type=None)) # r_type = None表示任何类型的关系均可
         relations = list(self.graph.match([node], r_type=None))
         return relations
 
+    # 查询一个节点的所有输入输出关系
+    def find_all_bidirectional_relation(self, label, properties):
+        relations = self.graph.run('MATCH ()-[r]-(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
+        return relations # Record
+
     # 查询一个节点的所有输入关系
     def find_all_input_relation(self, label, properties):
-        relations = self.graph.run('MATCH ()-[r]-(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
+        relations = self.graph.run('MATCH ()-[r]->(a:' + label + '{name:\'' + properties['name'] + '\'}) RETURN r')
         return relations # Record
 
     # others
@@ -182,20 +177,29 @@ class Neo4jGraph(object):
 class ProductGraph(Neo4jGraph):
     def __init__(self, host='http://localhost:7474', auth=('neo4j', 'neo4j')):
         super().__init__(host, auth)
+        # self.label_list = ['Entity', 'Opinion', 'Product', 'Category']
+        self.label_list = ['产品', '评价对象', '评价词', '评价类别', '情感极性']
+        self.polarity_dict = {'POS': '正面', 'NEU': '中性', 'NEG': '负面'}
 
-    def add_entity(self, name, properties):
-        return self.add_node('Entity', {'name': name})
-        # node  = Node('Entity', {'name': name})
+    def _init_polar(self):
+        for polar in self.polarity_dict:
+            self.add_entity('Polarity', self.polarity_dict[polar])
 
-    def exist_entity(self, name):
-        return self.exist_node('Entity', {'name': name})
+    # 没有指定实体类型
+    def find_all_entity(self, name):
+        nodes = []
+        for label in self.label_list:
+            node = self.find_node(label, {'name': name})
+            nodes += node
+        return nodes
+
+    def find_entity(self, label, name):
+        nodes = self.find_node(label, {'name': name})
+        return nodes
     
-    def add_opinion(self, name, polarity = None):
-        if polarity is not None:
-            return self.add_node('Entity', {'name': name, 'polarity': polarity})
-        else:
-            return self.add_node('Entity', {'name': name})
-    
+    def add_entity(self, label, name):
+        return self.add_node(label, {'name': name})
+        
     # 查询一个实体节点的所有三元组
     def find_entity_triplet(self, name):
         node = self.get_node('Entity', {'name': name})
@@ -203,31 +207,81 @@ class ProductGraph(Neo4jGraph):
         in_relations = self.find_all_input_relation(node)
         return relations + in_relations
     
-    def add_eo_relation(self, name):
-        return self.add_node('Entity', {'name': name})
+    def getTriples(self, head, tail, relation):
+        nodes = []
+        if head is not None:
+            node1 = self.find_all_entity(head)
+            if node1 == []:
+                return []
+            nodes.append(node1[0])
+        if tail is not None:
+            node2 = self.find_all_entity(tail)
+            if node2 == []:
+                return []
+            nodes.append(node2[0])
+        triples = self.find_relation(nodes, relation)
+        triples = list(map(self.parse_relation, triples))
+        return triples
+
+    def getTriples2(self, node1_name, node1_label, node2_name, node2_label, relation):
+        nodes = []
+        if node1_name is not None:
+            if node1_label is None:
+                node1 = self.find_all_entity(node1_name)
+            else:
+                node1 = self.find_entity(node1_name, node1_label)
+            if node1 == []:
+                return []
+            nodes.append(node1[0])
+        if node2_name is not None:
+            if node2_label is None:
+                node2 = self.find_all_entity(node2_name)
+            else:
+                node2 = self.find_entity(node2_name, node2_label)
+            if node2 == []:
+                return []
+            nodes.append(node2[0])
+        
+        # 输入关系
+        if node1_name is None and node2_name is not None: 
+            triples = self.find_all_input_relation(node2_label, {'name': node2_name})
+            triples = list(map(self.parse_record, triples))
+            if relation is not None:
+                triples = [t for t in triples if t[2] == relation]
+        else:
+            triples = self.find_relation(nodes, relation)
+            triples = list(map(self.parse_relation, triples))
+        return triples
     
     # add a single item
-    def add_data(self, entity, opinion, polarity, product, category):
-        node_target = self.add_node('Entity', {'name': entity})
-        node_opinion = self.add_node('Opinion', {'name': opinion, 'polarity': polarity})
+    def add_data(self, target, opinion, polarity, product, category):
+        node_target = self.add_node('Target', {'name': target, 'category': category})
+        node_opinion = self.add_node('Opinion', {'name': opinion, 'polarity': polarity, 'category': category})
         node_product = self.add_node('Product', {'name': product})
         node_category = self.add_node('Category', {'name': category})
-        self.add_relation(node_target, node_opinion, 'Comment')     # 评价对象->评价词: Comment
-        self.add_relation(node_product, node_target, 'Target')      # 产品->评价对象: Target
-        self.add_relation(node_product, node_target, 'Product')
-        self.add_relation(node_target, node_category, 'Category')   # 评价类别->评价对象: Category
+        polarity = self.polarity_dict[polarity]
+        node_polarity = self.find_entity('Polarity', polarity)[0]
+        self.add_relation(node_product, node_target, '评价产品')
+        self.add_relation(node_product, node_opinion, '产品评价词')
+        self.add_relation(node_target, node_opinion, '评价')
+        self.add_relation(node_category, node_target, '评价类别') # 类别包含的评价对象
+        self.add_relation(node_category, node_opinion, '类别评价词') # 类别对应评价词
+        self.add_relation(node_polarity, node_opinion, '评价极性')
         return True
 
-    def add_constrain(self):
-        self.graph.schema.create_uniqueness_constraint('Entity', 'name')
-        self.graph.schema.create_uniqueness_constraint('Opinion', 'name')
-        self.graph.schema.create_uniqueness_constraint('Product', 'name')
-        self.graph.schema.create_uniqueness_constraint('Category', 'name')
+# create Cypher query
+class Cypher(ProductGraph):
+    def __init__(self, host='http://localhost:7474', auth=('neo4j', 'neo4j')):
+        super().__init__(host, auth)
+
+
+
 
 # match (h:Entity {name: '速度'})-[r*1..3]->(m) return h,r,m limit 20
 
 if __name__ == '__main__':
     graph = ProductGraph()
+    graph.change_relation_name('Comment', '评价')
     # node = graph.get_node('Product', {'name': '花生'})
     # print(node.get('name'))
     # rel = graph.find_all_input_relation('Product', {'name': '花生'})
