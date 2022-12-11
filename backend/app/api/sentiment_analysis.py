@@ -173,13 +173,13 @@ def get_sentiment_analysis():
         variety = request.get_json()["variety"]
         start_date = request.get_json()["start_date"]
         end_date = request.get_json()["end_date"]
-        print('Received: ', location, variety, start_date, end_date)
+        print('Received json: ', location, variety, start_date, end_date)
     elif hasattr(request, 'args'):
         location= request.args.get("location")
         variety = request.args.get("variety")
         start_date = request.args.get("start_date")
         end_date = request.args.get("end_date")
-        print('Received: ', location, variety, start_date, end_date)
+        print('Received args: ', location, variety, start_date, end_date)
     else:
         print(type(request))
         return
@@ -331,3 +331,22 @@ def get_sentiment_analysis():
     get_variaty_text(result, variety)
 
     return jsonify({'code':200, 'msg':'查询成功', 'data':result})
+
+@api.route('/getTriplets', methods=['POST'])
+def get_triplets():
+    variety = request.get_json()["variety"]
+    start_date = request.get_json()["start_date"]
+    end_date = request.get_json()["end_date"]
+    print('Received json: ', variety, start_date, end_date)
+
+    data_list = EVENT.get_date_info('', variety, start_date, end_date)
+    if data_list == None or len(data_list) == 0:
+        return {'code':200, 'msg':'查询无结果', 'data':{}}
+    
+    analysisResult = EVENTMODEL.txt_analysis(data_list)
+    comment_result = analysisResult['comment_result']
+    return jsonify({'code':200, 'msg':'查询成功', 'data': comment_result})
+
+@api.route('/getSimEntity', methods=['POST'])
+def get_sim():
+    pass

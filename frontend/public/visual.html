@@ -127,6 +127,8 @@
 	<!-- <input type="submit" value="Stabilize" id="stabilize"> -->
 	<br/>
 	<p>查询结果</p>
+	<div id="res_text"></div>
+	<br/>
 	<div id="viz"></div>
 
 
@@ -169,33 +171,52 @@
 
 		if(param['mod'] == 'entity'){
 			cypher = 'MATCH (n:' + param['label'] + ' {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
-		// 	cypher = 'MATCH (n:' + param['label'] + ')-[r]->(m) return n, r, m limit 20'
+			text = '查询结果：' + param['name']
+			document.getElementById('res_text').innerText = text
 		}
 		else if (param['mod'] == 'query'){
 			switch(param['label']){
-			case 'Product': // 产品的所有评价对象
-				cypher = 'MATCH (n:Product {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
+			case 'Visual':
+				// TODO: 建立索引
+				label = 'Product'
+				cypher = 'MATCH (n:' + label + ' {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '的评价词：'
 				break
-			case 'Target': // 评价对象的所有评价词
-				cypher = 'MATCH (n:Target {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
+			case 'ProductTarget': // 产品的所有评价对象
+				cypher = 'MATCH (n:Product {name: \'' + param['name'] + '\'})-[r]->(m:Target) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '的评价对象：'
 				break
-			case 'Opinion': // 评价词的所有评价对象
-				cypher = 'MATCH (n)-[r]->(m:Opinion {name: \'' + param['name'] + '\'}) return n, r, m limit 20'
+			case 'ProductOpinion': // 产品的评价词
+				cypher = 'MATCH (n:Product {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '的评价词：'
 				break
-			case 'Category': // 类别对应的所有评价对象
-				cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
+			case 'TargetOpinion': // 评价对象的评价词
+				cypher = 'MATCH (n:Target {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '的评价词：'
 				break
-			// case 'CategoryOpinion': // 类别对应的所有评价词
-			// 	cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
-			// 	break
-			case 'Polarity': // 对应情感极性的所有评价词
-				cypher = 'MATCH (n:Polarity {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
+			case 'OpinionTarget': // 评价词的评价对象
+				cypher = 'MATCH (n:Target)-[r]->(m:Opinion {name: \'' + param['name'] + '\'}) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '评价的对象：'
+				break
+			case 'CategoryTarget': // 类别对应的评价对象
+				cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m:Target) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '包含的评价对象：'
+				break
+			case 'CategoryOpinion': // 类别对应的评价词
+				cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '包含的评价词：'
+				break
+			case 'PolarityOpinion': // 对应情感极性的评价词
+				cypher = 'MATCH (n:Polarity {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
+				// cypher = 'MATCH (n)-[r]->(m:Polarity {name: \'' + param['name'] + '\'}) return n, r, m limit 20'
+				text = '查询：' + param['name'] + '情感的评价词：'
 				break
 			default:
 				console.log(param['label'])
 				cypher = 'MATCH (n) return n limit 20'
-		}
-		
+				text = '图谱展示'
+			}
+			document.getElementById('res_text').innerText = text
 		}
 		console.log(cypher)
 		// document.getElementById('reload').innerText

@@ -12,7 +12,7 @@
                     </el-col>
                 </el-row>
             </el-row> -->
-            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
+            <!-- <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
                 <h4 style="margin-left:20px">实体查询</h4>
                 <el-col :span="18">
                     <el-row :gutter="20">
@@ -32,14 +32,29 @@
                 <el-col :span="4">
                     <el-button type="primary" value="Submit" @click="search_node" class="InfoButton">查询</el-button>
                 </el-col>
+            </el-row> -->
+            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
+                <h3 style="margin-left:20px">评价可视化查询</h3>
+                <el-col style="margin-left:20px" :span="18">
+                    <p style="margin-left:20px">可视化展示文本的相关评价</p>
+                    <el-row :gutter="20">
+                        <el-col :span="4"><div class="xuanzekuangshuoming">查询对象</div></el-col>
+                        <el-col :span="6">
+                            <el-input type="text" v-model="queryentity" placeholder="花生" @input="input_text"></el-input>
+                        </el-col>
+                        <el-col :span="4">
+                            <el-button type="primary" value="Submit" @click="search_visual" class="InfoButton">查询</el-button>
+                        </el-col>
+                    </el-row>
+                </el-col>
             </el-row>
             <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
-                <h4 style="margin-left:20px">图谱查询</h4>
+                <h3 style="margin-left:20px">图谱查询</h3>
                 <el-col :span="18">
                     <el-row :gutter="20">
                         <el-col :span="4"><div class="xuanzekuangshuoming">查询问题</div></el-col>
                         <el-col :span="9">
-                            <el-select v-model="query" placeholder="请选择">
+                            <el-select v-model="query" placeholder="请选择" @change="query_change">
                                 <el-option v-for="item in queryList" :key="item" :label="item" :value="item"></el-option>
                             </el-select>
                         </el-col>
@@ -106,30 +121,44 @@
                 '情感极性': 'Polarity',
                 '全部': 'All',
             },
-            typeRelationDict:{
-                'Product': '评价内容',
-                'Target': '评价',
-                'Opinion': '评价对象',
-                'Category': '评价类别',
-                'Polarity': '评价极性',
-            },
-            query: '评价对象的所有评价词',
+            query: '评价对象的评价词',
             queryentity: '花生',
             queryList:[
-                '产品的所有评价对象',
-                '评价对象的所有评价词',
-                '评价词的所有评价对象',
-                '类别对应的所有评价对象',
-                // '类别对应的所有评价词',
-                '对应情感极性的所有评价词',
+                '产品的评价对象',
+                '产品的评价词',
+                '评价对象的评价词',
+                '评价词的评价对象',
+                '类别对应的评价对象',
+                '类别包含的评价词',
+                '对应情感极性的评价词',
             ],
             queryDict:{
-                '产品所有评价类别': 'Product',
-                '评价对象的所有评价词': 'Target',
-                '评价词的所有评价对象': 'Opinion',
-                '类别对应的所有评价对象': 'Category',
-                '对应情感极性的所有评价词': 'Polarity',
+                '产品的评价对象': 'ProductTarget',
+                '产品的评价词': 'ProductOpinion',
+                '评价对象的评价词': 'TargetOpinion',
+                '评价词的评价对象': 'OpinionTarget',
+                '类别对应的评价对象': 'CategoryTarget',
+                '类别包含的评价词': 'CategoryOpinion',
+                '对应情感极性的评价词': 'PolarityOpinion',
             },
+            queryEntityDict:{
+                'ProductTarget': '花生',
+                'ProductOpinion': '花生',
+                'TargetOpinion': '味道',
+                'OpinionTarget': '好吃',
+                'CategoryTarget': '口感',
+                'CategoryOpinion': '口感',
+                'PolarityOpinion': '正面',
+            },
+            // queryEntityListDict:{
+            //     'ProductTarget': ['花生', '大米', '番茄', '茶叶'],
+            //     'ProductOpinion': ['花生', '大米', '番茄', '茶叶'],
+            //     'TargetOpinion': '味道',
+            //     'OpinionTarget': '好吃',
+            //     'CategoryTarget': ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其它'],
+            //     'CategoryOpinion': ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其它'],
+            //     'PolarityOpinion': ['正面', '中性', '负面'],
+            // },
             relationDict:[
                 '对应产品', '评价内容', '评价', '评价对象', '评价类别', '评价内容', '评价极性', 
                 '正面评价词', '中性评价词', '负面评价词'
@@ -142,19 +171,49 @@
         input_text(){
             this.$forceUpdate();
         },
-        searchValueChange(){
-            if(this.searchValue == '节点查询'){
-                document.getElementById('SearchNode').hidden = false
-                document.getElementById('SearchTriplet').hidden = true
-            }
-            else{
-                document.getElementById('SearchNode').hidden = true
-                document.getElementById('SearchTriplet').hidden = false
-            }
+        // searchValueChange(){
+        //     if(this.searchValue == '节点查询'){
+        //         document.getElementById('SearchNode').hidden = false
+        //         document.getElementById('SearchTriplet').hidden = true
+        //     }
+        //     else{
+        //         document.getElementById('SearchNode').hidden = true
+        //         document.getElementById('SearchTriplet').hidden = false
+        //     }
+        // },
+        // click_search(){
+        //     if(this.searchValue == '节点查询') this.search_node()
+        //     else this.search_triplet()
+        // },
+        query_change(){
+            this.queryentity = this.queryEntityDict[this.queryDict[this.query]]
         },
-        click_search(){
-            if(this.searchValue == '节点查询') this.search_node()
-            else this.search_triplet()
+        do_search(param){
+            var param_list = []
+            for (var key in param){
+                param_list.push(key + '=' + param[key])
+            }
+            var param_url = '?' + param_list.join('&')
+            document.getElementById('visual').src = this.visualUrl + param_url
+        },
+        search_visual(){
+            var param = {
+                mod: 'query',
+                label: 'Visual',
+                name: this.queryentity,
+            }
+            this.do_search(param)
+        },
+        search_query(){
+            if(this.queryentity == ''){ // 没有输入信息
+                this.queryentity = this.queryEntityDict[this.queryDict[this.query]]
+            }
+            var param = {
+                mod: 'query',
+                label: this.queryDict[this.query],
+                name: this.queryentity,
+            }
+            this.do_search(param)
         },
         search_node(){
             if(this.entity == ''){ // 没有输入信息
@@ -165,31 +224,9 @@
                 label: this.typeDict[this.entityType],
                 name: this.entity,
             }
-            var param_list = []
-            for (var key in param){
-                param_list.push(key + '=' + param[key])
-            }
-            var param_url = '?' + param_list.join('&')
-            document.getElementById('visual').src = this.visualUrl + param_url
+            this.do_search(param)
         },
         search_triplet(){
-
-        },
-        search_query(){
-            if(this.entity == ''){ // 没有输入信息
-                this.entity = '花生'
-            }
-            var param = {
-                mod: 'query',
-                label: this.queryDict[this.query],
-                name: this.queryentity,
-            }
-            var param_list = []
-            for (var key in param){
-                param_list.push(key + '=' + param[key])
-            }
-            var param_url = '?' + param_list.join('&')
-            document.getElementById('visual').src = this.visualUrl + param_url
 
         },
     }

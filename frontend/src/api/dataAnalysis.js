@@ -39,3 +39,11 @@ export function getSentimentAnalysis(data) {
     data
   })
 }
+
+export function getTriplets(data) {
+  return request({
+    url: '/api/v1/getTriplets',
+    method: 'post',
+    data
+  })
+}
