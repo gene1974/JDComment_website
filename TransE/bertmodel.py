@@ -8,10 +8,9 @@ import torch.optim as optim
 from transformers import BertTokenizer, BertModel
 from AttentionModel import AttentionPooling
 from pytorchtools import EarlyStopping
-from data import get_entity, get_triplet, load_vocab
 from utils import save_data, load_data
 
-bert_path = '/home/gene/JDComment_website/backend/app/lib/model/'
+bert_path = '/home/gene/JDComment_website/backend/app/lib/JDComment/model/'
 
 class BertCls(nn.Module):
     def __init__(self, n_type):
@@ -50,9 +49,9 @@ class BertData():
         label = self.label[begin: end].to('cuda')
         return tokens, masks, label
 
-def save_model(model, vocab):
+def save_model(model, vocab, path = './model/'):
     model_time = '{}'.format(time.strftime('%m%d%H%M', time.localtime()))
-    model_path = './model/{}'.format(model_time)
+    model_path = path + '{}'.format(model_time)
     os.mkdir(model_path)
     torch.save(model.state_dict(), model_path + '/model_' + model_time)
     with open(model_path + '/vocab_' + model_time, 'wb') as f:
@@ -133,26 +132,25 @@ def test_bert(model, test_set):
             test_total += len(labels)
     print('Test: Acc: {:4f}'.format(test_correct / test_total))
 
-def train_bertcls_emb(ent_list, ent_name, ent_type_dict, label, rel_type_list):
-    ent_list = [ent_name[ent] for ent in ent_list]
+def train_bertcls_emb(ent_list, ent_label_list, n_type, rel_type_list):
     tokenizer = BertTokenizer.from_pretrained(bert_path + 'bert-base-chinese/')
     tokens = tokenizer([ent for ent in ent_list], 
                        padding = 'max_length', truncation = True, max_length = 20, return_tensors = 'pt')
     
-    n_train, n_dev = int(0.8 * len(tokens['input_ids'])), int(0.2 * len(tokens['input_ids']))
-    train_set = BertData(tokens['input_ids'][:n_train], tokens['attention_mask'][:n_train], label[:n_train])
-    valid_set = BertData(tokens['input_ids'][n_train:], tokens['attention_mask'][n_train:], label[n_train:])
-    model = train_bert(train_set, valid_set, ent_type_dict)
+    n_train = int(0.8 * len(tokens['input_ids']))
+    train_set = BertData(tokens['input_ids'][:n_train], tokens['attention_mask'][:n_train], ent_label_list[:n_train])
+    valid_set = BertData(tokens['input_ids'][n_train:], tokens['attention_mask'][n_train:], ent_label_list[n_train:])
+    model = train_bert(train_set, valid_set, n_type)
 
     vocab = [tokenizer, tokens]
     model_time = save_model(model, vocab)
     test_bert(model, valid_set)
-    bert_emb, rel_emb, emb_time = get_bertcls_emb(rel_type_list, ent_type_dict, model_time)
+    bert_emb, rel_emb, emb_time = get_bertcls_emb(rel_type_list, n_type, model_time)
 
     return model, model_time, bert_emb, rel_emb, emb_time
 
-def get_bertcls_emb(rel_type_list, ent_type_dict, model_time = '10221520'):
-    model = BertCls(len(ent_type_dict)).to('cuda')
+def get_bertcls_emb(rel_type_list, n_type, model_time = '10221520'):
+    model = BertCls(n_type).to('cuda')
     model, vocab = load_model(model_time, model)
     tokenizer, tokens = vocab
 
@@ -182,9 +180,12 @@ def load_emb(emb_time):
     return ent_emb, rel_emb
 
 if __name__ == '__main__':
-    ent_dict, ent_list, ent_name, ent_type_list, ent_type_dict, label, \
-        rel_type_dict, rel_list, triplets = load_vocab()
-    # train_bertcls_emb(ent_list, ent_name, ent_type_dict, label, rel_type_list)
-    rel_type_list = ['症状', '部位', '检查', '科室', '指标', '疾病相关指标', '并发症', '规范化药品名称', '治疗', '抗炎', '抗病毒', '止痛', '解热']
-    bert_emb, rel_emb, emb_time = get_bertcls_emb(rel_type_list, ent_type_dict, '10271539')
+    from load_dataset import define_entity, define_relation, load_dataset
+    label_list = define_entity() # ['Product', 'Target', 'Opinion', 'Category', 'Polarity']
+    rel_type_list = [trip[2] for trip in define_relation()] # ['评价产品', '产品评价词', '评价', '评价类别', '类别评价词', '评价极性']
+
+    ent_list, rel_list, train_list, valid_list, test_list, ent_label_list = load_dataset('./data/')
+
+    # bert_emb, rel_emb, emb_time = get_bertcls_emb(rel_type_list, ent_type_dict, '10271539')
+    model, model_time, bert_emb, rel_emb, emb_time = train_bertcls_emb(ent_list, ent_label_list, len(label_list), rel_type_list)
 

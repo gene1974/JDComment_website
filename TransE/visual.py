@@ -9,7 +9,6 @@ from sklearn.manifold import TSNE
 
 from bertmodel import get_bertcls_emb
 from transemodel import get_transe_embeds
-from data import load_vocab
 from utils import load_data, save_data
 
 def translate(legend):
@@ -47,11 +46,16 @@ def translate(legend):
 
 # plot
 def plot_embedding(data, label, title, legend):
+    label = np.array(label)
+    print(label)
+    print(data)
+    print(legend)
     x_min, x_max = np.min(data, 0), np.max(data, 0)
     data = (data - x_min) / (x_max - x_min)
     fig = plt.figure(figsize = (7.2, 7.2))
 
     for i in range(len(legend) - 1, -1, -1):
+        print(i, len(data[label == i, 0]))
         plt.plot(data[label == i, 0], data[label == i, 1], '.')
     plt.title(title)
     plt.legend(legend)
@@ -114,10 +118,7 @@ def visual_emb(ent_embeds, label, title, legend):
     result = dim_reduction(ent_embeds)
     plot_embedding(result, label, title, legend)
 
-def visual(label, emb_time, mod = 'transe'):
-    legend = ['疾病', '症状','手术', '部位', '药物', '药品名', '生化指标', '实验室检查', '影像学检查', '体格检查', '就诊科室', '其他治疗']
-    legend = translate(legend)
-    
+def visual(legend, label, emb_time, mod = 'transe'):
     if mod == 'transe':
         ent_embeds = get_embeds('./result/transe_emb.vec', emb_time)
         title = 'transe embedding'
