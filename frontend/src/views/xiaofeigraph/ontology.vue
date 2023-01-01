@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import echarts from 'echarts'
+  import * as echarts from 'echarts'
   import resize from '@/utils/echarts_resize.js'
 //   import benti from '@/assets/graph_data/benti.js'
 

@@ -31,7 +31,7 @@
                         :on-exceed="handleFileExceed"
                         drag
                         :auto-upload="false"
-                        action="http://47.100.99.53:9050/api/v1/postDataFile"
+                        action="http://101.6.69.215:9050/api/v1/postDataFile"
                         :on-success="uploadSuccess"
                         :on-error="uploadError"
                         :file-list="fileList"
@@ -64,7 +64,7 @@
         </div>  
     
     <!-- 原始数据 -->
-    <div class="sentiment-analysis">
+    <!-- <div class="sentiment-analysis"> -->
     <!-- <div class="home-container"><el-header style="margin">文本分析</el-header></div>
     <div class="shuruwenben">
       输入文本
@@ -79,10 +79,10 @@
       style="font-size: 16px;"
       v-model="inputText">
     </el-input>
-    <el-button :loading="submitLoading" type="primary" @click="submitText" class="dantiaofenxibutton">文本分析</el-button> -->
+    <el-button :loading="submitLoading" type="primary" @click="submitText" class="dantiaofenxibutton">文本分析</el-button>
     
 
-    <!-- <div class="shangchuanwenjian">
+    <div class="shangchuanwenjian">
       上传文件
     </div>
     <div class="shangchuanwenjianshuoming">
@@ -96,7 +96,7 @@
       :on-exceed="handleFileExceed"
       drag
       :auto-upload="false"
-      action="http://47.100.99.53:9050/api/v1/postDataFile"
+      action="http://101.6.69.215:9050/api/v1/postDataFile"
       :on-success="uploadSuccess"
       :on-error="uploadError"
       :file-list="fileList"
@@ -105,9 +105,9 @@
       <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
       <div class="el-upload__tip" slot="tip">只能上传txt文件</div>
     </el-upload>
-    <el-button :loading="uploadLoading" type="primary" @click="submitUpload" class="piliangfenxibutton">文件分析</el-button> -->
+    <el-button :loading="uploadLoading" type="primary" @click="submitUpload" class="piliangfenxibutton">文件分析</el-button>
 
-    <!-- <div class="jieguozhanshi">
+    <div class="jieguozhanshi">
       结果展示
     </div>
     <div class="jieguozhanshikuang"></div>
@@ -158,6 +158,10 @@
             </el-table-column>
         </el-table>
       </el-card> -->
+
+      <div class="dataAnalysisBacground">
+            <el-row :gutter="20" style="margin:20px">
+              <el-col :span="10">
       <div class="keshihuajieguoline"></div>
       <div class="keshihuajieguo">
         可视化结果
@@ -204,7 +208,13 @@
         </div>
         <!-- <div>{{textRes[0]}}</div> -->
       </el-card>
+    </el-col>
+    </el-row>
     </div>
+
+
+
+
     <!-- <div class="wenjianfenxikeshihuashuoming">
         对四元组各列进行筛选，查看不同项的可视化分析结果
       </div> -->

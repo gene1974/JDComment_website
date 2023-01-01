@@ -21,22 +21,22 @@ export const routes = [
     }]
   },
   {
-    path: '/',
+    path: 'dataPresent',
     component: Layout,
-    redirect: '/dataPresent',
     name: 'shujuku',
-    meta: {title: '数据库', icon: 'el-icon-edit-outline'},
+    meta: {title: '民意数据', icon: 'el-icon-edit-outline'},
     children: [{
       path: 'dataPresent',
       component: () => import('@/views/dataPresent/index.vue'),
       name: 'dataPresent',
-      meta: {title: '数据展示', noCache: true, icon: 'el-icon-edit-outline'}
+      meta: {title: '数据展示', noCache: true, icon: 'el-icon-edit-analysis'}
     },
     {
       path: 'annotator',
       component: () => import('@/views/annotator/index.vue'),
       name: 'Annotator',
       meta: {title: '数据标注', noCache: true, icon: 'el-icon-edit-outline'}
+      //     meta: {title: '数据标注', icon: 'el-icon-document-copy', noCache: true}
     // },
     // {
     //   path: 'annotatorChange',
@@ -45,55 +45,11 @@ export const routes = [
     //   meta: {title: '标注修改', noCache: true, icon: 'el-icon-edit-outline'}
     }]
   },
-  // {
-  //   path: '/annotator',
-  //   component: Layout,
-  //   children: [{
-  //     path: 'index',
-  //     component: () => import('@/views/annotator/index.vue'),
-  //     name: 'Annotator',
-  //     meta: {title: '数据标注', icon: 'el-icon-document-copy', noCache: true}
-  //   }]
-  // },
-  // {
-  //   path: '/dataPresent',
-  //   component: Layout,
-  //   children: [{
-  //     path: 'index',
-  //     component: () => import('@/views/dataPresent/index.vue'),
-  //     name: 'dataPresent',
-  //     meta: {title: '数据展示', icon: 'el-icon-data-analysis'}
-  //   }]
-  // },
-  // {
-  //   path: '/annotatorChange',
-  //   component: Layout,
-  //   children: [{
-  //     path: 'index',
-  //     component: () => import('@/views/annotatorChange/index.vue'),
-  //     name: 'annotatorChange',
-  //     meta: {title: '标注修改', icon: 'el-icon-edit-outline'}
-  //   }]
-  // },
-  // {
-  //   path: '/analysis',
-  //   component: Layout,
-  //   children: [{
-  //     path: 'index',
-  //     component: () => import('@/views/analysis/index.vue'),
-  //     name: 'analysis',
-  //     meta: {title: '文本分析', icon: 'el-icon-data-analysis'}
-  //   }]
-  // },
-  
   {
-    path: '/',
+    path: '/dataAnalysis',
     component: Layout,
-    redirect: '/dataAnalysis',
     name: 'shujufenxi',
     meta: {title: '情感分析', icon: 'el-icon-data-analysis'},
-    // path: '/dataAnalysis',
-    // component: Layout,
     children: [{
       path: 'dataAnalysis',
       component: () => import('@/views/dataAnalysis/index.vue'),
@@ -111,60 +67,7 @@ export const routes = [
       component: () => import('@/views/whitepaper/index.vue'),
       name: 'whitepaper',
       meta: {title: '白皮书', icon: 'el-icon-download'},
-    //   children: [{
-    //     path: 'index',
-    //     component: () => import('@/views/whitepaper/index.vue'),
-    //     name: 'whitepaper',
-    //     meta: {title: '白皮书', icon: 'el-icon-download'}
-      // },
-      // {
-      //   path: 'fengcheng',
-      //   component: () => import('@/views/whitepaper/fengcheng.vue'),
-      //   name: 'fengcheng',
-      //   meta: {title: '江西丰城大米', icon: 'el-icon-download'}
-      // },{
-      //   path: 'chaohu',
-      //   component: () => import('@/views/whitepaper/chaohu.vue'),
-      //   name: 'chaohu',
-      //   meta: {title: '安徽巢湖番茄', icon: 'el-icon-download'}
-      // },{
-      //   path: 'xiantao',
-      //   component: () => import('@/views/whitepaper/xiantao.vue'),
-      //   name: 'xiantao',
-      //   meta: {title: '湖北仙桃莲藕', icon: 'el-icon-download'}
-      // },{
-      //   path: 'fengxin',
-      //   component: () => import('@/views/whitepaper/fengxin.vue'),
-      //   name: 'fengxin',
-      //   meta: {title: '江西奉新猕猴桃', icon: 'el-icon-download'}
-      // },{
-      //   path: 'jinggangshan',
-      //   component: () => import('@/views/whitepaper/jinggangshan.vue'),
-      //   name: 'jinggangshan',
-      //   meta: {title: '江西井冈山蜜柚', icon: 'el-icon-download'}
-      // },{
-      //   path: 'shanggao',
-      //   component: () => import('@/views/whitepaper/shanggao.vue'),
-      //   name: 'shanggao',
-      //   meta: {title: '江西上高大蒜', icon: 'el-icon-download'}
-      // },{
-      //   path: 'yongxin',
-      //   component: () => import('@/views/whitepaper/yongxin.vue'),
-      //   name: 'yongxin',
-      //   meta: {title: '江西永新橙皮', icon: 'el-icon-download'}
-      // },{
-      //   path: 'wannian',
-      //   component: () => import('@/views/whitepaper/wannian.vue'),
-      //   name: 'wannian',
-      //   meta: {title: '江西万年茶油', icon: 'el-icon-download'}
-      // },{
-      //   path: 'yibin',
-      //   component: () => import('@/views/whitepaper/yibin.vue'),
-      //   name: 'yibin',
-      //   meta: {title: '四川宜宾屏山桠橙', icon: 'el-icon-download'}
-      // }
-    // ]
-  },
+    },
   ]
 },
   {

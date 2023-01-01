@@ -103,7 +103,8 @@
           if (router.hidden) { continue }
 
           const data = {
-            path: path.resolve(basePath, router.path),
+            // path: path.resolve(basePath, router.path),
+            path: router.path,
             title: [...prefixTitle]
           }
 

@@ -23,7 +23,7 @@
     <script type="text/javascript">
 		var viz;
 		function draw() {
-			var cypher = 'MATCH (n)-[r]->(m) RETURN n,r,m limit 10'
+			var cypher = 'MATCH (n:Entity)-[r]->(m:Product) RETURN n,r,m limit 10'
 			if (window.location.search != ''){
 				cypher = this.GetRequest()
 			}
@@ -46,31 +46,34 @@
                             'color': 'black',
 							// 'size': "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c",
                         },
-						// label: "name",
-						// color: 'yellow',
 					},
 					edges: {
 						// color: 'yellow',
 						arrows: {
 							to: {enabled: true}
-						},
-						// label: "name",
-						// name
+						}
 					},
 				},
 				labels: {
-					Target: {
+					Entity: {
 						label: "name",
 						color: 'blue',
 						title_properties: ['name'],
-						caption: true,
+						// "caption": "显示的节点属性",
 						"size": "points",
 						font: {
                             "size":16,
 							'color':'yellow',
                             // "color":"#000000"
                         },
-						arrows: true,
+						// [NeoVis.NEOVIS_ADVANCED_CONFIG]: {
+						// 	cypher: {
+						// 		value: "MATCH (n) WHERE id(n) = $id RETURN n.size"
+						// 	},
+						// 	function: {
+						// 		title: NeoVis.objectToTitleHtml
+						// 	},
+						// }
 					},
 					Product: {
 						label: "name",
@@ -81,30 +84,24 @@
 						color: 'yellow',
 						group: 'polarity', // 根据polarity分组
 					},
-					Category: {
+					Character: {
 						label: "name",
-						color: 'yellow',
-					},
-					Polarity: {
-						label: "name",
-						color: 'yellow',
-					},
+						value: "pagerank",
+						group: "community"
+					}
 				},
 				relationships: {
-					产品评价:{
+					Target:{
 						label: 'name',
-						// value: 'name',
+						value: 'name',
 						'thickness': '3',
-						"caption": true,
+						"caption": false,
 					},
-					评价内容:{
-						// label: 'name',
-						// value: 'name',
-						'thickness': '3',
-						"caption": true,
-					},
+					INTERACTS: {
+						value: "Target",
+						// value: "weight"
+					}
 				},
-				// MATCH (n:Product {name: '棉花'})-[r]->(m) return n, r, m limit 20
 				// initialCypher: "MATCH (n:Entity)-[r]->(m:Product) RETURN n,r,m limit 10",
 				initialCypher: cypher
 			};
@@ -121,14 +118,10 @@
 	<!-- <p>获得的参数：<div id="data"></div></p> -->
 
 
-	<p>高级查询</p>
+	<p>Cypher query: </p>
 	<textarea rows="4" cols=50 id="cypher"></textarea><br>
 	<input type="submit" value="Submit" id="reload">
-	<!-- <input type="submit" value="Stabilize" id="stabilize"> -->
-	<br/>
-	<p>查询结果</p>
-	<div id="res_text"></div>
-	<br/>
+	<input type="submit" value="Stabilize" id="stabilize">
 	<div id="viz"></div>
 
 
@@ -170,54 +163,9 @@
 		var cypher = 'MATCH '
 
 		if(param['mod'] == 'entity'){
-			cypher = 'MATCH (n:' + param['label'] + ' {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
-			text = '查询结果：' + param['name']
-			document.getElementById('res_text').innerText = text
+			cypher = 'MATCH (n:' + param['type'] + ')-[r]->(m) return n, r, m limit 20'
 		}
-		else if (param['mod'] == 'query'){
-			switch(param['label']){
-			case 'Visual':
-				// TODO: 建立索引
-				label = 'Product'
-				cypher = 'MATCH (n:' + label + ' {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '的评价词：'
-				break
-			case 'ProductTarget': // 产品的所有评价对象
-				cypher = 'MATCH (n:Product {name: \'' + param['name'] + '\'})-[r]->(m:Target) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '的评价对象：'
-				break
-			case 'ProductOpinion': // 产品的评价词
-				cypher = 'MATCH (n:Product {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '的评价词：'
-				break
-			case 'TargetOpinion': // 评价对象的评价词
-				cypher = 'MATCH (n:Target {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '的评价词：'
-				break
-			case 'OpinionTarget': // 评价词的评价对象
-				cypher = 'MATCH (n:Target)-[r]->(m:Opinion {name: \'' + param['name'] + '\'}) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '评价的对象：'
-				break
-			case 'CategoryTarget': // 类别对应的评价对象
-				cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m:Target) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '包含的评价对象：'
-				break
-			case 'CategoryOpinion': // 类别对应的评价词
-				cypher = 'MATCH (n:Category {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '包含的评价词：'
-				break
-			case 'PolarityOpinion': // 对应情感极性的评价词
-				cypher = 'MATCH (n:Polarity {name: \'' + param['name'] + '\'})-[r]->(m:Opinion) return n, r, m limit 20'
-				// cypher = 'MATCH (n)-[r]->(m:Polarity {name: \'' + param['name'] + '\'}) return n, r, m limit 20'
-				text = '查询：' + param['name'] + '情感的评价词：'
-				break
-			default:
-				console.log(param['label'])
-				cypher = 'MATCH (n) return n limit 20'
-				text = '图谱展示'
-			}
-			document.getElementById('res_text').innerText = text
-		}
+		cypher = 'MATCH (n:' + param['type'] + ' {name: \'' + param['name'] + '\'})-[r]->(m) return n, r, m limit 20'
 		console.log(cypher)
 		// document.getElementById('reload').innerText
 		// viz.renderWithCypher(cypher);

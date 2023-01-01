@@ -81,15 +81,16 @@
       filterAffixTags(routes, basePath = '/') {
         let tags = []
         routes.forEach(route => {
-          if (route.meta && route.meta.affix) {
-            const tagPath = path.resolve(basePath, route.path)
-            tags.push({
-              fullPath: tagPath,
-              path: tagPath,
-              name: route.name,
-              meta: { ...route.meta }
-            })
-          }
+          // if (route.meta && route.meta.affix) {
+          //   const tagPath = path.resolve(basePath, route.path)
+          //   console.log(basePath, route.path)
+          //   tags.push({
+          //     fullPath: tagPath,
+          //     path: tagPath,
+          //     name: route.name,
+          //     meta: { ...route.meta }
+          //   })
+          // }
           if (route.children) {
             const tempTags = this.filterAffixTags(route.children, route.path)
             if (tempTags.length >= 1) {

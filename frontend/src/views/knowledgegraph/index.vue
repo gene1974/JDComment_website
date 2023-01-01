@@ -12,7 +12,7 @@
                     </el-col>
                 </el-row>
             </el-row> -->
-            <!-- <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
+            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
                 <h4 style="margin-left:20px">实体查询</h4>
                 <el-col :span="18">
                     <el-row :gutter="20">
@@ -31,42 +31,6 @@
                 </el-col>
                 <el-col :span="4">
                     <el-button type="primary" value="Submit" @click="search_node" class="InfoButton">查询</el-button>
-                </el-col>
-            </el-row> -->
-            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
-                <h3 style="margin-left:20px">评价可视化查询</h3>
-                <el-col style="margin-left:20px" :span="18">
-                    <p style="margin-left:20px">可视化展示文本的相关评价</p>
-                    <el-row :gutter="20">
-                        <el-col :span="4"><div class="xuanzekuangshuoming">查询对象</div></el-col>
-                        <el-col :span="6">
-                            <el-input type="text" v-model="queryentity" placeholder="花生" @input="input_text"></el-input>
-                        </el-col>
-                        <el-col :span="4">
-                            <el-button type="primary" value="Submit" @click="search_visual" class="InfoButton">查询</el-button>
-                        </el-col>
-                    </el-row>
-                </el-col>
-            </el-row>
-            <el-row id="SearchNode" class="Background" :gutter="10" style="margin-left: 10px; padding-bottom: 20px;">
-                <h3 style="margin-left:20px">图谱查询</h3>
-                <el-col :span="18">
-                    <el-row :gutter="20">
-                        <el-col :span="4"><div class="xuanzekuangshuoming">查询问题</div></el-col>
-                        <el-col :span="9">
-                            <el-select v-model="query" placeholder="请选择" @change="query_change">
-                                <el-option v-for="item in queryList" :key="item" :label="item" :value="item"></el-option>
-                            </el-select>
-                        </el-col>
-                        <el-col :span="4"><div class="xuanzekuangshuoming">输入文本</div></el-col>
-                        <el-col :span="5">
-                            <el-input type="text" v-model="queryentity" placeholder="花生" @input="input_text"></el-input>
-                            <p id="entity_alert" hidden style="color:red;margin-left: 5px;">请输入查询内容！</p>
-                        </el-col>
-                    </el-row>
-                </el-col>
-                <el-col :span="4">
-                    <el-button type="primary" value="Submit" @click="search_query" class="InfoButton">查询</el-button>
                 </el-col>
             </el-row>
             <!-- <el-row id="SearchTriplet" class="Background" :gutter="20" style="margin-left: 10px" hidden>
@@ -92,10 +56,12 @@
             </el-row> -->
             <el-row :gutter="20">
                 <el-col :span="20" class="Background" style="margin-left: 20px">
+                    <h4 style="margin:20px">查询结果</h4>
+                    <div style="margin:20px">查询实体：{{entity}}</div>
                     <el-row>
                         <div id="result"></div>
                         <div>
-                            <iframe id="visual" :src="visualUrl" frameborder="0" style="width:700px;height:800px;"></iframe>
+                            <iframe id="visual" :src="visualUrl" frameborder="0" style="width:600px;height:700px;"></iframe>
                         </div>
                     </el-row>
                 </el-col>
@@ -115,54 +81,12 @@
             typeList: ['产品', '评价对象', '评价词', '评价类别', '情感极性', '全部'],
             typeDict:{
                 '产品': 'Product',
-                '评价对象': 'Target',
+                '评价对象': 'Entity',
                 '评价词': 'Opinion',
                 '评价类别': 'Category',
                 '情感极性': 'Polarity',
                 '全部': 'All',
             },
-            query: '评价对象的评价词',
-            queryentity: '花生',
-            queryList:[
-                '产品的评价对象',
-                '产品的评价词',
-                '评价对象的评价词',
-                '评价词的评价对象',
-                '类别对应的评价对象',
-                '类别包含的评价词',
-                '对应情感极性的评价词',
-            ],
-            queryDict:{
-                '产品的评价对象': 'ProductTarget',
-                '产品的评价词': 'ProductOpinion',
-                '评价对象的评价词': 'TargetOpinion',
-                '评价词的评价对象': 'OpinionTarget',
-                '类别对应的评价对象': 'CategoryTarget',
-                '类别包含的评价词': 'CategoryOpinion',
-                '对应情感极性的评价词': 'PolarityOpinion',
-            },
-            queryEntityDict:{
-                'ProductTarget': '花生',
-                'ProductOpinion': '花生',
-                'TargetOpinion': '味道',
-                'OpinionTarget': '好吃',
-                'CategoryTarget': '口感',
-                'CategoryOpinion': '口感',
-                'PolarityOpinion': '正面',
-            },
-            // queryEntityListDict:{
-            //     'ProductTarget': ['花生', '大米', '番茄', '茶叶'],
-            //     'ProductOpinion': ['花生', '大米', '番茄', '茶叶'],
-            //     'TargetOpinion': '味道',
-            //     'OpinionTarget': '好吃',
-            //     'CategoryTarget': ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其它'],
-            //     'CategoryOpinion': ['价格', '品质', '色泽', '口感', '包装', '分量', '物流', '售后', '其它'],
-            //     'PolarityOpinion': ['正面', '中性', '负面'],
-            // },
-            relationDict:[
-                '对应产品', '评价内容', '评价', '评价对象', '评价类别', '评价内容', '评价极性', 
-                '正面评价词', '中性评价词', '负面评价词'
-            ],
             visualUrl: '/visual.html',
             visualData: 'Hello world',
         }
@@ -171,60 +95,37 @@
         input_text(){
             this.$forceUpdate();
         },
-        // searchValueChange(){
-        //     if(this.searchValue == '节点查询'){
-        //         document.getElementById('SearchNode').hidden = false
-        //         document.getElementById('SearchTriplet').hidden = true
-        //     }
-        //     else{
-        //         document.getElementById('SearchNode').hidden = true
-        //         document.getElementById('SearchTriplet').hidden = false
-        //     }
-        // },
-        // click_search(){
-        //     if(this.searchValue == '节点查询') this.search_node()
-        //     else this.search_triplet()
-        // },
-        query_change(){
-            this.queryentity = this.queryEntityDict[this.queryDict[this.query]]
+        searchValueChange(){
+            if(this.searchValue == '节点查询'){
+                document.getElementById('SearchNode').hidden = false
+                document.getElementById('SearchTriplet').hidden = true
+            }
+            else{
+                document.getElementById('SearchNode').hidden = true
+                document.getElementById('SearchTriplet').hidden = false
+            }
         },
-        do_search(param){
+        click_search(){
+            if(this.searchValue == '节点查询') this.search_node()
+            else this.search_triplet()
+        },
+        search_node(){
+            if(this.entity == ''){ // 没有输入信息
+                // document.getElementById('entity_alert').hidden = false
+                // return
+                this.entity = '花生'
+            }
+            var param = {
+                mod: 'entity',
+                type: this.typeDict[this.entityType],
+                name: this.entity,
+            }
             var param_list = []
             for (var key in param){
                 param_list.push(key + '=' + param[key])
             }
             var param_url = '?' + param_list.join('&')
             document.getElementById('visual').src = this.visualUrl + param_url
-        },
-        search_visual(){
-            var param = {
-                mod: 'query',
-                label: 'Visual',
-                name: this.queryentity,
-            }
-            this.do_search(param)
-        },
-        search_query(){
-            if(this.queryentity == ''){ // 没有输入信息
-                this.queryentity = this.queryEntityDict[this.queryDict[this.query]]
-            }
-            var param = {
-                mod: 'query',
-                label: this.queryDict[this.query],
-                name: this.queryentity,
-            }
-            this.do_search(param)
-        },
-        search_node(){
-            if(this.entity == ''){ // 没有输入信息
-                this.entity = '花生'
-            }
-            var param = {
-                mod: 'entity',
-                label: this.typeDict[this.entityType],
-                name: this.entity,
-            }
-            this.do_search(param)
         },
         search_triplet(){
 

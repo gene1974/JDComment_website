@@ -1,8 +1,8 @@
 <template>
   <div class="home-container" style="min-width:fit-content;">
     <el-container>
-      <el-header>欢迎来到本网站！</el-header>
-      <el-main style="height:600px">
+      <el-header>农产品情感分析系统</el-header>
+      <el-main style="height:700px">
         <el-row :gutter="20">
             <el-col>
               <el-image
@@ -43,6 +43,53 @@
     </el-container>
   </div>
 </template>
+
+<!-- school -->
+<!-- <template>
+  <div class="home-container" style="min-width:fit-content;">
+    <el-container>
+      <el-header>面向智慧城市的网络民调知识图谱及其应用</el-header>
+      <el-main style="height:700px">
+        <el-row :gutter="20">
+            <el-col>
+              <el-image
+              @click="jumpToWhite"
+              style="width: 200px; height: 200px; margin-bottom:-50px;"
+              :src="url4"></el-image>
+              <div class="gongnengmingcheng">民意理解报告</div>
+              <div class="gongnengshuoming" style="margin-top:10px">评论民意情感分析结果</div>
+            </el-col>
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="8">
+              <el-image
+              @click="jumpToShuju"
+              style="width: 200px; height: 200px; margin-top:10%; margin-bottom:-50px;"
+              :src="url1"></el-image>
+              <div class="gongnengmingcheng">情感知识数据库</div>
+              <div class="gongnengshuoming" style="margin-top:10px">情感知识数据库</div>
+            </el-col>
+            <el-col :span="8">
+              <el-image
+              @click="jumpToFenxi"
+              style="width: 200px; height: 200px; margin-top:10%; margin-bottom:-50px;"
+              :src="url2"></el-image>
+              <div class="gongnengmingcheng">知识引导民意挖掘</div>
+              <div class="gongnengshuoming" style="margin-top:10px">基于情感知识的民意挖掘统计分析</div>
+            </el-col>
+            <el-col :span="8">
+              <el-image
+              @click="jumpToTupu"
+              style="width: 200px; height: 200px; margin-top:10%; margin-bottom:-50px;"
+              :src="url3"></el-image>
+              <div class="gongnengmingcheng">图谱可视化查询</div>
+              <div class="gongnengshuoming" style="margin-top:10px">情感知识图谱可视化及查询可视化</div>
+            </el-col>
+        </el-row>
+      </el-main>
+    </el-container>
+  </div>
+</template> -->
 
 <script>
   export default {
