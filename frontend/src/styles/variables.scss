@@ -9,15 +9,23 @@ $yellow:#FEC171;
 $panGreen: #30B08F;
 
 // sidebar
-$menuText:#bfcbd9;
-$menuActiveText:#409EFF;
-$subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+// $menuText:#bfcbd9;
+// $menuActiveText:#409EFF;
+// $subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+// $menuBg:#304156; // 菜单整体背景
+// $menuHover:#263445; // 菜单悬浮变色
+// $subMenuBg:#1f2d3d; // 子菜单背景
+// $subMenuHover:#001528; // 子菜单悬浮背景
 
-$menuBg:#304156;
-$menuHover:#263445;
+$menuText:#E5E8EF;
+$menuActiveText:#f4f4f5;
+$subMenuActiveText:black; // https://github.com/ElemeFE/element/issues/12951
 
-$subMenuBg:#1f2d3d;
-$subMenuHover:#001528;
+$menuBg: #C9CDD4; // 菜单整体背景
+$menuHover:#f4f4f5; // 菜单悬浮变色
+
+$subMenuBg:#E5E8EF; // 子菜单背景
+$subMenuHover:#C9CDD4; // 子菜单悬浮背景
 
 $sideBarWidth: 210px;
 
