@@ -21,22 +21,21 @@ export const routes = [
     }]
   },
   {
-    path: 'dataPresent',
+    path: '/database',
     component: Layout,
     name: 'shujuku',
-    meta: {title: '民意数据', icon: 'el-icon-edit-outline'},
+    meta: {title: '民意数据', icon: 'el-icon-document-copy'},
     children: [{
       path: 'dataPresent',
       component: () => import('@/views/dataPresent/index.vue'),
       name: 'dataPresent',
-      meta: {title: '数据展示', noCache: true, icon: 'el-icon-edit-analysis'}
+      meta: {title: '数据展示', noCache: true, icon: 'el-icon-document-copy'}
     },
     {
       path: 'annotator',
       component: () => import('@/views/annotator/index.vue'),
       name: 'Annotator',
       meta: {title: '数据标注', noCache: true, icon: 'el-icon-edit-outline'}
-      //     meta: {title: '数据标注', icon: 'el-icon-document-copy', noCache: true}
     // },
     // {
     //   path: 'annotatorChange',
