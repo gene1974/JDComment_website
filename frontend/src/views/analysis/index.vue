@@ -7,7 +7,7 @@
         </div>
         <div class="dataAnalysisBacground">
             <el-row :gutter="20">
-                <el-col :span="10">
+                <el-col :span="14">
                     <h3 style="margin-left:40px">输入文本</h3>
                     <el-row style="margin:20px">
                         <el-input class="shuruwenbenkuang"
@@ -20,7 +20,7 @@
                         <el-button :loading="submitLoading" type="primary" @click="submitText" class="InfoButton">文本分析</el-button>
                     </el-row>
                 </el-col>
-                <el-col :span="10">
+                <!-- <el-col :span="9">
                     <h3 style="margin-left:40px">上传文件</h3>
                     <el-row style="margin:20px">
                         <el-upload
@@ -41,7 +41,7 @@
                         <div class="el-upload__tip" slot="tip">只能上传txt文件</div>
                         </el-upload>
                     </el-row>
-                </el-col>
+                </el-col> -->
             </el-row>
         </div>
         <div class="dataAnalysisBacground" v-show="resultStatus">
@@ -52,7 +52,7 @@
                         <el-table :header-cell-style="{textAlign: 'center', 'background-color': '#F2F3F5', color: '#000000'}" :cell-style="{textAlign: 'center', color: '#000000'}"
                             v-for="item in textRes" :data="item['comment_units']"
                             style="width: 100%" max-height="420px;">
-                            <el-table-column label="编号" width="150"></el-table-column>
+                            <!-- <el-table-column label="编号" width="150"></el-table-column> -->
                             <el-table-column label="评价对象" prop="entity.text" width="150"></el-table-column>
                             <el-table-column label="观点表达" prop="evaluation.text" width="150"></el-table-column>
                             <el-table-column label="评价类别" prop="attribute" width="150"></el-table-column>
@@ -62,272 +62,11 @@
                 </el-col>
             </el-row>
         </div>  
-    
-    <!-- 原始数据 -->
-    <!-- <div class="sentiment-analysis"> -->
-    <!-- <div class="home-container"><el-header style="margin">文本分析</el-header></div>
-    <div class="shuruwenben">
-      输入文本
-    </div>
-    <div class="shuruwenbenshuoming">
-      输入文本，<br />点击“文本分析”进行分析
-    </div>
-    <el-input class="shuruwenbenkuang"
-      type="textarea"
-      :autosize="{ minRows: 10, maxRows: 30}"
-      placeholder="请输入内容"
-      style="font-size: 16px;"
-      v-model="inputText">
-    </el-input>
-    <el-button :loading="submitLoading" type="primary" @click="submitText" class="dantiaofenxibutton">文本分析</el-button>
-    
-
-    <div class="shangchuanwenjian">
-      上传文件
-    </div>
-    <div class="shangchuanwenjianshuoming">
-      上传完成后，<br />点击“文件分析”进行分析
-    </div>
-    <el-upload
-      class="shangchuanwenjiankuang"
-      accept=".txt"
-      ref="upload"
-      :limit="1"
-      :on-exceed="handleFileExceed"
-      drag
-      :auto-upload="false"
-      action="http://101.6.69.215:9050/api/v1/postDataFile"
-      :on-success="uploadSuccess"
-      :on-error="uploadError"
-      :file-list="fileList"
-      >
-      <i class="el-icon-upload"></i>
-      <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-      <div class="el-upload__tip" slot="tip">只能上传txt文件</div>
-    </el-upload>
-    <el-button :loading="uploadLoading" type="primary" @click="submitUpload" class="piliangfenxibutton">文件分析</el-button>
-
-    <div class="jieguozhanshi">
-      结果展示
-    </div>
-    <div class="jieguozhanshikuang"></div>
-    <div v-show="resultStatus === 1">
-      <div class="siyuanzuline"></div>
-      <div class="siyuanzu">
-        四元组
-      </div>
-      <div class="chanpin">
-        产品：沃柑
-      </div>
-      <el-card  shadow="hover" class="siyuanzucard" v-for="item in textRes" max-height="450px;">
-        <el-table
-            :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-            :data="item['comment_units']"
-            style="width: 100%"
-            max-height="420px;">
-            <el-table-column
-                prop="entity.text"
-                width="110">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>评价对象</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="evaluation.text"
-                width="110">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>观点表达</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="attribute"
-                width="110">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>评价方面</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="polarity">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>情感极性</span>
-              </template>
-            </el-table-column>
-        </el-table>
-      </el-card> -->
-
-      <div class="dataAnalysisBacground">
-            <el-row :gutter="20" style="margin:20px">
-              <el-col :span="10">
-      <div class="keshihuajieguoline"></div>
-      <div class="keshihuajieguo">
-        可视化结果
-      </div>
-      <div class="wenbenneirong">
-        文本内容
-      </div>
-      <el-card  shadow="hover" class="wenbenneirongcard" max-height="100px;">
-        <!-- <div class="wenbenneirongcontent">{{inputText}}</div> -->
-        <!-- <mark v-for="item in wenbenneirongkeshihua">{{inputText.substring(item[0],item[1])}}</mark> -->
-        <div class="wenbenneirongcontent"><mark v-for="item in wenbenneirongkeshihua" :class="addClass(item)">{{textRes[0]['comment_text'].substring(item[0],item[1])}}</mark></div>
-        <!-- <div>{{textRes[0]}}</div> -->
-      </el-card>
-      <div class="qingganjixingfenbu">
-        情感极性分布
-      </div>
-      <el-card  shadow="hover" class="qingganjixingfenbucard" max-height="300px;">
-        <img src="./icon/Ellipse 8.png" class="zhengxiangbackground" style="opacity: 0.5;">
-        <img src="./icon/Ellipse 7.png" class="zhongxingbackground" style="opacity: 0.5;">
-        <img src="./icon/Ellipse 6.png" class="fuxiangbackground" style="opacity: 0.5;">
-        <div>
-          <span class="qingganjixing">
-            <a style="margin-right:30px">正向</a>
-            <a v-for="item in zhengxiangqinggankeshihua">
-            <mark style="margin-left:20px;padding:0 7px;background-color:#D3D3D3;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['entity'][0],item['entity'][1])}}</mark>
-            <mark style="margin-left:5px;padding:0 7px;background-color:#D0EDE0;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['evaluation'][0],item['evaluation'][1])}}</mark>
-          </a>
-          </span>
-          <!-- <span>无</span> -->
-        </div>
-        <div class="qingganjixing">
-          <a style="margin-right:30px">中性</a>
-          <a v-for="item in zhongxingqinggankeshihua">
-            <mark style="margin-left:20px;padding:0 7px;background-color:#D3D3D3;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['entity'][0],item['entity'][1])}}</mark>
-            <mark style="margin-left:5px;padding:0 7px;background-color:#EDEDD0;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['evaluation'][0],item['evaluation'][1])}}</mark>
-          </a>
-        </div>
-        <div class="qingganjixing">
-          <a style="margin-right:30px">负向</a>
-          <a v-for="item in fuxiangqinggankeshihua">
-            <mark style="margin-left:20px;padding:0 7px;background-color:#D3D3D3;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['entity'][0],item['entity'][1])}}</mark>
-            <mark style="margin-left:5px;padding:0 7px;background-color:#EDD7D0;border-radius: 15px;">{{textRes[0]['comment_text'].substring(item['evaluation'][0],item['evaluation'][1])}}</mark>
-          </a>
-        </div>
-        <!-- <div>{{textRes[0]}}</div> -->
-      </el-card>
-    </el-col>
-    </el-row>
-    </div>
-
-
-
-
-    <!-- <div class="wenjianfenxikeshihuashuoming">
-        对四元组各列进行筛选，查看不同项的可视化分析结果
-      </div> -->
-    <div v-show="resultStatus === 2">
-      <div class="wenjianfenxikeshihuashuoming">
-        对四元组各列进行筛选，查看不同项的可视化分析结果
-      </div>
-      <div class="siyuanzuline"></div>
-      <div class="siyuanzu">
-        四元组
-      </div>
-      <el-card  shadow="hover" class="wenjiansiyuanzucard" max-height="450px;">
-        <el-table
-            ref="wenjiansiyuanzuTable"
-            :header-cell-style="{textAlign: 'center'}" :cell-style="{ textAlign: 'center' }"
-            :row-class-name="tableRowClassName"
-            @row-click="onRowClick"
-            highlight-current-row
-            :data="tableData"
-            style="width: 100%"
-            max-height="420px;">
-            <el-table-column
-                prop="variety"
-                width="105">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>产品名称</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="aspect"
-                width="105">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>评价方面</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="polarity"
-                width="105">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>情感极性</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="target"
-                width="105">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>评价对象</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="opinion"
-                width="105">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>观点表达</span>
-              </template>
-            </el-table-column>
-            <el-table-column
-                prop="count">
-              <template slot="header">
-                <img src="./icon/Polygon 15.png" class="siyuanzuicon">
-                <span>频次</span>
-              </template>
-            </el-table-column>
-        </el-table>
-        <el-pagination
-            @current-change="handleCurrentChange"
-            :current-page="wenjiansiyuanzu_currentPage+1"
-            :page-size="wenjiansiyuanzu_pageSize"
-            layout="total, prev, pager, next, jumper"
-            :total="tableData_all.length">
-        </el-pagination>
-      </el-card>
-      <div class="wenjiankeshihuajieguoline"></div>
-      <div class="wenjiankeshihuajieguo">
-        可视化结果
-      </div>
-      <el-card  shadow="hover" class="wenjianwenbenneirongcard" max-height="100px;">
-        <div class="wenbenneirongcontent"><mark v-for="item in wenjianneirongkeshihua_text" :class="addClass(item)">{{fileRes['comment_result'][wenjianneirongkeshihua_list[wenjianneirongkeshihua_index]]['comment_text'].substring(item[0],item[1])}}</mark></div>
-        <el-pagination
-            small
-            @current-change="handleWenjiankeshihuaCurrentChange"
-            :current-page="wenjianneirongkeshihua_index+1"
-            :page-size="1"
-            layout="total, prev, pager, next, jumper"
-            :total="wenjianneirongkeshihua_list.length">
-        </el-pagination>
-      </el-card>
-      <div v-show="wenjiankeshihuaStatus === 0">
-        <!-- <div class="tubiaobiaoti">
-          产品种类及其平均评分
-        </div>
-        <div class="tubiaobiaotibuchong">
-          (含无效评论数据)
-        </div> -->
-        <!-- <data-statistics-pie0 class="wenjianPie0" ref="pie0"/> -->
-        <data-statistics-pie1 class="wenjianPie1" ref="pie1"/>
-        <data-statistics-bar0 class="wenjianBar0" ref="bar0"/>
-      </div>
-    </div>
-
-
-
   </div>
 </template>
 
 <script>
   import {getTextAnalysis} from '@/api/dataAnalysis.js'
-  // import echarts from 'echarts'
   import DataStatisticsPie0 from './pie0.vue'
   import DataStatisticsPie1 from './pie1.vue'
   import DataStatisticsBar0 from './bar0.vue'
