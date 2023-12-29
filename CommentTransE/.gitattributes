@@ -1,0 +1,7 @@
+result/transe_12101726.ckpt filter=lfs diff=lfs merge=lfs -text
+result/bert_transe_emb.vec.12111305 filter=lfs diff=lfs merge=lfs -text
+result/transe_12111305.ckpt filter=lfs diff=lfs merge=lfs -text
+result/12111045/model_12111045 filter=lfs diff=lfs merge=lfs -text
+result/12111045/vocab_12111045 filter=lfs diff=lfs merge=lfs -text
+result/transe_emb.vec.12090952 filter=lfs diff=lfs merge=lfs -text
+result/transe_emb.vec.12101726 filter=lfs diff=lfs merge=lfs -text
